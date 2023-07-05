@@ -452,3 +452,26 @@ a[name*="NoBorder"] {
 .filterTxt input {
       background: #e5e5e599 !important ;
 }
+
+
+.tab-box-tabs .tab.selected , .tab-box-tabs .tab.selected *  {
+    background-color : #0066cc !important ;
+    color : white !important ;
+    border-radius : 5px !importaNT ;
+    outline : none !important ;
+    border-color : #0066cc !important ;
+    outline-color :  #0066cc !important ;
+    
+}
+.tab-box-tabs .tab *  {
+ font-family : SWCC-Medium !important ;
+}
+
+.tab {
+    background-color : lightgray !important ;
+    border-radius : 5px !important ;
+}
+
+.tab-box-tabs li {
+    margin : 0px 3px !important ;
+}
