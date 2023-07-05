@@ -1,0 +1,337 @@
+@font-face {
+    font-family: 'SWCC-Medium';
+    src: url('https://cdn.jsdelivr.net/gh/julianogharzeddine/CustomFiles@main/SWCC-3-Medium.otf') format('opentype');
+}
+
+* {
+    font-family: 'SWCC-Medium' !important;
+}
+
+:root {
+    --bg-color: #e9e9f6;
+    /* Main Background Color */
+    --secondarylight-bg-color: #0066cc;
+    /* Secondary Background Color - Used for sidebar , completed request , worklist headers (and button) */
+    --secondarydark-bg-color: #0066cc;
+    /* Secondary Dark Background Color - Used for translator header , buttons */
+    --sidebar-boxshadow: 0px 0px 20px var(--secondarylight-bg-color);
+    --white: #ffffff;
+    --standard-border-radius: 2.5ex;
+    --carditem-shadow: 0px 0px 20px #70d96640;
+    --section-title-size: 40px;
+    --option-cards-shadow: 0px 13px 25px #0000002B;
+    --worklist-shadow: 0px 0px 15px #7cb66d40;
+    --card-title-font-size: 23px;
+    --worklist-row-even-color: #eeeeee;
+    --searchtextbox-border-color: #c2c2c2;
+    --card-title-color: #0066cc;
+}
+
+/* FORM BOUNDARIES STYLING */
+
+body {
+    background: var(--bg-color) !important;
+}
+
+.form {
+    background-color: var(--bg-color) !important;
+}
+
+.runtime-form {
+    position: absolute !important;
+    top: 140px;
+    left: 12%;
+    width: 70% !important;
+}
+
+
+/* HEADER  STYLING */
+
+div[name*="FullNavigationbar"] {
+    position: fixed !important;
+    top: 0px;
+    width: 100%;
+    right: 0;
+    z-index: 1 !important;
+    overflow: visible;
+    background : white !important ;
+  
+}
+
+div[name*="FullNavigationbar"] span * {
+font-family : SWCC-Medium !important ;  
+}
+
+div[name*="FullNavigationbar"]  * {
+    background :#0066cc !important ;
+    
+}
+
+/* SCROLLBAR STYLING */
+
+
+::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+}
+
+
+::-webkit-scrollbar-track {
+    background-color: var(---bg-color);
+}
+
+
+::-webkit-scrollbar-thumb {
+    background-color: var(--secondarydark-bg-color);
+    border-radius: 5px;
+}
+
+
+
+/* MISC */
+
+a[name*="NoBorder"] {
+    border: none !important;
+    background-color: var(--secondarylight-bg-color) !important;
+}
+
+
+.toolbar-wrapper table td * {
+    font-family : 'SWCC-Medium' !important;
+}
+
+.filterContainer .filterLabel ,.filterContainer .styling-font   {
+      font-family : 'SWCC-Medium' !important;
+}
+
+.filterContainer {
+    padding : 10px ;
+}
+.styling-font {
+    outline : 1px solid lightgray !important ;
+    margin-left : 1px !important ;
+    border-radius : 2px !important ;
+}
+
+[name*='View'] {
+    background: var(--bg-color) !important;
+}
+
+
+.OverdueImageDiv {
+    background: black !important;
+    border-radius: 100%;
+}
+
+.WorkListGridHeader {
+   background : white !important ;
+}
+
+.WorkListItemTableHeader {
+   background : white !important ;
+}
+
+.worklist-grid-column-header-cell-text {
+    width : 100% !important ; 
+}
+
+.WorklistHeaderText
+.grid-column-header-table {
+    background : white;
+}
+
+.hyperlink {
+    color : #0066cc !important ;
+    text-decoration : none ;
+}
+
+.filterTxt input {
+     
+}
+
+/*  ------------ Cards Styling --------------- */
+
+div[name*=Card] .styling-font {
+    font-weight: lighter !important
+}
+
+div[name*=Card] {
+    font-family: SWCC-Medium!important
+}
+
+div[name*=Card] .grid-content-cell span {
+    font-family: SWCC-Medium!important
+}
+
+
+div[name*=Card] .SourceCode-Forms-Controls-Web-TextBox.watermark,div[name*=Card] .input-control-m-c,div[name*=Card] .SourceCode-Forms-Controls-Web-TextBox {
+    border: 1px solid lightgray !important;
+    text-align : center !important ;
+    border-radius: 4px !important;
+}
+
+div[name*=Card] .panel-header-c,div[name*=Card] .grid-header-wrapper {
+    padding-right: 2.2ex
+}
+
+div[name*=Card] .panel-header,div[name*=Card] .grid-header {
+    background-color: var(--white) !important;
+    padding: 1ex;
+    border-radius: 2ex 2ex 0px 0px !important;
+}
+
+
+div[name*=Card] .styling-right,div[name*=Card] .styling-left {
+    border: 1px solid var(--text_field_border_color) !important ;
+}
+
+div[name*=Card] .input-control-watermark {
+    height: 100% !important;
+    min-height: 3ex !important;
+}
+
+div[name*=Card] .input-control-wrapper .editable-area {
+    height: 22px !important
+}
+
+div[name*=Card] .styling-inner-wrapper .input-control-m-c {
+    border: none !important;
+    display: flex;
+    align-items: center
+}
+
+div[name*=Card] .toolbar-wrapper .button-text {
+    font-size: 15.2px
+}
+
+
+
+div[name*=Card] .input-control {
+    text-align: center !important
+}
+
+
+div[name*=Card] .SourceCode-Forms-Controls-Web-Label {
+    font-weight: 700;
+    font-family: SWCC-Medium !important
+}
+
+
+div[name*=Card] .file-wrapper {
+    border: 1px dashed #d1d7dd !important
+}
+
+div[name*=Card] .grid-column-headers {
+    background-color: var(--white) !important
+}
+
+div[name*=Card] .grid-column-header-table td {
+    border: #f0f8ff
+}
+
+
+
+div[name*=Card] .panel-body .panel-body-m .panel-body-m-c .panel-body-wrapper .SourceCode-Forms-Controls-Web-Table {
+    border-radius: 0 0 1.5ex 2.5ex !important
+}
+
+div[name*=Card] .panel-header,div[name*=Card] .grid-header {
+    font-size: 1.9ex !important;
+    padding-top: 2.2ex;
+    color: #040b10 !important
+}
+
+div[name*=Card] .panel-header-wrapper,div[name*=Card] .grid-header-wrapper,div[name*=Card] .panel-header div,div[name*=Card] .grid-header-wrapper div {
+    background-color: var(--white) !important;
+    font-family: SWCC-Medium !important
+}
+
+div[name*=Card] .grid-column-header-cell-content div {
+    text-align: center;
+   
+}
+
+div[name*=Card] .editor-cell.lastcellinrow {
+    padding-right: 0 !important
+}
+
+div[name*=Card] .panel-header-wrapper .panel-header-text,div[name*=Card] .grid-header-wrapper .grid-header-text {
+    font-weight: 700;
+    color: var(--card-title-color) !important;
+    font-family: SWCC-Medium !important;
+    font-size: 2.4ex !important;
+    height: 100% !important
+}
+
+div[name*=Card] .panel-header-wrapper .panel-header-text span,div[name*=Card] .grid-header-wrapper .grid-header-text span {
+    font-weight: 700;
+    color: var(--card-title-color) !important;
+    font-family: SWCC-Medium !important;
+    font-size: 1.5ex !important;
+    height: 100% !important
+}
+
+div[name*=Card] {
+    box-shadow: none!important;
+    background: var(--bg-color) !important;
+    border-radius: 2.5ex!important; 
+    margin-bottom: 3ex ;
+}
+
+div[name*=Card] .picture-control-inline {
+    margin-right: 1ex;
+    margin-top: .3ex;
+    width: 2.7ex!important
+}
+
+div[name*=Card] .panel-body {
+    padding: 0 4ex!important;
+    background: var(--white) !important;
+    padding-bottom: 2.2ex!important;
+    border-radius: 0ex 0ex 2ex 2ex !important;
+}
+
+
+/* Repeating Section Styling */
+
+
+div[name*="Card"] .grid-toolbars {
+    background :  var(--white) ;
+}
+
+[name*='VacanciesReport']   {
+    font-family : "SWCC-Medium" !important ;
+    
+}
+
+
+[name*='VacanciesReport'] .grid-content-table *  {
+    font-family : "SWCC-Medium" !important ;
+    
+}
+
+[name*='VacanciesReport'] .grid-column-header-text {
+ color : var(--secondarylight-bg-color) !important ;
+}
+
+.tab-box-tabs .tab.selected , .tab-box-tabs .tab.selected *  {
+    background-color : #0066cc !important ;
+    color : white !important ;
+    border-radius : 5px !importaNT ;
+    outline : none !important ;
+    border-color : #0066cc !important ;
+    outline-color :  #0066cc !important ;
+    
+}
+.tab-box-tabs .tab *  {
+ font-family : SWCC-Medium !important ;
+}
+
+.tab {
+    background-color : lightgray !important ;
+    border-radius : 5px !important ;
+}
+
+.tab-box-tabs li {
+    margin : 0px 3px !important ;
+}
