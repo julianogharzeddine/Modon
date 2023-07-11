@@ -279,7 +279,7 @@ div[name*="Worklist Card WT"] .worklist-grid-column-header-cell-text {
     font-size: 2ex !important;
     box-sizing: border-box !important;
     font-weight: bold !important;
-    text-align: left !important;
+    text-align: right !important;
 }
 
 div[name*="Worklist Card WT"] .WorklistItemGridRow:nth-child(even) {
@@ -323,6 +323,7 @@ div[name*="Worklist Card WT"] .WorkListGridTableBody {
 
 div[name*="Worklist Card WT"] span.text-underline {
     font-size: 1.8ex !important;
+  
 }
 
 html[dir=rtl] .theme-entry .grid .grid-column-header-text {
@@ -362,6 +363,10 @@ html[dir=rtl] .theme-entry .grid .grid-column-header-text {
 .WorklistHeaderText
 .grid-column-header-table {
     background : white;
+}
+
+.WorklistItemGridCell {
+    text-align : right ;
 }
 
 .hyperlink {
