@@ -180,7 +180,8 @@ div[name*=Card] .panel-header-wrapper .panel-header-text,div[name*=Card] .grid-h
     color: var(--card-title-color) !important;
     font-family: SWCC-Medium !important;
     font-size: 2.4ex !important;
-    height: 100% !important
+    height: 100% !important;
+    text-align : right ;
 }
 
 div[name*=Card] .panel-header-wrapper .panel-header-text span,div[name*=Card] .grid-header-wrapper .grid-header-text span {
