@@ -62,10 +62,11 @@ div[name*="FullNavigationbar"] span * {
 font-family : SWCC-Medium !important ;  
 }
 
+
 div[name*="FullNavigationbar"]  * {
-    background :#0066cc !important ;
-    
+    background :#0066cc !important ;  
 }
+
 
 /* SCROLLBAR STYLING */
 
@@ -87,14 +88,7 @@ div[name*="FullNavigationbar"]  * {
 }
 
 
-
 /* MISC */
-
-a[name*="NoBorder"] {
-    border: none !important;
-    background-color: var(--secondarylight-bg-color) !important;
-}
-
 
 .toolbar-wrapper table td * {
     font-family : 'SWCC-Medium' !important;
@@ -107,6 +101,7 @@ a[name*="NoBorder"] {
 .filterContainer {
     padding : 10px ;
 }
+
 .styling-font {
     outline : 1px solid lightgray !important ;
     margin-left : 1px !important ;
@@ -145,9 +140,6 @@ a[name*="NoBorder"] {
     text-decoration : none ;
 }
 
-.filterTxt input {
-     
-}
 
 /*  ------------ Cards Styling --------------- */
 
@@ -292,6 +284,35 @@ div[name*=Card] .panel-body {
 }
 
 
+
+/* Tab Buttons Styling */
+
+
+.tab-box-tabs .tab.selected , .tab-box-tabs .tab.selected *  {
+    background-color : #0066cc !important ;
+    color : white !important ;
+    border-radius : 5px !importaNT ;
+    outline : none !important ;
+    border-color : #0066cc !important ;
+    outline-color :  #0066cc !important ;
+    
+}
+
+.tab-box-tabs .tab *  {
+ font-family : SWCC-Medium !important ;
+}
+
+.tab {
+    background-color : lightgray !important ;
+    border-radius : 5px !important ;
+}
+
+.tab-box-tabs li {
+    margin : 0px 3px !important ;
+}
+
+
+
 /* Repeating Section Styling */
 
 
@@ -304,7 +325,6 @@ div[name*="Card"] .grid-toolbars {
     
 }
 
-
 [name*='VacanciesReport'] .grid-content-table *  {
     font-family : "SWCC-Medium" !important ;
     
@@ -312,26 +332,4 @@ div[name*="Card"] .grid-toolbars {
 
 [name*='VacanciesReport'] .grid-column-header-text {
  color : var(--secondarylight-bg-color) !important ;
-}
-
-.tab-box-tabs .tab.selected , .tab-box-tabs .tab.selected *  {
-    background-color : #0066cc !important ;
-    color : white !important ;
-    border-radius : 5px !importaNT ;
-    outline : none !important ;
-    border-color : #0066cc !important ;
-    outline-color :  #0066cc !important ;
-    
-}
-.tab-box-tabs .tab *  {
- font-family : SWCC-Medium !important ;
-}
-
-.tab {
-    background-color : lightgray !important ;
-    border-radius : 5px !important ;
-}
-
-.tab-box-tabs li {
-    margin : 0px 3px !important ;
 }
