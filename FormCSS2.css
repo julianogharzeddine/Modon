@@ -1,0 +1,372 @@
+:root {
+    --text_field_radius: 1.4ex;
+    --text_field_border_color: #c1c1c1;
+    --text_field_font_size: 11pt ;
+    --bg-color: #e5e6f6;  /* Main Background Color */
+    --secondarylight-bg-color :  #0066cc  ; /* Secondary Background Color - Used for sidebar , completed request , worklist headers (and button) */
+    --secondarydark-bg-color :  #002544 ;  /* Secondary Dark Background Color - Used for translator header , buttons */
+    --sidebar-boxshadow : 0px 0px 20px var(--secondarylight-bg-color);
+    --white : #ffffff ;
+    --standard-border-radius : 2.5ex ;
+    --carditem-shadow : 0px 0px 20px #70d96640;
+    --section-title-size : 40px ;
+    --option-cards-shadow : 0px 13px 25px #0000002B ;
+    --worklist-shadow : 0px 0px 15px #7cb66d40 ;
+    --card-title-font-size : 23px ;
+    --worklist-row-even-color : #eeeeee ;
+    --textbox-border-color : #c2c2c2 ;
+    --card-title-color : #0066cc ;
+}
+
+
+@font-face {
+    font-family: SWCC-Medium;
+    src: url(https://cdn.jsdelivr.net/gh/julianogharzeddine/CustomFiles@main/SWCC-3-Medium.otf) format('opentype')
+}
+
+* {
+    font-family: SWCC-Medium !important
+}
+
+
+[name="UserName"] , [name="serviceName"] {
+    color : var(--card-title-color) !important ;
+}
+
+/* Form Boundaries */
+
+.form {
+    background: var(--bg-color) !important;
+}
+
+
+/* Translator Header */
+
+.dd-container {
+    margin-right: 100px ;
+    margin-left: 100px ;
+}
+
+[name="TranslatorHeader"] span {
+    background : var(--secondarydark-bg-color) !important;
+}
+
+.dd-container span  {
+    background : none !important ;
+}
+
+
+/*  ------------ Cards Styling --------------- */
+
+div[name*=Card] .styling-font {
+    font-weight: lighter !important
+}
+
+div[name*=Card] {
+    font-family: SWCC-Medium!important
+}
+
+div[name*=Card] .grid-content-cell span {
+    font-family: SWCC-Medium!important
+}
+
+
+/* Selects the row that contains a card element */
+
+.row:has(div[name*=Card]) {
+    display: flex;
+    width: 85%;
+    justify-content: center;
+    margin: auto;
+    flex-direction: row;
+}
+
+div[name*=Card] .SourceCode-Forms-Controls-Web-TextBox.watermark,div[name*=Card] .input-control-m-c,div[name*=Card] .SourceCode-Forms-Controls-Web-TextBox {
+    border: 1px solid var(--textbox-border-color) !important;
+    border-radius: 4px !important;
+}
+
+div[name*=Card] .panel-header-c,div[name*=Card] .grid-header-wrapper {
+    padding-right: 2.2ex
+}
+
+div[name*=Card] .panel-header,div[name*=Card] .grid-header {
+    background-color: var(--white) !important;
+    padding: 1ex;
+    border-radius: 2ex 2ex 0px 0px !important;
+}
+
+
+div[name*=Card] .styling-right,div[name*=Card] .styling-left {
+    border: 1px solid var(--text_field_border_color) !important ;
+}
+
+div[name*=Card] .input-control-watermark {
+    height: 100% !important;
+    min-height: 3ex !important;
+}
+
+div[name*=Card] .input-control-wrapper .editable-area {
+    height: 22px !important
+}
+
+div[name*=Card] .styling-inner-wrapper .input-control-m-c {
+    border: none !important;
+    display: flex;
+    align-items: center
+}
+
+div[name*=Card] .toolbar-wrapper .button-text {
+    font-size: 15.2px
+}
+
+div[name*=Card] .toolbar-wrapper {
+    border: none !important
+}
+
+div[name*=Card] .input-control {
+    text-align: start !important
+}
+
+
+div[name*=Card] .SourceCode-Forms-Controls-Web-Label {
+    font-weight: 700;
+    font-family: SWCC-Medium !important
+}
+
+
+div[name*=Card] .file-wrapper {
+    border: 1px dashed #d1d7dd !important
+}
+
+div[name*=Card] .grid-column-headers {
+    background-color: var(--white) !important
+}
+
+div[name*=Card] .grid-column-header-table td {
+    border: #f0f8ff
+}
+
+div[name*=Card] .grid-body-content-wrapper {
+}
+
+
+div[name*=Card] .panel-body .panel-body-m .panel-body-m-c .panel-body-wrapper .SourceCode-Forms-Controls-Web-Table {
+    border-radius: 0 0 1.5ex 2.5ex !important
+}
+
+div[name*=Card] .panel-header,div[name*=Card] .grid-header {
+    font-size: 1.9ex !important;
+    padding-top: 2.2ex;
+    color: #040b10 !important
+}
+
+div[name*=Card] .panel-header-wrapper,div[name*=Card] .grid-header-wrapper,div[name*=Card] .panel-header div,div[name*=Card] .grid-header-wrapper div {
+    background-color: var(--white) !important;
+    font-family: SWCC-Medium !important
+}
+
+div[name*=Card] .grid-column-header-cell-content div {
+    text-align: center;
+    color: #000 !important;
+}
+
+div[name*=Card] .editor-cell.lastcellinrow {
+    padding-right: 0 !important
+}
+
+div[name*=Card] .panel-header-wrapper .panel-header-text,div[name*=Card] .grid-header-wrapper .grid-header-text {
+    font-weight: 700;
+    color: var(--card-title-color) !important;
+    font-family: SWCC-Medium !important;
+    font-size: 2.4ex !important;
+    height: 100% !important
+}
+
+div[name*=Card] .panel-header-wrapper .panel-header-text span,div[name*=Card] .grid-header-wrapper .grid-header-text span {
+    font-weight: 700;
+    color: var(--card-title-color) !important;
+    font-family: SWCC-Medium !important;
+    font-size: 1.5ex !important;
+    height: 100% !important
+}
+
+div[name*=Card] {
+    box-shadow: none!important;
+    background: var(--bg-color) !important;
+    border-radius: 2.5ex!important; 
+    margin-bottom: 3ex ;
+}
+
+div[name*=Card] .picture-control-inline {
+    margin-right: 1ex;
+    margin-top: .3ex;
+    width: 2.7ex!important
+}
+
+div[name*=Card] .panel-body {
+    padding: 0 4ex!important;
+    background: var(--white) !important;
+    padding-bottom: 2.2ex!important;
+    border-radius: 0ex 0ex 2ex 2ex !important;
+}
+
+
+/* Repeating Section Styling */
+
+
+div[name*="Card"] .grid-toolbars {
+    background :  var(--white) ;
+}
+
+[name*="PurchasesCard"] .grid-body , [name*="Vendor"] .grid-body , [name*="RepeatingSection"] .grid-body {
+    border-radius : 0ex 0ex 2.5ex 2.5ex !important ;
+
+}
+
+[name*="Vendor"] .grid-body {
+    padding-bottom : 3.5ex !important ;
+    background : var(--white);  
+}
+
+.grid-column-header-table{
+    width : 100% !important ;
+}
+
+[name*="Submit Button"] , [name*="Reject Button"] , [name*="Action Button"]{
+    border-radius : 2ex !important ;
+    margin : 10px ;
+    font-size : 1.2rem ;
+    background : var(--secondarydark-bg-color) !important ;
+ 
+}
+
+/* WORKLIST STYLING */
+
+div[name*=WT] .grid-toolbars {
+    background: var(--white);
+    height: 6.7ex;
+    border-radius: 2ex 2ex 0 0!important
+}
+
+div[name*="Worklist Card WT"] table.nav {
+    margin-bottom: var(--standard-border-radius);
+    box-shadow: var(--worklist-shadow) ;
+    background: var(--white) !important
+}
+
+div[name*="Worklist Card WT"] * {
+    overflow: hidden !important;
+}
+
+div[name*="Worklist Card WT"] .SourceCodeFormsControlsWorklist {
+    background: var(--bg-color) !important;
+}
+
+div[name*="Worklist Card WT"] .worklist-grid-column-header,
+div[name*="Worklist Card WT"] .worklist-grid-column-header-cell-text,
+div[name*="Worklist Card WT"] .worklist-empty-grid-header {
+    background-color: var(--white) !important;
+}
+
+div[name*="Worklist Card WT"] .WorkListGridHeader {
+    background-color: var(--white) !important;
+}
+
+div[name*="Worklist Card WT"] .WorklistItemSectionCell {
+    box-shadow: var(--worklist-shadow) !important ;
+    border-radius: 0ex 0ex var(--standard-border-radius) var(--standard-border-radius) !important;
+}
+
+div[name*="Worklist Card WT"] .worklist-grid-column-header-cell-text {
+    font-size: 2ex !important;
+    box-sizing: border-box !important;
+    font-weight: bold !important;
+    text-align: left !important;
+}
+
+div[name*="Worklist Card WT"] .WorklistItemGridRow:nth-child(even) {
+    background: var(--worklist-row-even-color) !important;
+}
+
+div[name*="Worklist Card WT"] .WorklistItemGridRow:nth-child(odd) {
+    background: var(--white) !important;
+}
+
+div[name*="Worklist Card WT"] .WorkListGridHeader th span {
+    font-size: 2.1ex !important;
+    font-weight: bold !important;
+    color: var(--secondarylight-bg-color) !important;
+
+}
+
+div[name*="Worklist Card WT"] .worklistToolbarHeaderTextWrapper span {
+    font-size: 3.4ex !important;
+    font-weight: bold !important;
+    color:  var(--card-title-color) !important;
+}
+
+div[name*="Worklist Card WT"] td.worklistToolbarHeaderTextWrapper {
+    padding: 1.2ex !important;
+}
+
+div[name*="Worklist Card WT"] .SourceCodeFormsControlsWorklist {
+    padding: 1.7ex;
+    box-sizing: border-box !important;
+    border: none !important;
+}
+
+div[name*="Worklist Card WT"] table.nav {
+    border-radius: var(--standard-border-radius) var(--standard-border-radius) 0ex 0ex !important;
+}
+
+div[name*="Worklist Card WT"] .WorkListGridTableBody {
+    border-radius: 0ex 0ex var(--standard-border-radius) var(--standard-border-radius);
+}
+
+div[name*="Worklist Card WT"] span.text-underline {
+    font-size: 1.8ex !important;
+}
+
+
+.LoadMoreHyperlink {
+    background: var(--secondarylight-bg-color) !important;
+    color: var(--white) !important;
+    border-radius: var(--standard-border-radius) !important;
+
+}
+
+.LoadMoreHyperlink:hover {
+    background: var(--white) !important;
+    color: var(--secondarylight-bg-color) !important;
+    border: 1px solid !important;
+}
+
+
+/* SCROLLBAR STYLING */
+
+
+::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+}
+
+
+::-webkit-scrollbar-track {
+    background-color: var(--bg-color);
+}
+
+
+::-webkit-scrollbar-thumb {
+    background-color: var(--secondarydark-bg-color);
+    border-radius: 5px;
+}
+
+
+.rich-text-stylewrapper {
+    border: none !important;
+}
+
+[name*='Send Component'] :not(.SourceCode-Forms-Controls-Web-Button){
+    background: var(--bg-color) !important;
+}
