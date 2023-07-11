@@ -238,6 +238,7 @@ div[name*="Card"] .grid-toolbars {
     margin : 10px ;
     font-size : 1.2rem ;
     background : var(--secondarydark-bg-color) !important ;
+    color : white !important;
  
 }
 
