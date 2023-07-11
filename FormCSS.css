@@ -1,0 +1,358 @@
+:root {
+    --text_field_radius: 1.4ex;
+    --text_field_border_color: #c1c1c1;
+    --text_field_font_size: 11pt
+}
+
+
+@font-face {
+    font-family: swcc-medium;
+    src: url(https://cdn.jsdelivr.net/gh/julianogharzeddine/CustomFiles@main/SWCC-3-Medium.otf) format('opentype')
+}
+
+
+
+.form {
+    background: #f3faeb !important;
+}
+
+div[name*=Card] .styling-font {
+    font-weight: lighter!important
+}
+
+span[name*=lbl] {
+    color: #505050!important
+}
+
+* {
+    font-family: swcc-medium!important
+}
+
+
+div[name*=Card] {
+    font-family: swcc-medium!important
+}
+
+div[name*=Card] .grid-content-cell span {
+    font-family: swcc-medium!important
+}
+
+.row:has(div[name*=Card]) {
+    display: flex;
+    width: 85%;
+    justify-content: center;
+    margin: auto;
+    flex-direction: row;
+}
+
+.row {
+    background: #f3faeb !important;
+}
+
+div[name*=Card] .SourceCode-Forms-Controls-Web-TextBox.watermark,div[name*=Card] .input-control-m-c,div[name*=Card] .SourceCode-Forms-Controls-Web-TextBox {
+    border: 1px solid #d1d7dd!important;
+    border-radius: 4px!important
+}
+
+div[name*=Card] .panel-header-c,div[name*=Card] .grid-header-wrapper {
+    padding-right: 2.2ex
+}
+
+div[name*=Card] .panel-header,div[name*=Card] .grid-header {
+    background-color: #fff!important;
+    padding: 1ex;
+    border-radius: 2ex 2ex 0px 0px !important;
+}
+
+
+div[name*=Card] .styling-right,div[name*=Card] .styling-left {
+    border: 1px solid var(--text_field_border_color)!important
+}
+
+div[name*=Card] .input-control-watermark {
+    height: 100%!important;
+    min-height: 3ex!important;
+    font-weight: lighter
+}
+
+div[name*=Card] .input-control-wrapper .editable-area {
+    height: 22px!important
+}
+
+div[name*=Card] .styling-inner-wrapper .input-control-m-c {
+    border: none!important;
+    display: flex;
+    align-items: center
+}
+
+div[name*=Card] .toolbar-wrapper .button-text {
+    font-size: 15.2px
+}
+
+div[name*=Card] .toolbar-wrapper {
+    border: none!important
+}
+
+div[name*=Card] .input-control {
+    text-align: start!important
+}
+
+
+div[name*=Card] .SourceCode-Forms-Controls-Web-Label {
+    font-weight: 700;
+    font-family: swcc-medium!important
+}
+
+
+div[name*=Card] .file-wrapper {
+    border: 1px dashed #d1d7dd!important
+}
+
+div[name*=Card] .grid-column-headers {
+    background-color: #fff!important
+}
+
+div[name*=Card] .grid-column-header-table td {
+    border: #f0f8ff
+}
+
+div[name*=Card] .grid-body-content-wrapper {
+}
+
+
+div[name*=Card] .panel-body .panel-body-m .panel-body-m-c .panel-body-wrapper .SourceCode-Forms-Controls-Web-Table {
+    border-radius: 0 0 1.5ex 2.5ex!important
+}
+
+div[name*=Card] .panel-header,div[name*=Card] .grid-header {
+    font-size: 1.9ex!important;
+    padding-top: 2.2ex;
+    color: #040b10!important
+}
+
+div[name*=Card] .panel-header-wrapper,div[name*=Card] .grid-header-wrapper,div[name*=Card] .panel-header div,div[name*=Card] .grid-header-wrapper div {
+    background-color: #fff!important;
+    font-family: swcc-medium!important
+}
+
+div[name*=Card] .grid-column-header-cell-content div {
+    text-align: center;
+    color: #000!important;
+}
+
+div[name*=Card] .editor-cell.lastcellinrow {
+    padding-right: 0!important
+}
+
+div[name*=Card] .panel-header-wrapper .panel-header-text,div[name*=Card] .grid-header-wrapper .grid-header-text {
+    font-weight: 700;
+    color: #668d51!important;
+    font-family: swcc-medium!important;
+    font-size: 2.4ex!important;
+    height: 100%!important
+}
+
+div[name*=Card] .panel-header-wrapper .panel-header-text span,div[name*=Card] .grid-header-wrapper .grid-header-text span {
+    font-weight: 700;
+    color: #668d51!important;
+    font-family: swcc-medium!important;
+    font-size: 1.5ex!important;
+    height: 100%!important
+}
+
+div[name*=Card] {
+    box-shadow: none!important;
+    background: #ebf3fd!important;
+    border-radius: 2.5ex!important; 
+    margin-bottom: 3ex ;
+}
+
+
+
+.theme-entry .form:first-child {
+    background: #ebf3fd
+}
+
+div[name*=Card] .picture-control-inline {
+    margin-right: 1ex;
+    margin-top: .3ex;
+    width: 2.7ex!important
+}
+
+
+div[name*=Card] .panel-body {
+    padding: 0 4ex!important;
+    background: #fff!important;
+    padding-bottom: 2.2ex!important;
+    /* padding-top: 2.5ex!important; */
+    border-radius: 0ex 0ex 2ex 2ex !important;
+}
+
+div[name*=WT] .grid-toolbars {
+    background: #fff;
+    height: 6.7ex;
+    border-radius: 2ex 2ex 0 0!important
+}
+
+div[name*="Card"] .grid-toolbars {
+    background :  #fff;
+}
+
+[name*="PurchasesCard"] .grid-body , [name*="Vendor"] .grid-body {
+    border-radius : 0ex 0ex 2.5ex 2.5ex !important ;
+
+}
+
+[name*="Vendor"] .grid-body {
+    padding-bottom : 3.5ex !important ;
+    background : white;  
+}
+
+.grid-column-header-table{
+    width : 100% !important ;
+}
+
+[name*="Submit Button"] , [name*="Reject Button"]{
+    border-radius : 2.5ex !important ;
+    margin : 10px;
+    font-size : 1.8rem ;
+ 
+}
+
+
+div[name*="Worklist Card WT"] table.nav {
+    margin-bottom: 2.5ex;
+    box-shadow: 0px 0px 15px #0066CC40;
+    background: white !important
+}
+
+div[name*="Worklist Card WT"] * {
+    overflow: hidden !important;
+}
+
+
+div[name*="Worklist Card WT"] .SourceCodeFormsControlsWorklist {
+    background: #EBF3FD !important;
+}
+
+div[name*="Worklist Card WT"] .worklist-grid-column-header,
+div[name*="Worklist Card WT"] .worklist-grid-column-header-cell-text,
+div[name*="Worklist Card WT"] .worklist-empty-grid-header {
+    background-color: white !important;
+}
+
+div[name*="Worklist Card WT"] .WorkListGridHeader {
+    background-color: white !important;
+}
+
+div[name*="Worklist Card WT"] .WorklistItemSectionCell {
+    box-shadow: 0px 0px 15px #0066CC40;
+    border-radius: 0ex 0ex 2.5ex 2.5ex !important;
+}
+
+div[name*="Worklist Card WT"] .worklist-grid-column-header-cell-text {
+    font-size: 2ex !important;
+    box-sizing: border-box !important;
+    font-weight: bold !important;
+    text-align: left !important;
+}
+
+div[name*="Worklist Card WT"] .WorkListGridHeader>tr {
+    background-color: white;
+}
+
+div[name*="Worklist Card WT"] .WorklistItemGridRow:nth-child(even) {
+    background: #eeeeee !important;
+}
+
+div[name*="Worklist Card WT"] .WorklistItemGridRow:nth-child(odd) {
+    background: white !important;
+}
+
+div[name*="Worklist Card WT"] .WorkListGridHeader th span {
+    font-size: 2ex !important;
+    font-weight: bold !important;
+    color: #06c !important;
+
+}
+
+div[name*="Worklist Card WT"] .worklistToolbarHeaderTextWrapper span {
+    font-size: 3.4ex !important;
+    font-weight: bold !important;
+    color: #06c !important;
+}
+
+div[name*="Worklist Card WT"] td.worklistToolbarHeaderTextWrapper {
+    padding: 1.2ex !important;
+
+}
+
+div[name*="Worklist Card WT"] .SourceCodeFormsControlsWorklist {
+    border: none !important;
+}
+
+div[name*="Worklist Card WT"] .SourceCodeFormsControlsWorklist {
+    padding: 1.7ex;
+    box-sizing: border-box !important;
+}
+
+div[name*="Worklist Card WT"] table.nav {
+    border-radius: 2.5ex 2.5ex 0ex 0ex !important;
+}
+
+div[name*="Worklist Card WT"] .WorkListGridTableBody {
+    border-radius: 0ex 0ex 2.5ex 2.5ex;
+}
+
+div[name*="Worklist Card WT"] span.text-underline {
+    font-size: 1.9ex !important;
+}
+
+
+.LoadMoreHyperlink {
+    background: #06c !important;
+    color: white !important;
+    border-radius : 2.5ex !important ;
+
+}
+
+.LoadMoreHyperlink:hover {
+    background: white !important;
+    color: #06c !important;
+    border: 1px solid #06c !important;
+}
+
+
+
+/* SCROLLBAR STYLING */
+
+/* SCROLLBAR STYLING */
+
+
+::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+}
+
+
+::-webkit-scrollbar-track {
+    background-color: #f1f1f1;
+}
+
+
+::-webkit-scrollbar-thumb {
+    background-color: #375626;
+    border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background-color: #375626;
+}
+
+[name*="TranslatorHeader"] span {
+    background : #375626 !important;
+}
+
+.dd-container span  {
+    background : none !important ;;
+}
