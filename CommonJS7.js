@@ -11,7 +11,6 @@ $(document).ready(function () {
 
 
     // Waiting to successfully fetch the categories to start rendering the Sidebar
-
     fetchMainCategories()
         .then(function (data) {
             renderSidebar(data)
@@ -59,6 +58,7 @@ function goTo(href) {
 // Dynamically rendering the tasks
 
 function createNotificationIcon() {
+
     $('.taskDD').remove()
 
     // Fetching the tasks from the Endpoint 
@@ -127,6 +127,7 @@ function renderTasks(tasks) {
 
 function renderSidebar(data) {
 
+    $("[name='Sidebar']").html("")
     $("[name='Sidebar']").append(`<div id="SidebarCategoryWrapper"></div>`)
     data.map((category) => {
 
