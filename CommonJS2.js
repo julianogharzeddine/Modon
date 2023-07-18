@@ -140,28 +140,27 @@ function renderSidebar(data) {
                     $("#SidebarCategoryWrapper").append(
                         `<div class="categoryItemWrapper" >
                         <div class="categoryItem" data-cat="${category.ID}">
-                  <img src='${category.CategoryImageURL}'>
-                  <p class='categoryName'>${category.CategoryNameAr}</p>
+                  <img src='${category.ServiceImageURL}'>
+                  <p class='categoryName'>${category.ServiceNameAR}</p>
                 </div>
                 </div>`
                     )
                 } else {
                     const subCategoriesHTML = data.map((subCategory) => {
                         return `<div class="subcategoryItem" data-subcat="${subCategory.ID}">
-                                <p class='subcategoryName'>${subCategory.SubCategoryNameAr}</p>
+                                <p class='subcategoryName'>${subCategory.SubserviceNameAR}</p>
                               </div>`;
                     }).join('');
 
                     $("#SidebarCategoryWrapper").append(
                         `<div class="categoryItemWrapper" ">
                         <div class="categoryItem" data-cat="${category.ID}">
-                        <img src='${category.CategoryImageURL}'>
-                        <p class='categoryName'>${category.CategoryNameAr}</p>
+                        <img src='${category.SubserviceImageURL}'>
+                        <p class='categoryName'>${category.ServiceNameAR}</p>
                       </div>
                       <div class="subcategoriesWrapper">${subCategoriesHTML}</div>
                       </div>
-                      `
-                    );
+                      `);
                 }
             })
             .catch(function (error) {
