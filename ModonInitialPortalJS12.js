@@ -20,8 +20,16 @@ $(document).ready(function () {
 
 
     // Dynamically generating the service tiles
-    
-    initiateTiles()
+
+    fetchTiles()
+        .then(function (data) {
+            // Wait for the card-wrapper div to render successfully
+            waitForWrapperRender(data);
+        })
+        .catch(function (error) {
+            console.error(error);
+        });
+
 
     $(document).on('click', ".dd-container", function () {
         changeLanguage()
@@ -155,7 +163,7 @@ function changeLanguage() {
         if (currentLanguage == "en-US") {
             targetLang = "English"
             translateToEnglish()
-        } else if (currentLang == 'ar-SA') {
+        } else if (currentLanguage == 'ar-SA') {
             targetLang = "Arabic"
             translateToArabic()
         }
@@ -176,7 +184,19 @@ function translateText(lang) {
     })
 }
 
+
 function translateToEnglish() {
+
+    $('.browseDepartmentDetails').text('Department Info')
+    $('.empNoWrap').css('flex-direction', 'row')
+    $('.empCountLabel').text('members')
+    $('#OurDepartments').text('Our Departments')
+    $('#IT').text("IT")
+    $('#Architecture').text("Architecture")
+    $('#Operations').text("Operations")
+    $('#Research').text("Research")
+    $("#Maintenance").text("Maintenance")
+    $('#LegalAffairs').text("Legal Affairs")
     $('.cardTitle').css('transform', 'scale(0.8)')
     $("[name='Sidebar']").css('right', '')
     $("[name='Sidebar']").css('left', '0')
@@ -186,6 +206,17 @@ function translateToEnglish() {
 }
 
 function translateToArabic() {
+
+    $('.browseDepartmentDetails').text('تعرّف على القسم')
+    $('.empNoWrap').css('flex-direction', 'row-reverse')
+    $('.empCountLabel').text('فردًا في القسم')
+    $('#OurDepartments').text('أقسامنا المختلفة')
+    $('#IT').text("تكنولوجيا المعلومات")
+    $('#Architecture').text("الهندسة")
+    $('#Operations').text("العمليات")
+    $('#Research').text("الأبحاث")
+    $("#Maintenance").text("الصيانة")
+    $('#LegalAffairs').text("إدارة القضايا و التحقيقات")
     $('.cardTitle').css('transform', 'scale(1.05)')
     $("[name='Sidebar']").css('left', '')
     $("[name='Sidebar']").css('right', '0')
@@ -193,6 +224,7 @@ function translateToArabic() {
     $(".form").css('right', '21%')
     $('.taskDD').css('left', '19%')
 }
+
 
 function createModal() {
     $('body').append(`
