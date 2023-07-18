@@ -105,7 +105,7 @@ $(document).ready(function () {
             class='infoIcon'>
           </div>
           <img src="${tile.ServiceImage}" class='titleImage'>
-          <p class="cardTitle" id='LegalAffairs'>${tile.ServiceNameAR}</p>
+          <p class="cardTitle">${tile.ServiceNameAR}</p>
           </div>
         `)
             }
