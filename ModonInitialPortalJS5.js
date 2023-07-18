@@ -27,6 +27,11 @@ $(document).ready(function () {
 
     createModal();
 
+    $(document).on('click', ".dd-container", function () {
+        changeLanguage()
+    })
+
+    
     $(document).on('click', ".dd-container a", function () {
         changeLanguage()
     })
@@ -99,7 +104,6 @@ $(document).ready(function () {
         $("#sectionBrowser").append("<div id='card-wrapper'></div>")
 
         data.map((tile) => {
-
             if (tile.IsActive == 'true') {
                 $("#card-wrapper").append(`
           <div class="cardItem"  id="${tile.JavaScriptID}" onclick="goTo('${tile.ServiceURL ?? ""}')">
@@ -124,31 +128,6 @@ $(document).ready(function () {
 
 
 
-    // Translating the Page On Load
-
-    setTimeout(function () {
-        let LSLang = localStorage.getItem('selected_language')
-
-        switch (LSLang) {
-            case 'en-US':
-                $("a.dd-option label.dd-option-text:contains('Arabic')").click();
-                $("a.dd-option label.dd-option-text:contains('English')").click();
-                break
-            case 'ar-SA':
-                $("a.dd-option label.dd-option-text:contains('Arabic')").click();
-                $("a.dd-option label.dd-option-text:contains('Arabic')").click();
-                break
-            case 'fr-FR':
-                $("a.dd-option label.dd-option-text:contains('Arabic')").click();
-                $("a.dd-option label.dd-option-text:contains('Français')").click();
-                break
-            default:
-                $("a.dd-option label.dd-option-text:contains('Arabic')").click();
-
-                break
-        }
-    }, 2000)
-
 })
 
 function renderNewService(serviceName) {
@@ -168,13 +147,14 @@ function renderNewService(serviceName) {
 function changeLanguage() {
 
     setTimeout(function () {
-        var lang = localStorage.getItem("selected_language")
+        var lang = getLanguage()
 
         if (lang == "en-US") {
             translateToEnglish()
         } else if (lang == 'ar-SA') {
             translateToArabic()
         }
+
     }, 500)
 
 }
@@ -223,6 +203,82 @@ function translateToArabic() {
 }
 
 
+function translate() {
+    let LSLang = localStorage.getItem('selected_language')
+    let targetLang = ""
+
+    switch (LSLang) {
+        case 'en-US':
+            targetLang = 'English'
+            $('.taskDD').css('left', '72%')
+            $('[name="Sidebar"]').css('right', '')
+            $('[name="Sidebar"]').css('left', '0')
+            $('.runtime-form').css('left', '')
+            $('.runtime-form').css('left', '20%')
+            $('.counterCard').css('flex-direction', 'row-reverse')
+            $('.dateWrapper').css('flex-direction', 'row-reverse')
+            $('.card-rows').css('flex-direction', 'row-reverse')
+            $('.cardHeader').css('flex-direction', 'row')
+            $('.investNoStatusWrap').css('flex-direction', 'row')
+            $('#subcategories-card-wrapper').css('direction', 'ltr')
+            $('#card-wrapper').css('direction', 'ltr')
+            $('.taskDD a').css('flex-direction', 'row')
+            $('.task-details p').css({
+                'text-align': 'left',
+                'direction': 'rtl'
+            })
+            $(".task-details h4").css("text-align", "left")
+            break
+        case 'ar-SA':
+            targetLang = 'Arabic'
+            $('.taskDD').css('left', '20%')
+            $('[name="Sidebar"]').css('left', '')
+            $('[name="Sidebar"]').css('right', '0')
+            $('[name="Sidebar"]').css('left', '')
+            $('.runtime-form').css('left', '5%')
+            $('.counterCard').css('flex-direction', 'row-reverse')
+            $('.dateWrapper').css('flex-direction', 'row')
+            $('.card-rows').css('flex-direction', 'row-reverse')
+            $('.cardHeader').css('flex-direction', 'row')
+            $('.investNoStatusWrap').css('flex-direction', 'row')
+            $('#subcategories-card-wrapper').css('direction', 'rtl')
+            $('#card-wrapper').css('direction', 'rtl')
+            $('.taskDD a').css('flex-direction', 'row-reverse')
+            $('.task-details p').css({
+                'text-align': 'right',
+                'direction': 'ltr'
+            })
+            $(".task-details h4").css("text-align", "right")
+            break
+        case 'fr-FR':
+            targetLang = 'French'
+            $('.taskDD').css('right', '72%')
+            $('[name="Sidebar"]').css('right', '')
+            $('[name="Sidebar"]').css('left', '0')
+            $('.runtime-form').css('left', '')
+            $('.runtime-form').css('left', '20%')
+            $('.counterCard').css('flex-direction', 'row-reverse')
+            $('.card-rows').css('flex-direction', 'row-reverse')
+            $('.cardHeader').css('flex-direction', 'row')
+            $('.dateWrapper').css('flex-direction', 'row')
+            $('#subcategories-card-wrapper').css('direction', 'ltr')
+            $('#card-wrapper').css('direction', 'ltr')
+            $('.taskDD a').css('flex-direction', 'row')
+            $('.task-details p').css({
+                'text-align': 'left',
+                'direction': 'rtl'
+            })
+            $(".task-details h4").css("text-align", "left")
+            break
+    }
+
+    let toTranslate = $('.translatable')
+
+    toTranslate.each(function () {
+        $(this).text(getFromDictionary(($(this).text().trim()), targetLang))
+    })
+}
+
 function createModal() {
     $('body').append(`
 <div id="modal">
@@ -247,4 +303,12 @@ function createModal() {
 
 function getLanguage() {
     return localStorage.getItem('selected_language')
+}
+
+function waitForTranslatorHeaderRender() {
+    if ($('.dd-select').length > 0) {
+        $('.dd-select').click()
+    } else {
+        setTimeout(waitForTranslatorHeaderRender, 50);
+    }
 }
