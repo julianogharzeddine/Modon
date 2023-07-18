@@ -153,7 +153,7 @@ function renderSidebar(data) {
                         const subCategoriesHTML = data.map((subCategory) => {
 
                             if (subCategory.IsActive == 'true') {
-                                return `<div class="subcategoryItem" id="${suRbCategory.JavaScriptID}" data-subcat="${subCategory.ID}">
+                                return `<div class="subcategoryItem" id="${subCategory.JavaScriptID}" data-subcat="${subCategory.ID}">
                                 <p class='subcategoryName'>${currentLanguage == 'ar-SA' ? subCategory.SubserviceNameAR : subCategory.SubserviceNameEN}</p>
                               </div>`
                             }
