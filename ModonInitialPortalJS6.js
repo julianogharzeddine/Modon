@@ -65,6 +65,9 @@ $(document).ready(function () {
         $("#serviceLink").val("")
     })
 
+   waitForTranslatorHeaderRender()
+
+})
 
     function waitForWrapperRender(data) {
         if ($('#sectionBrowser').length > 0) {
@@ -126,9 +129,6 @@ $(document).ready(function () {
         }
     }
 
-
-
-})
 
 function renderNewService(serviceName) {
     $('#card-wrapper').append(
