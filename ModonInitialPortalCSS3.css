@@ -19,12 +19,9 @@
 
 #card-wrapper {
     width: 100% !important;
-    display: grid !important;
-    grid-template-columns: repeat(3, 1fr) !important;
-    place-items: center !important;
-    grid-row-gap: 30px !important;
-    overflow-y: auto !important;
-    direction: rtl;
+    display: flex !important;
+    flex-wrap: wrap !important;
+    gap: 40px;
     padding: 20px !important;
 }
 
@@ -42,13 +39,11 @@
     font-size: 40px !important;
     font-weight: bold !important;
     text-align: center !important;
-
 }
-
 
 .cardItem {
     padding: 15px !important;
-    width: 60% !important;
+    width: 20% !important;
     min-width: 248px !important;
     height: 243px !important;
     border-radius: 2.5ex !important;
@@ -60,7 +55,7 @@
     place-items: center !important;
     box-sizing: border-box !important;
     cursor: pointer;
-    transition: all 0.2s ease !important;
+    transition: all 0.3s ease !important;
 }
 
 
