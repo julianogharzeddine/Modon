@@ -162,7 +162,7 @@ function renderSidebar(data) {
 
                         $("#SidebarCategoryWrapper").append(
                             `<div class="categoryItemWrapper" ">
-                        <div class="categoryItem" id="${category.JavaScriptID} data-cat="${category.ID}">
+                        <div class="categoryItem" id="${category.JavaScriptID}" data-cat="${category.ID}">
                         <img src='${category.ServiceImageURL}'>
                         <p class='categoryName'>${currentLanguage == 'ar-SA' ? category.ServiceNameAR : category.ServiceNameEN}</p>
                       </div>
