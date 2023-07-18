@@ -148,20 +148,19 @@ function renderNewService(serviceName) {
 }
 
 function changeLanguage() {
-
+    
+ var targetLang ;
     setTimeout(function () {
 
         if (currentLanguage == "en-US") {
             targetLang = "English"
             translateToEnglish()
-        } else if (lang == 'ar-SA') {
+        } else if (currentLang == 'ar-SA') {
             targetLang = "Arabic"
             translateToArabic()
         }
 
         translateText(targetLang)
-        initiateTiles()
-        initiateSidebar()
 
 
     }, 500)
