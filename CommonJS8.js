@@ -11,20 +11,13 @@ $(document).ready(function () {
 
 
     // Waiting to successfully fetch the categories to start rendering the Sidebar
-    fetchMainCategories()
-        .then(function (data) {
-            renderSidebar(data)
-        })
-        .catch(function (error) {
-            console.error(error)
-        })
+    initiateSidebar()
 
     // Creating Notification Icon
-
     createNotificationIcon()
 
+    
     // Appending the listeners to the generated categories and subcategories
-
     $(document).on('click', '.categoryItem', function () {
         var selectionIndex = $(this).data("cat")
         console.log(selectionIndex)
@@ -236,4 +229,14 @@ function fetchSubCategories(categoryID) {
 
 function getLanguage() {
     return localStorage.getItem('selected_language')
+}
+
+function initiateSidebar() {
+    fetchMainCategories()
+        .then(function (data) {
+            renderSidebar(data)
+        })
+        .catch(function (error) {
+            console.error(error)
+        })
 }
