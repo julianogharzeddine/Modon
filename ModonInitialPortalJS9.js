@@ -154,7 +154,7 @@ function changeLanguage() {
         if (currentLanguage == "en-US") {
             targetLang = "English"
             translateToEnglish()
-        } else if (lang == 'ar-SA') {
+        } else if (currentLanguage == 'ar-SA') {
             targetLang = "Arabic"
             translateToArabic()
         }
