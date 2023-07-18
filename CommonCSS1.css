@@ -11,9 +11,9 @@
 :root {
     --bg-color: #e5e6f6;
     /* Main Background Color */
-    --secondarylight-bg-color: #0066cc;
+    --secondarylight-bg-color: #246c98;
     /* Secondary Background Color - Used for sidebar , completed request , worklist headers (and button) */
-    --secondarydark-bg-color: #0066cc;
+    --secondarydark-bg-color: #266990;
     /* Secondary Dark Background Color - Used for translator header , buttons */
     --sidebar-boxshadow: 0px 0px 20px var(--secondarylight-bg-color);
     --white: #ffffff;
@@ -25,7 +25,7 @@
     --card-title-font-size: 23px;
     --worklist-row-even-color: #eeeeee;
     --searchtextbox-border-color: #c2c2c2;
-    --card-title-color: #0066cc;
+    --card-title-color: #3898bc;
 }
 
 /* FORM BOUNDARIES STYLING */
