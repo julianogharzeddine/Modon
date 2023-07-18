@@ -1,10 +1,13 @@
 var baseURL;   // fetching the base URL
-var infoIconURL = "https://cdn.jsdelivr.net/gh/julianogharzeddine/ModonImages@main/InfoIcon.png"
+var infoIconURL = "https://cdn.jsdelivr.net/gh/julianogharzeddine/ModonImages@main/InfoIcon.png" // info icon URL
+var currentLanguage;
 
 $(document).ready(function () {
 
-    // Fetching the baseURL to use it in subsequent API Calls
+    // Setting the current language
+    currentLanguage = getLanguage();
 
+    // Fetching the baseURL to use it in subsequent API Calls
     baseURL = window.location.protocol + '//' + window.location.host + '/';
 
 
@@ -105,7 +108,7 @@ $(document).ready(function () {
             class='infoIcon'>
           </div>
           <img src="${tile.ServiceImage}" class='titleImage'>
-          <p class="cardTitle">${tile.ServiceNameAR}</p>
+          <p class="cardTitle">${currentLanguage == 'ar-SA' ? tile.ServiceNameAR : tile.ServiceNameEN}</p>
           </div>
         `)
             }
@@ -239,4 +242,9 @@ function createModal() {
 </div>
 </div>
 `)
+}
+
+
+function getLanguage() {
+    return localStorage.getItem('selected_language')
 }
