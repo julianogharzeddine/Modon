@@ -178,7 +178,7 @@ function fetchMainCategories() {
     return new Promise(function (resolve, reject) {
         $.ajax({
             type: 'GET',
-            url: `${baseURL}api/odatav4/v4/Categories_SMO`,
+            url: `${baseURL}api/odatav4/v4/ModonServices`,
             dataType: 'json',
             crossDomain: false,
             beforeSend: function (xhr) {
@@ -200,7 +200,7 @@ function fetchSubCategories(categoryID) {
     return new Promise(function (resolve, reject) {
         $.ajax({
             type: 'GET',
-            url: `${baseURL}api/odatav4/v4/SubCategories_SMO`,
+            url: `${baseURL}api/odatav4/v4/ModonSubservices`,
             dataType: 'json',
             crossDomain: false,
             beforeSend: function (xhr) {
