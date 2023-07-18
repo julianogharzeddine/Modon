@@ -155,7 +155,7 @@ function renderSidebar(data) {
                     $("#SidebarCategoryWrapper").append(
                         `<div class="categoryItemWrapper" ">
                         <div class="categoryItem" data-cat="${category.ID}">
-                        <img src='${category.SubserviceImageURL}'>
+                        <img src='${category.ServiceImageURL}'>
                         <p class='categoryName'>${category.ServiceNameAR}</p>
                       </div>
                       <div class="subcategoriesWrapper">${subCategoriesHTML}</div>
