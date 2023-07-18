@@ -19,6 +19,9 @@ $(document).ready(function () {
             console.error(error);
         });
 
+
+    // Creating the currently hidden modal
+
     createModal();
 
     $(document).on('click', ".dd-container a", function () {
@@ -68,7 +71,7 @@ $(document).ready(function () {
         return new Promise(function (resolve, reject) {
             $.ajax({
                 type: 'GET',
-                url: `${baseURL}api/odatav4/v4/sections_SMO`,
+                url: `${baseURL}api/odatav4/v4/ModonSections`,
                 dataType: 'json',
                 crossDomain: false,
                 beforeSend: function (xhr) {
@@ -93,8 +96,10 @@ $(document).ready(function () {
         $("#sectionBrowser").append("<div id='card-wrapper'></div>")
 
         data.map((tile) => {
-            $("#card-wrapper").append(`
-          <div class="cardItem" onclick="goTo('${tile.ServiceURL ?? ""}')">
+
+            if (tile.IsActive == 'true') {
+                $("#card-wrapper").append(`
+          <div class="cardItem"  id="${tile.JavaScriptID}" onclick="goTo('${tile.ServiceURL ?? ""}')">
           <div class="infoIconContainer">
           <img src="${infoIconURL}"
             class='infoIcon'>
@@ -103,6 +108,8 @@ $(document).ready(function () {
           <p class="cardTitle" id='LegalAffairs'>${tile.ServiceNameAR}</p>
           </div>
         `)
+            }
+
         })
     }
 
@@ -110,7 +117,6 @@ $(document).ready(function () {
         if (href) {
             window.open(href, "_self")
         }
-
     }
 
 
