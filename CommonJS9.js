@@ -16,7 +16,7 @@ $(document).ready(function () {
     // Creating Notification Icon
     createNotificationIcon()
 
-    
+
     // Appending the listeners to the generated categories and subcategories
     $(document).on('click', '.categoryItem', function () {
         var selectionIndex = $(this).data("cat")
