@@ -308,6 +308,7 @@ function getLanguage() {
 function waitForTranslatorHeaderRender() {
     if ($('.dd-select').length > 0) {
         $('.dd-select').click()
+        $('.dd-select').click()
     } else {
         setTimeout(waitForTranslatorHeaderRender, 50);
     }
