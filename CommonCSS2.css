@@ -353,6 +353,8 @@ div[name*="Worklist Card WT"] span.text-underline {
 
 #bellicon {
     cursor: pointer !important;
+    height : 30px;
+    width : 30px ;
 }
 
 .OverdueImageDiv {
