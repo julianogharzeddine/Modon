@@ -43,12 +43,10 @@ function initiateSidebar() {
         return;
     }
 
-    isExecuting = true;
 
     fetchMainCategories()
         .then(function (data) {
             renderSidebar(data)
-       
         })
         .catch(function (error) {
             console.error(error)
@@ -118,7 +116,7 @@ function renderSidebar(data) {
             fetchSubCategories(categoryID)
                 .then(function (data) {
                     
-
+                    isExecuting = true;
 
                     if (data === []) {
                         $("#SidebarCategoryWrapper").append(
@@ -151,8 +149,8 @@ function renderSidebar(data) {
                       `)
                     }
 
+                    
                     isExecuting = false;
-      
                 })
                 .catch(function (error) {
                     console.error(error)
