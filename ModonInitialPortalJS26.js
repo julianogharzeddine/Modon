@@ -3,6 +3,11 @@ var infoIconURL = "https://cdn.jsdelivr.net/gh/julianogharzeddine/ModonImages@ma
 
 $(document).ready(function () {
 
+    // Translating the Page On Load
+
+    dictionary = [
+        { "English": "Investigations Management", "Arabic": "إدارة القضايا و التحقيقات", "French": "Aff. Juridiques" }
+    ];
 
     // Fetching the baseURL to use it in subsequent API Calls
     baseURL = window.location.protocol + '//' + window.location.host + '/';
@@ -107,7 +112,7 @@ function renderTiles(data) {
     let currentLang = getLanguage()
 
     $('#sectionBrowser').html('')
-    $('#sectionBrowser').append('<p class="sectionBrowserTitle" id="OurDepartments">أقسامنا المختلفة</p>')
+    $('#sectionBrowser').append('<p class="sectionBrowserTitle" class="translatable" >أقسامنا المختلفة</p>')
     $("#sectionBrowser").append("<div id='card-wrapper'></div>")
 
     data.map((tile) => {
@@ -166,6 +171,13 @@ function translateToEnglish() {
     $(".form").css('right', '')
     $(".form").css('left', '22%')
     $('.taskDD').css('left', '72%')
+    $('.taskDD a').css('flex-direction', 'row')
+    $('.task-details p').css({
+        'text-align': 'left',
+        'direction': 'rtl'
+    })
+    $(".task-details h4").css("text-align", "left")
+    $('.sectionBrowserTitle').css('text-align' , 'left')
 }
 
 function translateToArabic() {
@@ -175,6 +187,13 @@ function translateToArabic() {
     $(".form").css('left', '')
     $(".form").css('right', '21%')
     $('.taskDD').css('left', '19%')
+    $('.taskDD a').css('flex-direction', 'row-reverse')
+    $('.task-details p').css({
+        'text-align': 'right',
+        'direction': 'ltr'
+    })
+    $(".task-details h4").css("text-align", "right")
+    $('.sectionBrowserTitle').css('text-align' , 'right')
 }
 
 function getLanguage() {
@@ -226,3 +245,4 @@ function renderNewService(serviceName) {
     </div>`)
 
 }
+
