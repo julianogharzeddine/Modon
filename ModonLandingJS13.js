@@ -29,9 +29,12 @@ $(document).ready(function () {
         $(this).addClass('Darker');
     })
 
-   $(document).click(function () {
-       translateText()
-   })
+    $(document).click(function () {
+        setTimeout(function () {
+            translateText()
+        },1000)
+
+    })
 
     $(document).on('click', ".dd-container a", function () {
         changeLanguage()
@@ -55,6 +58,7 @@ $(document).ready(function () {
         { "en-US": "Vacancies", "ar-SA": "عرض الطلبات", "fr-FR": "Positions" },
         { "en-US": "Apply", "ar-SA": "إنشاء طلب", "fr-FR": "Presenter" },
         { "en-US": "Reports", "ar-SA": "التقارير", "fr-FR": "Rapports" },
+        { "en-US": "Recruitment", "ar-SA": "توظيف", "fr-FR": "Recrutement" },
 
     ];
 
@@ -136,8 +140,8 @@ $(document).ready(function () {
     })
 
 
-initiateDefaultOptions()
-waitForTranslatorRender()
+    initiateDefaultOptions()
+    waitForTranslatorRender()
 
 })
 
@@ -435,7 +439,7 @@ function translateToArabic() {
         'direction': 'ltr'
     })
     $(".task-details h4").css("text-align", "right")
-    $('.sectionBrowser .sectionBrowserTitle').css('flex-direction' , 'row')
+    $('.sectionBrowser .sectionBrowserTitle').css('flex-direction', 'row')
 }
 
 function translateToEnglish() {
@@ -457,7 +461,7 @@ function translateToEnglish() {
         'direction': 'rtl'
     })
     $(".task-details h4").css("text-align", "left")
-    $('.sectionBrowser .sectionBrowserTitle').css('flex-direction' , 'row-reverse')
+    $('.sectionBrowser .sectionBrowserTitle').css('flex-direction', 'row-reverse')
 }
 
 function getFromDictionary(text, toLanguage) {
@@ -466,8 +470,8 @@ function getFromDictionary(text, toLanguage) {
         var entry = dictionary[i];
 
         if (entry["en-US"] === text) return entry[toLanguage];
-        if (entry["ar-SA"]=== text) return entry[toLanguage];
-        if (entry["fr-FR"]=== text) return entry[toLanguage];
+        if (entry["ar-SA"] === text) return entry[toLanguage];
+        if (entry["fr-FR"] === text) return entry[toLanguage];
 
     }
 
@@ -489,7 +493,7 @@ function waitForTranslatorRender() {
     }
 }
 
-function translateText(){
+function translateText() {
     let toTranslate = $('.translatable')
 
     toTranslate.each(function () {
