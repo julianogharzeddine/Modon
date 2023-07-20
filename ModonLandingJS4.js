@@ -96,14 +96,14 @@ $(document).ready(function () {
 
     // Showing Investigation Options
 
-    $(document).on('click', '#createInvestigationButton', function () {
+    $(document).on('click', '#RecruitmentSubOption', function () {
         // Rendering Investigation buttons which shows the actions that can be taken
         renderInvestOptions()
     })
 
     // Showing all the investigations in the custom cards
 
-    $(document).on('click', '#showAllInvestigations', function () {
+    $(document).on('click', '#showAllVacancies', function () {
 
         // Creating the request counters
 
@@ -382,21 +382,21 @@ function renderCounterButtons(data) {
 function renderInvestOptions() {
 
     $("#subOptions").find('.sectionBrowserTitle').remove()
-    $("#subOptions").prepend(`<p class="sectionBrowserTitle translatable">إجراء تحقيق</p>`)
+    $("#subOptions").prepend(`<p class="sectionBrowserTitle translatable">توظيف</p>`)
 
     $('#InvestigationCards').html("")
     $('#InvestigationCards').append(`
-  <div class="cardItem" id='showAllInvestigations'>
-      <img src="https://cdn.jsdelivr.net/gh/nourkhansa20/CustomFiles@main/gavel-lawyer-books-isolated-white-justice-law-legal-concept-d-illustration-91106772-transformed.webp" class='titleImage'>
-      <p class="cardTitle translatable">طلبات التحقيق</p>
+  <div class="cardItem" id='showAllVacancies'>
+      <img src="https://cdn.jsdelivr.net/gh/julianogharzeddine/ModonImages@main/AllVacancies.jpg" class='titleImage'>
+      <p class="cardTitle translatable">عرض الطلبات</p>
   </div>
-  <div class="cardItem" onclick="goTo('https://srv-k2five/Runtime/Runtime/Form/Submit.Form/')">
-      <img src="https://cdn.jsdelivr.net/gh/nourkhansa20/CustomFiles@main/2000x1000_legal2.jpg" class='titleImage'>
-      <p class="cardTitle translatable">إجراء تحقيق</p>
+  <div class="cardItem" onclick="goTo('')">
+      <img src="https://cdn.jsdelivr.net/gh/julianogharzeddine/ModonImages@main/NewVacancy.jpg" class='titleImage'>
+      <p class="cardTitle translatable">إنشاء طلب</p>
   </div>
-  <div class="cardItem"  onclick="goTo('https://srv-k2five/Runtime/Runtime/Form/InitialForm.Form/')">
-      <img src="https://cdn.jsdelivr.net/gh/nourkhansa20/CustomFiles@main/how-to-file-a-complaint.jpg" class='titleImage'>
-      <p class="cardTitle translatable">تقديم شكوى</p>
+  <div class="cardItem"  onclick="goTo('')">
+      <img src="https://cdn.jsdelivr.net/gh/julianogharzeddine/ModonImages@main/Reports.jpg" class='titleImage'>
+      <p class="cardTitle translatable">التقارير</p>
   </div>
   
   `)
@@ -409,12 +409,12 @@ function renderSubCategoryCards(data, categoryName, categoryID) {
     let currentLang = getLanguage()
 
     $(".sectionBrowserTitle").remove()
-    $('.sectionBrowser').prepend(`<p class="sectionBrowserTitle translatable">${categoryName}</p>`)
+    $('.sectionBrowser').prepend(`<p class="sectionBrowserTitle">${categoryName}</p>`)
 
     $('#subcategories-card-wrapper').html("")
     data.map((item) => {
         if (item.MainServiceID === categoryID && item.IsActive == 'true') {
-            $('#subcategories-card-wrapper').append(`<div class="cardItem" id="${item.JavaScriptID}" data-subcat="${item.ID}"><img src="${item.SubserviceImageURL}" class='titleImage'><p class="cardTitle translatable">${currentLang == 'ar-SA' ? item.SubserviceNameAR : item.SubserviceNameEN}</p></div>`)
+            $('#subcategories-card-wrapper').append(`<div class="cardItem" id="${item.JavaScriptID}" data-subcat="${item.ID}"><img src="${item.SubserviceImageURL}" class='titleImage'><p class="cardTitle">${currentLang == 'ar-SA' ? item.SubserviceNameAR : item.SubserviceNameEN}</p></div>`)
         }
 
     })
