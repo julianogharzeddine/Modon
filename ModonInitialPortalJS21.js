@@ -9,7 +9,6 @@ $(document).ready(function () {
 
 
     // Initializing Tile Render
-
     initializeTiles()
 
     $(document).on('click', ".dd-container a", function () {
@@ -206,7 +205,7 @@ function waitForTranslatorRender() {
         $('.dd-container').click()
         $('.dd-container').click()
     } else {
-        setTimeout(waitForTranslatorRender, 50);
+        setTimeout(waitForTranslatorRender, 1000);
     }
 }
 
