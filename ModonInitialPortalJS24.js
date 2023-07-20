@@ -48,18 +48,27 @@ $(document).ready(function () {
         $("#serviceLink").val("")
     })
 
+    // Translating the Page On Load
 
+    waitForTranslatorRender();
 
 })
 
 
+/* ------------------------------ TILE RENDERING ------------------------- */
 
-function waitForWrapperRender(data) {
-    if ($('#sectionBrowser').length > 0) {
-        renderTiles(data);
-    } else {
-        setTimeout(waitForWrapperRender, 500);
-    }
+function initializeTiles() {
+    // Dynamically generating the service tiles
+
+    fetchTiles()
+        .then(function (data) {
+            // Wait for the card-wrapper div to render successfully
+            waitForTileWrapperRender(data);
+        })
+        .catch(function (error) {
+            console.error(error);
+        });
+
 }
 
 function fetchTiles() {
@@ -83,6 +92,14 @@ function fetchTiles() {
             }
         });
     });
+}
+
+function waitForTileWrapperRender(data) {
+    if ($('#sectionBrowser').length > 0) {
+        renderTiles(data);
+    } else {
+        setTimeout(waitForTileWrapperRender, 500);
+    }
 }
 
 function renderTiles(data) {
@@ -118,24 +135,14 @@ function goTo(href) {
 }
 
 
-function renderNewService(serviceName) {
-    $('#card-wrapper').append(
-        `<div class="cardItem" onclick="goTo('https://srv-k2five/Designer/Runtime/Form/LandingPage/')">
-     <div class="infoIconContainer">
-        <img src="https://srv-k2five/Designer/Runtime/File.ashx?_path=gj%2FkK8xKydFGIaBuABcSOduRX2c%3D%5Cinformation-button.png&_filerequestdata=_4XeJqbaWuJp0syOgJHEA8of-kLRzEyrnXA94YOkjasqBnsOTQgJXJ-Ybt28RDf8-rNsOJTV6GFCRJMwfDiB-T1qyY65WRx0Csth2wTf9JOReKkiiOYspbS7vEwYNJBIywx1kBd-LFpHYtIPS0xUdrkixdScIEVBKIgcyqXW3WD2a1CNZt1TjOmkHTF0prdAe6Kyil_9PHynI0KFBGfxlSpFuMC_LFnUMkZaxgfFrVy1zuKMnYwsZLNdUnn1Fg3F02l-Z5JDdXl-ChygqFDt0QT0TpYjnxCCkjbfYOS8_pU1&_height=32&_width=32&_controltype=image&XSRFToken=4399624675727584330"
-            class='infoIcon'>
-    </div>
-        <img src="https://cdn.jsdelivr.net/gh/nourkhansa20/CustomFiles@main/mangment.jpg" class='titleImage'>
-        <p class="cardTitle" id='LegalAffairs'>${serviceName}</p>
-    </div>`)
 
-}
-
+/* ---------------------- TRANSLATION FUNCTIONS ---------------------------*/
 
 function changeLanguage() {
 
     setTimeout(function () {
-        var lang = localStorage.getItem("selected_language")
+        
+        var currentLang = getLanguage()
 
         if (lang == "en-US") {
             translateToEnglish()
@@ -147,7 +154,7 @@ function changeLanguage() {
         initializeTiles()
         initiateSidebar()
 
-    }, 2000)
+    }, 1000)
 
 
 }
@@ -170,6 +177,21 @@ function translateToArabic() {
     $('.taskDD').css('left', '19%')
 }
 
+function getLanguage() {
+    return localStorage.getItem('selected_language')
+}
+
+function waitForTranslatorRender() {
+    if ($('.dd-container').length > 0) {
+        $('.dd-container').click()
+        $('.dd-container').click()
+    } else {
+        setTimeout(waitForTranslatorRender, 1000);
+    }
+}
+
+
+// Currently Disabled
 
 function createModal() {
     $('body').append(`
@@ -192,22 +214,15 @@ function createModal() {
 `)
 }
 
-
-function getLanguage() {
-    return localStorage.getItem('selected_language')
-}
-
-
-function initializeTiles() {
-    // Dynamically generating the service tiles
-
-    fetchTiles()
-        .then(function (data) {
-            // Wait for the card-wrapper div to render successfully
-            waitForWrapperRender(data);
-        })
-        .catch(function (error) {
-            console.error(error);
-        });
+function renderNewService(serviceName) {
+    $('#card-wrapper').append(
+        `<div class="cardItem" onclick="goTo('https://srv-k2five/Designer/Runtime/Form/LandingPage/')">
+     <div class="infoIconContainer">
+        <img src="https://srv-k2five/Designer/Runtime/File.ashx?_path=gj%2FkK8xKydFGIaBuABcSOduRX2c%3D%5Cinformation-button.png&_filerequestdata=_4XeJqbaWuJp0syOgJHEA8of-kLRzEyrnXA94YOkjasqBnsOTQgJXJ-Ybt28RDf8-rNsOJTV6GFCRJMwfDiB-T1qyY65WRx0Csth2wTf9JOReKkiiOYspbS7vEwYNJBIywx1kBd-LFpHYtIPS0xUdrkixdScIEVBKIgcyqXW3WD2a1CNZt1TjOmkHTF0prdAe6Kyil_9PHynI0KFBGfxlSpFuMC_LFnUMkZaxgfFrVy1zuKMnYwsZLNdUnn1Fg3F02l-Z5JDdXl-ChygqFDt0QT0TpYjnxCCkjbfYOS8_pU1&_height=32&_width=32&_controltype=image&XSRFToken=4399624675727584330"
+            class='infoIcon'>
+    </div>
+        <img src="https://cdn.jsdelivr.net/gh/nourkhansa20/CustomFiles@main/mangment.jpg" class='titleImage'>
+        <p class="cardTitle" id='LegalAffairs'>${serviceName}</p>
+    </div>`)
 
 }
