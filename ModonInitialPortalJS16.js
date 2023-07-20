@@ -52,75 +52,75 @@ $(document).ready(function () {
         $("#serviceLink").val("")
     })
 
-
-    function waitForWrapperRender(data) {
-        if ($('#sectionBrowser').length > 0) {
-            renderTiles(data);
-        } else {
-            setTimeout(waitForWrapperRender, 500);
-        }
-    }
-
-    function fetchTiles() {
-
-        return new Promise(function (resolve, reject) {
-            $.ajax({
-                type: 'GET',
-                url: `${baseURL}api/odatav4/v4/ModonSections`,
-                dataType: 'json',
-                crossDomain: false,
-                beforeSend: function (xhr) {
-                    xhr.setRequestHeader('Authorization', 'Basic ' + window.btoa(unescape(encodeURIComponent("sp_admin" + ':' + "P@ssw0rd"))));
-                    xhr.setRequestHeader("Content-Type", "application/json; charset=UTF-8");
-                    xhr.setRequestHeader("Access-Control-Allow-Origin", "*");
-                },
-                success: function (json_data) {
-                    resolve(json_data.value);
-                },
-                error: function () {
-                    reject('Failed to Load Service Tiles!');
-                }
-            });
-        });
-    }
-
-    function renderTiles(data) {
-
-        $('#sectionBrowser').html('')
-        $('#sectionBrowser').append('<p class="sectionBrowserTitle" id="OurDepartments">أقسامنا المختلفة</p>')
-        $("#sectionBrowser").append("<div id='card-wrapper'></div>")
-
-        data.map((tile) => {
-
-            if (tile.IsActive == 'true') {
-                $("#card-wrapper").append(`
-          <div class="cardItem"  id="${tile.JavaScriptID}" onclick="goTo('${tile.ServiceURL ?? ""}')">
-          <div class="infoIconContainer">
-          <img src="${infoIconURL}"
-            class='infoIcon'>
-          </div>
-          <img src="${tile.ServiceImage}" class='titleImage'>
-          <p class="cardTitle">${currentLanguage == 'ar-SA' ? tile.ServiceNameAR : tile.ServiceNameEN}</p>
-          </div>
-        `)
-            }
-
-        })
-    }
-
-    function goTo(href) {
-        if (href) {
-            window.open(href, "_self")
-        }
-    }
-
-
-
     // Translating the Page On Load
 
     waitForTranslatorRender();
 
 })
+
+
+
+function waitForWrapperRender(data) {
+    if ($('#sectionBrowser').length > 0) {
+        renderTiles(data);
+    } else {
+        setTimeout(waitForWrapperRender, 500);
+    }
+}
+
+function fetchTiles() {
+
+    return new Promise(function (resolve, reject) {
+        $.ajax({
+            type: 'GET',
+            url: `${baseURL}api/odatav4/v4/ModonSections`,
+            dataType: 'json',
+            crossDomain: false,
+            beforeSend: function (xhr) {
+                xhr.setRequestHeader('Authorization', 'Basic ' + window.btoa(unescape(encodeURIComponent("sp_admin" + ':' + "P@ssw0rd"))));
+                xhr.setRequestHeader("Content-Type", "application/json; charset=UTF-8");
+                xhr.setRequestHeader("Access-Control-Allow-Origin", "*");
+            },
+            success: function (json_data) {
+                resolve(json_data.value);
+            },
+            error: function () {
+                reject('Failed to Load Service Tiles!');
+            }
+        });
+    });
+}
+
+function renderTiles(data) {
+
+    $('#sectionBrowser').html('')
+    $('#sectionBrowser').append('<p class="sectionBrowserTitle" id="OurDepartments">أقسامنا المختلفة</p>')
+    $("#sectionBrowser").append("<div id='card-wrapper'></div>")
+
+    data.map((tile) => {
+
+        if (tile.IsActive == 'true') {
+            $("#card-wrapper").append(`
+      <div class="cardItem"  id="${tile.JavaScriptID}" onclick="goTo('${tile.ServiceURL ?? ""}')">
+      <div class="infoIconContainer">
+      <img src="${infoIconURL}"
+        class='infoIcon'>
+      </div>
+      <img src="${tile.ServiceImage}" class='titleImage'>
+      <p class="cardTitle">${currentLanguage == 'ar-SA' ? tile.ServiceNameAR : tile.ServiceNameEN}</p>
+      </div>
+    `)
+        }
+
+    })
+}
+
+function goTo(href) {
+    if (href) {
+        window.open(href, "_self")
+    }
+}
+
 
 function renderNewService(serviceName) {
     $('#card-wrapper').append(
