@@ -40,8 +40,6 @@ function initiateSidebar() {
 
     if (isExecuting) {
 
-        // Function is already executing, so schedule the next call after 1 second
-        setTimeout(initiateSidebar, 500);
 
         // Function is already executing, so just return
         return;
