@@ -13,7 +13,7 @@ $(document).ready(function () {
 
     // Initializing Tile Render
 
-    initializeTiles() 
+    initializeTiles()
 
     $(document).on('click', ".dd-container a", function () {
         changeLanguage()
@@ -146,7 +146,10 @@ function changeLanguage() {
         } else if (lang == 'ar-SA') {
             translateToArabic()
         }
+        initializeTiles()
+        initiateSidebar()
     }, 500)
+
 
 }
 
