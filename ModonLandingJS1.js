@@ -1,13 +1,16 @@
 var dictionary; // definining the dictionary
 var baseURL;   // fetching the base URL
-var redStatus = ["new", "New", "جديد"]
-var greenStatus = ["اكتمال التحقيق"]
-var orangeStatus = ["بإنتظار اعداد التقرير", "بانتظار المراجعة"]
+var redStatus = ["جديد"]
+var greenStatus = ["مغلق"]
+var orangeStatus = ["منشور"]
 var dateIconURL = "https://srv-k2five/Designer/Image.ashx?ImID=110252"
 var investStatus = "All"
 var searchKeyword = ""
 
 $(document).ready(function () {
+
+
+    let currentLang = getLanguage()
 
     // Fetching the baseURL to use it in subsequent API Calls
 
@@ -168,7 +171,12 @@ $(document).ready(function () {
 
     fetchSubCategoriesJoin()
         .then(function (data) {
-            renderSubCategoryCards(data, "إدارة القضايا والتحقيقات", 1)
+
+            if (currentLang == 'ar-SA')
+                renderSubCategoryCards(data, "الموارد البشرية", 1)
+            else
+                renderSubCategoryCards(data, "HR", 1)
+
         })
         .catch(function (error) {
             console.error(error);
@@ -288,7 +296,7 @@ function fetchSubCategoriesJoin() {
     return new Promise(function (resolve, reject) {
         $.ajax({
             type: 'GET',
-            url: `${baseURL}api/odatav4/v4/CategoriesJoins`,
+            url: `${baseURL}api/odatav4/v4/ModonServicesJoins`,
             dataType: 'json',
             crossDomain: false,
             beforeSend: function (xhr) {
@@ -398,19 +406,15 @@ function renderInvestOptions() {
 
 function renderSubCategoryCards(data, categoryName, categoryID) {
 
+    let currentLang = getLanguage()
+
     $(".sectionBrowserTitle").remove()
     $('.sectionBrowser').prepend(`<p class="sectionBrowserTitle translatable">${categoryName}</p>`)
 
     $('#subcategories-card-wrapper').html("")
     data.map((item) => {
-        if (item.CategoryID === categoryID) {
-
-            if (item.ID === 3) {
-                $('#subcategories-card-wrapper').append(`<div class="cardItem" id="createInvestigationButton" data-subcat="${item.ID}"><img src="${item.SubCategoryImage}" class='titleImage'><p class="cardTitle translatable">${item.SubCategoryNameAr}</p></div>`)
-            } else {
-                $('#subcategories-card-wrapper').append(`<div class="cardItem" data-subcat="${item.ID}"><img src="${item.SubCategoryImage}" class='titleImage'><p class="cardTitle translatable">${item.SubCategoryNameAr}</p></div>`)
-            }
-
+        if (item.MainServiceID === categoryID) {
+            $('#subcategories-card-wrapper').append(`<div class="cardItem" data-subcat="${item.ID}"><img src="${item.SubserviceImageURL}" class='titleImage'><p class="cardTitle translatable">${currentLang == 'ar-SA' ? item.SubserviceNameAR : item.SubserviceNameEN}</p></div>`)
         }
 
     })
@@ -465,26 +469,7 @@ function translate() {
             })
             $(".task-details h4").css("text-align", "right")
             break
-        case 'fr-FR':
-            targetLang = 'French'
-            $('.taskDD').css('right', '72%')
-            $('[name="Sidebar"]').css('right', '')
-            $('[name="Sidebar"]').css('left', '0')
-            $('.runtime-form').css('left', '')
-            $('.runtime-form').css('left', '20%')
-            $('.counterCard').css('flex-direction', 'row-reverse')
-            $('.card-rows').css('flex-direction', 'row-reverse')
-            $('.cardHeader').css('flex-direction', 'row')
-            $('.dateWrapper').css('flex-direction', 'row')
-            $('#subcategories-card-wrapper').css('direction', 'ltr')
-            $('#card-wrapper').css('direction', 'ltr')
-            $('.taskDD a').css('flex-direction', 'row')
-            $('.task-details p').css({
-                'text-align': 'left',
-                'direction': 'rtl'
-            })
-            $(".task-details h4").css("text-align", "left")
-            break
+
     }
 
     let toTranslate = $('.translatable')
