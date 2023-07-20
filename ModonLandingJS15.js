@@ -439,7 +439,7 @@ function translateToArabic() {
         'direction': 'ltr'
     })
     $(".task-details h4").css("text-align", "right")
-    $('.sectionBrowser .sectionBrowserTitle').css('flex-direction', 'row')
+    $('.sectionBrowser .sectionBrowserTitle').css('flex-direction', 'row-reverse')
 }
 
 function translateToEnglish() {
@@ -461,7 +461,7 @@ function translateToEnglish() {
         'direction': 'rtl'
     })
     $(".task-details h4").css("text-align", "left")
-    $('.sectionBrowser .sectionBrowserTitle').css('flex-direction', 'row-reverse')
+    $('.sectionBrowser .sectionBrowserTitle').css('flex-direction', 'row')
 }
 
 function getFromDictionary(text, toLanguage) {
