@@ -33,6 +33,14 @@ $(document).ready(function () {
     //      translate()
     //  })
 
+    $(document).on('click', ".dd-container a", function () {
+        changeLanguage()
+    })
+
+    $(document).on('click', ".dd-container", function () {
+        changeLanguage()
+    })
+
 
     dictionary = [
         { "English": "Investigations Management", "Arabic": "إدارة القضايا و التحقيقات", "French": "Aff. Juridiques" },
@@ -148,6 +156,9 @@ waitForTranslatorRender()
 })
 
 function initiateDefaultOptions() {
+
+    let currentLang = getLanguage()
+
     fetchSubCategoriesJoin()
         .then(function (data) {
 
