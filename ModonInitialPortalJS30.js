@@ -7,7 +7,7 @@ $(document).ready(function () {
     // Translating the Page On Load
 
     dictionary = [
-        { "English": "Our Departments", "Arabic": "أقسامنا المختلفة", "French": "Departements" }
+        { "en-US": "Our Departments", "ar-SA": "أقسامنا المختلفة", "fr-FR": "Departements" }
     ];
 
     // Fetching the baseURL to use it in subsequent API Calls
@@ -151,14 +151,11 @@ function changeLanguage() {
     setTimeout(function () {
 
         let currentLang = getLanguage()
-        let targetLang=""
 
         if (currentLang == "en-US") {
-            targetLang = "English"
             translateToEnglish()
 
         } else if (currentLang == 'ar-SA') {
-            targetLang = "Arabic"
             translateToArabic()
         }
 
@@ -167,8 +164,8 @@ function changeLanguage() {
 
     }, 1000)
 
-
 }
+
 
 function translateToEnglish() {
     $('.cardTitle').css('transform', 'scale(0.8)')
