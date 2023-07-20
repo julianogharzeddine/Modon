@@ -413,8 +413,8 @@ function renderSubCategoryCards(data, categoryName, categoryID) {
 
     $('#subcategories-card-wrapper').html("")
     data.map((item) => {
-        if (item.MainServiceID === categoryID) {
-            $('#subcategories-card-wrapper').append(`<div class="cardItem" data-subcat="${item.ID}"><img src="${item.SubserviceImageURL}" class='titleImage'><p class="cardTitle translatable">${currentLang == 'ar-SA' ? item.SubserviceNameAR : item.SubserviceNameEN}</p></div>`)
+        if (item.MainServiceID === categoryID && item.Expr2 == 'true') {
+            $('#subcategories-card-wrapper').append(`<div class="cardItem" id="${item.Expr3}" data-subcat="${item.ID}"><img src="${item.SubserviceImageURL}" class='titleImage'><p class="cardTitle translatable">${currentLang == 'ar-SA' ? item.SubserviceNameAR : item.SubserviceNameEN}</p></div>`)
         }
 
     })
