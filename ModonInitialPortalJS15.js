@@ -11,23 +11,15 @@ $(document).ready(function () {
     baseURL = window.location.protocol + '//' + window.location.host + '/';
 
 
-    // Dynamically generating the service tiles
+    // Initializing Tile Render
 
-    fetchTiles()
-        .then(function (data) {
-            // Wait for the card-wrapper div to render successfully
-            waitForWrapperRender(data);
-        })
-        .catch(function (error) {
-            console.error(error);
-        });
-
-
-    // Creating the currently hidden modal
-
-    createModal();
+    initializeTiles() 
 
     $(document).on('click', ".dd-container a", function () {
+        changeLanguage()
+    })
+
+    $(document).on('click', ".dd-container", function () {
         changeLanguage()
     })
 
@@ -126,28 +118,7 @@ $(document).ready(function () {
 
     // Translating the Page On Load
 
-    setTimeout(function () {
-        let LSLang = localStorage.getItem('selected_language')
-
-        switch (LSLang) {
-            case 'en-US':
-                $("a.dd-option label.dd-option-text:contains('Arabic')").click();
-                $("a.dd-option label.dd-option-text:contains('English')").click();
-                break
-            case 'ar-SA':
-                $("a.dd-option label.dd-option-text:contains('Arabic')").click();
-                $("a.dd-option label.dd-option-text:contains('Arabic')").click();
-                break
-            case 'fr-FR':
-                $("a.dd-option label.dd-option-text:contains('Arabic')").click();
-                $("a.dd-option label.dd-option-text:contains('Français')").click();
-                break
-            default:
-                $("a.dd-option label.dd-option-text:contains('Arabic')").click();
-
-                break
-        }
-    }, 2000)
+    waitForTranslatorRender();
 
 })
 
@@ -183,17 +154,6 @@ function changeLanguage() {
 
 
 function translateToEnglish() {
-
-    $('.browseDepartmentDetails').text('Department Info')
-    $('.empNoWrap').css('flex-direction', 'row')
-    $('.empCountLabel').text('members')
-    $('#OurDepartments').text('Our Departments')
-    $('#IT').text("IT")
-    $('#Architecture').text("Architecture")
-    $('#Operations').text("Operations")
-    $('#Research').text("Research")
-    $("#Maintenance").text("Maintenance")
-    $('#LegalAffairs').text("Legal Affairs")
     $('.cardTitle').css('transform', 'scale(0.8)')
     $("[name='Sidebar']").css('right', '')
     $("[name='Sidebar']").css('left', '0')
@@ -203,17 +163,6 @@ function translateToEnglish() {
 }
 
 function translateToArabic() {
-
-    $('.browseDepartmentDetails').text('تعرّف على القسم')
-    $('.empNoWrap').css('flex-direction', 'row-reverse')
-    $('.empCountLabel').text('فردًا في القسم')
-    $('#OurDepartments').text('أقسامنا المختلفة')
-    $('#IT').text("تكنولوجيا المعلومات")
-    $('#Architecture').text("الهندسة")
-    $('#Operations').text("العمليات")
-    $('#Research').text("الأبحاث")
-    $("#Maintenance").text("الصيانة")
-    $('#LegalAffairs').text("إدارة القضايا و التحقيقات")
     $('.cardTitle').css('transform', 'scale(1.05)')
     $("[name='Sidebar']").css('left', '')
     $("[name='Sidebar']").css('right', '0')
@@ -247,4 +196,28 @@ function createModal() {
 
 function getLanguage() {
     return localStorage.getItem('selected_language')
+}
+
+
+function waitForTranslatorRender() {
+    if ($('.dd-container').length > 0) {
+        $('.dd-container').click()
+        $('.dd-container').click()
+    } else {
+        setTimeout(waitForTranslatorRender, 50);
+    }
+}
+
+function initializeTiles() {
+    // Dynamically generating the service tiles
+
+    fetchTiles()
+        .then(function (data) {
+            // Wait for the card-wrapper div to render successfully
+            waitForWrapperRender(data);
+        })
+        .catch(function (error) {
+            console.error(error);
+        });
+
 }
