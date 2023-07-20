@@ -120,6 +120,8 @@ function renderTasks(tasks) {
 
 function renderSidebar(data) {
 
+    console.log("Rendering in : " + currentLanguage)
+
     $("[name='Sidebar']").html("")
     $("[name='Sidebar']").append(`<div id="SidebarCategoryWrapper"></div>`)
     data.map((category) => {
