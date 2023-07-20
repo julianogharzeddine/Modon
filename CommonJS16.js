@@ -39,10 +39,12 @@ $(document).ready(function () {
 function initiateSidebar() {
 
     if (isExecuting) {
+
+        // Function is already executing, so schedule the next call after 1 second
+        setTimeout(initiateSidebar, 500);
+
         // Function is already executing, so just return
         return;
-    } else {
-        setTimeout(initiateSidebar, 1000)
     }
     isExecuting = true;
 
