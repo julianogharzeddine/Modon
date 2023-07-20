@@ -32,7 +32,7 @@ $(document).ready(function () {
     $(document).click(function () {
         setTimeout(function () {
             translateText()
-        },1000)
+        }, 1000)
 
     })
 
@@ -414,9 +414,10 @@ function changeLanguage() {
             translateToArabic()
         }
 
-   
-        initiateSidebar()
 
+        initiateSidebar()
+        initiateDefaultOptions()
+        
     }, 1000)
 
 }
@@ -439,7 +440,7 @@ function translateToArabic() {
         'direction': 'ltr'
     })
     $(".task-details h4").css("text-align", "right")
-    $('.sectionBrowser .sectionBrowserTitle').css('flex-direction', 'row-reverse')
+    $('.sectionBrowser .sectionBrowserTitle').css('flex-direction', 'row')
 }
 
 function translateToEnglish() {
@@ -461,7 +462,7 @@ function translateToEnglish() {
         'direction': 'rtl'
     })
     $(".task-details h4").css("text-align", "left")
-    $('.sectionBrowser .sectionBrowserTitle').css('flex-direction', 'row')
+    $('.sectionBrowser .sectionBrowserTitle').css('flex-direction', 'row-reverse')
 }
 
 function getFromDictionary(text, toLanguage) {
