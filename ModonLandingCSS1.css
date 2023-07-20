@@ -27,8 +27,10 @@
 }
 
 .sectionBrowser .sectionBrowserTitle {
+       display : flex;
+       flex-direction : row ;
        width : 95% ;
-    text-align : right ;
+
 }
 
 
