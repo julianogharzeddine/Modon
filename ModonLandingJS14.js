@@ -414,7 +414,7 @@ function changeLanguage() {
             translateToArabic()
         }
 
-        initiateDefaultOptions()
+   
         initiateSidebar()
 
     }, 1000)
