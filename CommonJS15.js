@@ -1,5 +1,5 @@
 var baseURL;   // fetching the base URL
-
+var isExecuting = false;
 
 $(document).ready(function () {
 
@@ -37,6 +37,15 @@ $(document).ready(function () {
 /*  ------------------ SIDEBAR RENDERING ------------------ */
 
 function initiateSidebar() {
+
+    if (isExecuting) {
+        // Function is already executing, so just return
+        return;
+    } else {
+        setTimeout(initiateSidebar, 1000)
+    }
+    isExecuting = true;
+
     fetchMainCategories()
         .then(function (data) {
             renderSidebar(data)
@@ -152,8 +161,9 @@ function renderSidebar(data) {
 
     })
 
-    
+
     console.log("Ended Render")
+    isExecuting = false;
 }
 
 
