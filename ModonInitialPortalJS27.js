@@ -1,4 +1,5 @@
 var baseURL;   // fetching the base URL
+var dictionary ;
 var infoIconURL = "https://cdn.jsdelivr.net/gh/julianogharzeddine/ModonImages@main/InfoIcon.png" // info icon URL
 
 $(document).ready(function () {
@@ -6,7 +7,7 @@ $(document).ready(function () {
     // Translating the Page On Load
 
     dictionary = [
-        { "English": "Investigations Management", "Arabic": "إدارة القضايا و التحقيقات", "French": "Aff. Juridiques" }
+        { "English": "Our Departments", "Arabic": "أقسامنا المختلفة", "French": "Departements" }
     ];
 
     // Fetching the baseURL to use it in subsequent API Calls
@@ -148,16 +149,21 @@ function changeLanguage() {
     setTimeout(function () {
 
         let currentLang = getLanguage()
+        let targetLang=""
 
         if (currentLang == "en-US") {
+            targetLang = "English"
             translateToEnglish()
 
         } else if (currentLang == 'ar-SA') {
+            targetLang = "Arabic"
             translateToArabic()
         }
 
         initializeTiles()
         initiateSidebar()
+
+        translateText(targetLang)
 
     }, 1000)
 
@@ -177,7 +183,6 @@ function translateToEnglish() {
         'direction': 'rtl'
     })
     $(".task-details h4").css("text-align", "left")
-    $('.sectionBrowserTitle').css('text-align' , 'left')
 }
 
 function translateToArabic() {
@@ -193,7 +198,6 @@ function translateToArabic() {
         'direction': 'ltr'
     })
     $(".task-details h4").css("text-align", "right")
-    $('.sectionBrowserTitle').css('text-align' , 'right')
 }
 
 function getLanguage() {
@@ -209,7 +213,28 @@ function waitForTranslatorRender() {
     }
 }
 
+function translateText(targetLang){
+    let toTranslate = $('.translatable')
 
+    toTranslate.each(function () {
+        $(this).text(getFromDictionary(($(this).text().trim()), targetLang))
+    })
+
+}
+
+function getFromDictionary(text, toLanguage) {
+    for (var i = 0; i < dictionary.length; i++) {
+
+        var entry = dictionary[i];
+
+        if (entry.English === text) return entry[toLanguage];
+        if (entry.Arabic === text) return entry[toLanguage];
+        if (entry.French === text) return entry[toLanguage];
+
+    }
+
+    return 'Translation not found';
+}
 // Currently Disabled
 
 function createModal() {
