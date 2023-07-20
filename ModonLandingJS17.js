@@ -32,7 +32,7 @@ $(document).ready(function () {
     $(document).click(function () {
         setTimeout(function () {
             translateText()
-        }, 1000)
+        }, 500)
 
     })
 
@@ -417,7 +417,7 @@ function changeLanguage() {
 
         initiateSidebar()
         initiateDefaultOptions()
-        
+
     }, 1000)
 
 }
