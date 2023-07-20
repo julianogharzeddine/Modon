@@ -148,7 +148,8 @@ function changeLanguage() {
         }
         initializeTiles()
         initiateSidebar()
-    }, 500)
+
+    }, 2000)
 
 
 }
