@@ -42,13 +42,12 @@ function initiateSidebar() {
         // Function is already executing, so just return
         return;
     }
-
+    
     isExecuting = true;
 
     fetchMainCategories()
         .then(function (data) {
             renderSidebar(data)
-       
         })
         .catch(function (error) {
             console.error(error)
@@ -103,7 +102,7 @@ function fetchSubCategories(categoryID) {
 }
 
 function renderSidebar(data) {
-    
+
     let currentLang = getLanguage()
 
     $("[name='Sidebar']").html("")
@@ -117,8 +116,6 @@ function renderSidebar(data) {
 
             fetchSubCategories(categoryID)
                 .then(function (data) {
-                    
-
 
                     if (data === []) {
                         $("#SidebarCategoryWrapper").append(
@@ -150,9 +147,7 @@ function renderSidebar(data) {
                       </div>
                       `)
                     }
-
                     isExecuting = false;
-      
                 })
                 .catch(function (error) {
                     console.error(error)
