@@ -200,15 +200,6 @@ function getLanguage() {
 }
 
 
-function waitForTranslatorRender() {
-    if ($('.dd-container').length > 0) {
-        $('.dd-container').click()
-        $('.dd-container').click()
-    } else {
-        setTimeout(waitForTranslatorRender, 1000);
-    }
-}
-
 function initializeTiles() {
     // Dynamically generating the service tiles
 
