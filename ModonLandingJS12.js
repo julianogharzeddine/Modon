@@ -30,7 +30,7 @@ $(document).ready(function () {
     })
 
    $(document).click(function () {
-       translateText(currentLang)
+       translateText()
    })
 
     $(document).on('click', ".dd-container a", function () {
@@ -489,10 +489,10 @@ function waitForTranslatorRender() {
     }
 }
 
-function translateText(targetLang){
+function translateText(){
     let toTranslate = $('.translatable')
 
     toTranslate.each(function () {
-        $(this).text(getFromDictionary(($(this).text().trim()), targetLang))
+        $(this).text(getFromDictionary(($(this).text().trim()), getLanguage()))
     })
 }
