@@ -224,9 +224,9 @@ function getFromDictionary(text, toLanguage) {
 
         var entry = dictionary[i];
 
-        if (entry.English === text) return entry[toLanguage];
-        if (entry.Arabic === text) return entry[toLanguage];
-        if (entry.French === text) return entry[toLanguage];
+        if (entry["en-US"] === text) return entry[toLanguage];
+        if (entry["ar-SA"] === text) return entry[toLanguage];
+        if (entry["fr-FR"] === text) return entry[toLanguage];
 
     }
 
