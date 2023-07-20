@@ -141,13 +141,13 @@ function goTo(href) {
 function changeLanguage() {
 
     setTimeout(function () {
-        
-        var currentLang = getLanguage()
 
-        if (lang == "en-US") {
+        let currentLang = getLanguage()
+
+        if (currentLang == "en-US") {
             translateToEnglish()
 
-        } else if (lang == 'ar-SA') {
+        } else if (currentLang == 'ar-SA') {
             translateToArabic()
         }
 
