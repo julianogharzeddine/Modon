@@ -48,9 +48,7 @@ $(document).ready(function () {
         $("#serviceLink").val("")
     })
 
-    // Translating the Page On Load
 
-    waitForTranslatorRender();
 
 })
 
