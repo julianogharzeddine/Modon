@@ -296,7 +296,7 @@ function fetchSubCategoriesJoin() {
     return new Promise(function (resolve, reject) {
         $.ajax({
             type: 'GET',
-            url: `${baseURL}api/odatav4/v4/ModonServicesJoins`,
+            url: `${baseURL}api/odatav4/v4/ModonJoinedServices`,
             dataType: 'json',
             crossDomain: false,
             beforeSend: function (xhr) {
@@ -413,8 +413,8 @@ function renderSubCategoryCards(data, categoryName, categoryID) {
 
     $('#subcategories-card-wrapper').html("")
     data.map((item) => {
-        if (item.MainServiceID === categoryID && item.Expr2 == 'true') {
-            $('#subcategories-card-wrapper').append(`<div class="cardItem" id="${item.Expr3}" data-subcat="${item.ID}"><img src="${item.SubserviceImageURL}" class='titleImage'><p class="cardTitle translatable">${currentLang == 'ar-SA' ? item.SubserviceNameAR : item.SubserviceNameEN}</p></div>`)
+        if (item.MainServiceID === categoryID && item.IsActive == 'true') {
+            $('#subcategories-card-wrapper').append(`<div class="cardItem" id="${item.JavaScriptID}" data-subcat="${item.ID}"><img src="${item.SubserviceImageURL}" class='titleImage'><p class="cardTitle translatable">${currentLang == 'ar-SA' ? item.SubserviceNameAR : item.SubserviceNameEN}</p></div>`)
         }
 
     })
