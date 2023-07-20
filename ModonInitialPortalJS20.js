@@ -1,11 +1,8 @@
 var baseURL;   // fetching the base URL
 var infoIconURL = "https://cdn.jsdelivr.net/gh/julianogharzeddine/ModonImages@main/InfoIcon.png" // info icon URL
-var currentLang;
 
 $(document).ready(function () {
 
-    // Setting the current language
-    currentLang = getLanguage();
 
     // Fetching the baseURL to use it in subsequent API Calls
     baseURL = window.location.protocol + '//' + window.location.host + '/';
@@ -93,6 +90,8 @@ function fetchTiles() {
 
 function renderTiles(data) {
 
+    let currentLang = getLanguage()
+
     $('#sectionBrowser').html('')
     $('#sectionBrowser').append('<p class="sectionBrowserTitle" id="OurDepartments">أقسامنا المختلفة</p>')
     $("#sectionBrowser").append("<div id='card-wrapper'></div>")
@@ -142,13 +141,12 @@ function changeLanguage() {
         var lang = localStorage.getItem("selected_language")
 
         if (lang == "en-US") {
-            currentLanguage = 'en-US'
             translateToEnglish()
 
         } else if (lang == 'ar-SA') {
-            currentLanguage = 'en-US'
             translateToArabic()
         }
+
         initializeTiles()
         initiateSidebar()
 
