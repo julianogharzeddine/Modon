@@ -113,7 +113,7 @@ function renderTiles(data) {
     let currentLang = getLanguage()
 
     $('#sectionBrowser').html('')
-    $('#sectionBrowser').append('<p class="sectionBrowserTitle" class="translatable" >أقسامنا المختلفة</p>')
+    $('#sectionBrowser').append('<p class="sectionBrowserTitle translatable" >أقسامنا المختلفة</p>')
     $("#sectionBrowser").append("<div id='card-wrapper'></div>")
 
     data.map((tile) => {
