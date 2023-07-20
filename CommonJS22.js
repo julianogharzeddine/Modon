@@ -48,7 +48,7 @@ function initiateSidebar() {
     fetchMainCategories()
         .then(function (data) {
             renderSidebar(data)
-            isExecuting = false;
+       
         })
         .catch(function (error) {
             console.error(error)
@@ -151,7 +151,7 @@ function renderSidebar(data) {
                       `)
                     }
 
-
+                    isExecuting = false;
       
                 })
                 .catch(function (error) {
