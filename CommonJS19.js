@@ -39,11 +39,10 @@ $(document).ready(function () {
 function initiateSidebar() {
 
     if (isExecuting) {
-
-
         // Function is already executing, so just return
         return;
     }
+    
     isExecuting = true;
 
     fetchMainCategories()
@@ -104,7 +103,6 @@ function fetchSubCategories(categoryID) {
 
 function renderSidebar(data) {
 
-    console.log("Started Render")
     let currentLang = getLanguage()
 
     $("[name='Sidebar']").html("")
@@ -149,6 +147,7 @@ function renderSidebar(data) {
                       </div>
                       `)
                     }
+                    isExecuting = false;
                 })
                 .catch(function (error) {
                     console.error(error)
@@ -162,8 +161,7 @@ function renderSidebar(data) {
     })
 
 
-    console.log("Ended Render")
-    isExecuting = false;
+
 }
 
 
