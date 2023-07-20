@@ -1,11 +1,11 @@
 var baseURL;   // fetching the base URL
 var infoIconURL = "https://cdn.jsdelivr.net/gh/julianogharzeddine/ModonImages@main/InfoIcon.png" // info icon URL
-var currentLanguage;
+var currentLang;
 
 $(document).ready(function () {
 
     // Setting the current language
-    currentLanguage = getLanguage();
+    currentLang = getLanguage();
 
     // Fetching the baseURL to use it in subsequent API Calls
     baseURL = window.location.protocol + '//' + window.location.host + '/';
@@ -107,7 +107,7 @@ function renderTiles(data) {
         class='infoIcon'>
       </div>
       <img src="${tile.ServiceImage}" class='titleImage'>
-      <p class="cardTitle">${currentLanguage == 'ar-SA' ? tile.ServiceNameAR : tile.ServiceNameEN}</p>
+      <p class="cardTitle">${currentLang == 'ar-SA' ? tile.ServiceNameAR : tile.ServiceNameEN}</p>
       </div>
     `)
         }
@@ -142,8 +142,11 @@ function changeLanguage() {
         var lang = localStorage.getItem("selected_language")
 
         if (lang == "en-US") {
+            currentLanguage = 'en-US'
             translateToEnglish()
+
         } else if (lang == 'ar-SA') {
+            currentLanguage = 'en-US'
             translateToArabic()
         }
         initializeTiles()
@@ -153,9 +156,6 @@ function changeLanguage() {
 
 
 }
-
-
-
 
 function translateToEnglish() {
     $('.cardTitle').css('transform', 'scale(0.8)')
