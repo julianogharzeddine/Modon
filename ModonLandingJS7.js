@@ -33,33 +33,6 @@ $(document).ready(function () {
     //      translate()
     //  })
 
-    let LSLang = localStorage.getItem('selected_language')
-
-
-    if (LSLang == null || LSLang == 'undefined') {
-        localStorage.setItem('selected_language', 'ar-SA')
-    }
-
-    let LSLang1 = localStorage.getItem('selected_language')
-
-    switch (LSLang1) {
-        case 'en-US':
-            $("a.dd-option label.dd-option-text:contains('Arabic')").click();
-            $("a.dd-option label.dd-option-text:contains('English')").click();
-            break
-        case 'ar-SA':
-            $("a.dd-option label.dd-option-text:contains('Arabic')").click();
-            break
-        case 'fr-FR':
-            $("a.dd-option label.dd-option-text:contains('Arabic')").click();
-            $("a.dd-option label.dd-option-text:contains('Français')").click();
-            break
-        default:
-            $("a.dd-option label.dd-option-text:contains('Arabic')").click();
-            break
-    }
-
-    // Translating the Page On Load
 
     dictionary = [
         { "English": "Investigations Management", "Arabic": "إدارة القضايا و التحقيقات", "French": "Aff. Juridiques" },
@@ -169,6 +142,12 @@ $(document).ready(function () {
     })
 
 
+initiateDefaultOptions()
+waitForTranslatorRender()
+
+})
+
+function initiateDefaultOptions() {
     fetchSubCategoriesJoin()
         .then(function (data) {
 
@@ -182,8 +161,7 @@ $(document).ready(function () {
             console.error(error);
         });
 
-
-})
+}
 
 function initiateFetchInvestigations() {
 
@@ -422,62 +400,65 @@ function renderSubCategoryCards(data, categoryName, categoryID) {
 }
 
 
-function translate() {
-    let LSLang = localStorage.getItem('selected_language')
-    let targetLang = ""
+function changeLanguage() {
 
-    switch (LSLang) {
-        case 'en-US':
-            targetLang = 'English'
-            $('.taskDD').css('left', '72%')
-            $('[name="Sidebar"]').css('right', '')
-            $('[name="Sidebar"]').css('left', '0')
-            $('.runtime-form').css('left', '')
-            $('.runtime-form').css('left', '20%')
-            $('.counterCard').css('flex-direction', 'row-reverse')
-            $('.dateWrapper').css('flex-direction', 'row-reverse')
-            $('.card-rows').css('flex-direction', 'row-reverse')
-            $('.cardHeader').css('flex-direction', 'row')
-            $('.investNoStatusWrap').css('flex-direction', 'row')
-            $('#subcategories-card-wrapper').css('direction', 'ltr')
-            $('#card-wrapper').css('direction', 'ltr')
-            $('.taskDD a').css('flex-direction', 'row')
-            $('.task-details p').css({
-                'text-align': 'left',
-                'direction': 'rtl'
-            })
-            $(".task-details h4").css("text-align", "left")
-            break
-        case 'ar-SA':
-            targetLang = 'Arabic'
-            $('.taskDD').css('left', '20%')
-            $('[name="Sidebar"]').css('left', '')
-            $('[name="Sidebar"]').css('right', '0')
-            $('[name="Sidebar"]').css('left', '')
-            $('.runtime-form').css('left', '5%')
-            $('.counterCard').css('flex-direction', 'row-reverse')
-            $('.dateWrapper').css('flex-direction', 'row')
-            $('.card-rows').css('flex-direction', 'row-reverse')
-            $('.cardHeader').css('flex-direction', 'row')
-            $('.investNoStatusWrap').css('flex-direction', 'row')
-            $('#subcategories-card-wrapper').css('direction', 'rtl')
-            $('#card-wrapper').css('direction', 'rtl')
-            $('.taskDD a').css('flex-direction', 'row-reverse')
-            $('.task-details p').css({
-                'text-align': 'right',
-                'direction': 'ltr'
-            })
-            $(".task-details h4").css("text-align", "right")
-            break
+    setTimeout(function () {
 
-    }
+        let currentLang = getLanguage()
 
-    let toTranslate = $('.translatable')
+        if (currentLang == "en-US") {
+            translateToEnglish()
 
-    toTranslate.each(function () {
-        $(this).text(getFromDictionary(($(this).text().trim()), targetLang))
+        } else if (currentLang == 'ar-SA') {
+            translateToArabic()
+        }
+
+        initiateDefaultOptions()
+        initiateSidebar()
+
+    }, 1000)
+
+}
+function translateToArabic() {
+    $('.taskDD').css('left', '20%')
+    $('[name="Sidebar"]').css('left', '')
+    $('[name="Sidebar"]').css('right', '0')
+    $('[name="Sidebar"]').css('left', '')
+    $('.runtime-form').css('left', '5%')
+    $('.counterCard').css('flex-direction', 'row-reverse')
+    $('.dateWrapper').css('flex-direction', 'row')
+    $('.card-rows').css('flex-direction', 'row-reverse')
+    $('.cardHeader').css('flex-direction', 'row')
+    $('.investNoStatusWrap').css('flex-direction', 'row')
+    $('#subcategories-card-wrapper').css('direction', 'rtl')
+    $('#card-wrapper').css('direction', 'rtl')
+    $('.taskDD a').css('flex-direction', 'row-reverse')
+    $('.task-details p').css({
+        'text-align': 'right',
+        'direction': 'ltr'
     })
+    $(".task-details h4").css("text-align", "right")
+}
 
+function translateToEnglish() {
+    $('.taskDD').css('left', '72%')
+    $('[name="Sidebar"]').css('right', '')
+    $('[name="Sidebar"]').css('left', '0')
+    $('.runtime-form').css('left', '')
+    $('.runtime-form').css('left', '20%')
+    $('.counterCard').css('flex-direction', 'row-reverse')
+    $('.dateWrapper').css('flex-direction', 'row-reverse')
+    $('.card-rows').css('flex-direction', 'row-reverse')
+    $('.cardHeader').css('flex-direction', 'row')
+    $('.investNoStatusWrap').css('flex-direction', 'row')
+    $('#subcategories-card-wrapper').css('direction', 'ltr')
+    $('#card-wrapper').css('direction', 'ltr')
+    $('.taskDD a').css('flex-direction', 'row')
+    $('.task-details p').css({
+        'text-align': 'left',
+        'direction': 'rtl'
+    })
+    $(".task-details h4").css("text-align", "left")
 }
 
 function getFromDictionary(text, toLanguage) {
@@ -494,3 +475,17 @@ function getFromDictionary(text, toLanguage) {
     return 'Translation not found';
 }
 
+
+function getLanguage() {
+    return localStorage.getItem('selected_language')
+}
+
+
+function waitForTranslatorRender() {
+    if ($('.dd-container').length > 0) {
+        $('.dd-container').click()
+        $('.dd-container').click()
+    } else {
+        setTimeout(waitForTranslatorRender, 1000);
+    }
+}
