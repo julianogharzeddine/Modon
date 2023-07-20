@@ -132,6 +132,8 @@ function renderTiles(data) {
         }
 
     })
+
+    translateText(currentLang)
 }
 
 function goTo(href) {
@@ -162,8 +164,6 @@ function changeLanguage() {
 
         initializeTiles()
         initiateSidebar()
-
-        translateText(targetLang)
 
     }, 1000)
 
