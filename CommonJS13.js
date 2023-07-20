@@ -1,10 +1,7 @@
-var baseURL   // fetching the base URL
-var currentLanguage
+var baseURL;   // fetching the base URL
+
 
 $(document).ready(function () {
-
-    // Fetching the current language
-    currentLanguage = getLanguage()
 
     // Fetching the baseURL to use it in subsequent API Calls
     baseURL = window.location.protocol + '//' + window.location.host + '/'
@@ -120,8 +117,8 @@ function renderTasks(tasks) {
 
 function renderSidebar(data) {
 
-    console.log("Rendering in : " + currentLanguage)
-
+    let currentLang = getLanguage()
+    
     $("[name='Sidebar']").html("")
     $("[name='Sidebar']").append(`<div id="SidebarCategoryWrapper"></div>`)
     data.map((category) => {
@@ -141,7 +138,7 @@ function renderSidebar(data) {
                             `<div class="categoryItemWrapper" >
                         <div class="categoryItem" id="${category.JavaScriptID}" data-cat="${category.ID}">
                   <img src='${category.ServiceImageURL}'>
-                  <p class='categoryName'>${currentLanguage == 'ar-SA' ? category.ServiceNameAR : category.ServiceNameEN}</p>
+                  <p class='categoryName'>${currentLang == 'ar-SA' ? category.ServiceNameAR : category.ServiceNameEN}</p>
                 </div>
                 </div>`
                         )
@@ -150,7 +147,7 @@ function renderSidebar(data) {
 
                             if (subCategory.IsActive == 'true') {
                                 return `<div class="subcategoryItem" id="${subCategory.JavaScriptID}" data-subcat="${subCategory.ID}">
-                                <p class='subcategoryName'>${currentLanguage == 'ar-SA' ? subCategory.SubserviceNameAR : subCategory.SubserviceNameEN}</p>
+                                <p class='subcategoryName'>${currentLang == 'ar-SA' ? subCategory.SubserviceNameAR : subCategory.SubserviceNameEN}</p>
                               </div>`
                             }
 
@@ -160,7 +157,7 @@ function renderSidebar(data) {
                             `<div class="categoryItemWrapper">
                         <div class="categoryItem" id="${category.JavaScriptID}" data-cat="${category.ID}">
                         <img src='${category.ServiceImageURL}'>
-                        <p class='categoryName'>${currentLanguage == 'ar-SA' ? category.ServiceNameAR : category.ServiceNameEN}</p>
+                        <p class='categoryName'>${currentLang == 'ar-SA' ? category.ServiceNameAR : category.ServiceNameEN}</p>
                       </div>
                       <div class="subcategoriesWrapper">${subCategoriesHTML}</div>
                       </div>
