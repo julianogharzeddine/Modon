@@ -29,9 +29,9 @@ $(document).ready(function () {
         $(this).addClass('Darker');
     })
 
-    //  $(document).click(function () {
-    //      translate()
-    //  })
+   $(document).click(function () {
+       translateText(currentLang)
+   })
 
     $(document).on('click', ".dd-container a", function () {
         changeLanguage()
@@ -43,33 +43,19 @@ $(document).ready(function () {
 
 
     dictionary = [
-        { "English": "Investigations Management", "Arabic": "إدارة القضايا و التحقيقات", "French": "Aff. Juridiques" },
-        { "English": "Proceed Against Institution", "Arabic": "إجراء ضد مؤسسة", "French": "Procéder Contre Inst." },
-        { "English": "Proceed With Institution", "Arabic": "إجراء مع المؤسسة", "French": "Procéder Avec Inst." },
-        { "English": "Request Investigation", "Arabic": "إجراء تحقيق", "French": "Demander Enquête" },
-        { "English": "Conflict Of Interest Procedure", "Arabic": "إجراء تضارب المصالح", "French": "Procédure Conflit Intérêt" },
-        { "English": "Contract Study Procedures", "Arabic": "إجراءات دراسة العقود", "French": "Procédures Étude Contrats" },
-        { "English": "Click Here", "Arabic": "إضغط هنا", "French": "Cliquer" },
-        { "English": "Conduct Investigation", "Arabic": "إجراء تحقيق", "French": "Mener Enquête" },
-        { "English": "Investigation Requests", "Arabic": "طلبات التحقيق", "French": "Demandes D'Enquête" },
-        { "English": "Submit Complaint", "Arabic": "تقديم شكوى", "French": "Soumettre Plainte" },
-        { "English": "New", "Arabic": "الجديدة", "French": "Nouveau" },
-        { "English": "Active", "Arabic": "النشطة", "French": "Actif" },
-        { "English": "Completed", "Arabic": "المكتملة", "French": "Terminé" },
-        { "English": "Created By", "Arabic": "انشا من قبل", "French": "Créé Par" },
-        { "English": "Investigation Status", "Arabic": "حالة التحقيق", "French": "Statut Enquête" },
-        { "English": "Subject", "Arabic": "الموضوع", "French": "Sujet" },
-        { "English": "out of", "Arabic": "من", "French": "de" },
-        { "English": "Status", "Arabic": "الحالة", "French": "Statut" },
-        { "English": "Purchase", "Arabic": "طلب شراء", "French": "Achat" },
-        { "English": "Sales", "Arabic": "المبيعات", "French": "Ventes" },
-        { "English": "Marketing", "Arabic": "التسويق", "French": "Marketing" },
-        { "English": "Requisitions", "Arabic": "الطلبات", "French": "Demandes" },
-        { "English": "Our Services", "Arabic": "خدماتنا المختلفة", "French": "Nos Services" },
-        { "English": "Purchase No", "Arabic": "رقم الطلب", "French": "Numero" },
-        { "English": "Today", "Arabic": "اليوم", "French": "Auj" },
-        { "English": "Wed", "Arabic": "الأربعاء", "French": "Mer" },
-        { "English": "Thu", "Arabic": "الخميس", "French": "Jeu" }
+        { "en-US": "New", "ar-SA": "الجديدة", "fr-FR": "Nouveau" },
+        { "en-US": "Active", "ar-SA": "النشطة", "fr-FR": "Actif" },
+        { "en-US": "Completed", "ar-SA": "المكتملة", "fr-FR": "Terminé" },
+        { "en-US": "Created By", "ar-SA": "انشا من قبل", "fr-FR": "Créé Par" },
+        { "en-US": "Investigation Status", "ar-SA": "حالة التحقيق", "fr-FR": "Statut Enquête" },
+        { "en-US": "Subject", "ar-SA": "الموضوع", "fr-FR": "Sujet" },
+        { "en-US": "out of", "ar-SA": "من", "fr-FR": "de" },
+        { "en-US": "Status", "ar-SA": "الحالة", "fr-FR": "Statut" },
+        { "en-US": "Our Services", "ar-SA": "خدماتنا المختلفة", "fr-FR": "Nos Services" },
+        { "en-US": "Vacancies", "ar-SA": "عرض الطلبات", "fr-FR": "Positions" },
+        { "en-US": "Apply", "ar-SA": "إنشاء طلب", "fr-FR": "Presenter" },
+        { "en-US": "Reports", "ar-SA": "التقارير", "fr-FR": "Rapports" },
+
     ];
 
 
@@ -449,6 +435,7 @@ function translateToArabic() {
         'direction': 'ltr'
     })
     $(".task-details h4").css("text-align", "right")
+    $('.sectionBrowser .sectionBrowserTitle').css('flex-direction' , 'row-reverse')
 }
 
 function translateToEnglish() {
@@ -470,6 +457,7 @@ function translateToEnglish() {
         'direction': 'rtl'
     })
     $(".task-details h4").css("text-align", "left")
+    $('.sectionBrowser .sectionBrowserTitle').css('flex-direction' , 'row')
 }
 
 function getFromDictionary(text, toLanguage) {
@@ -477,9 +465,9 @@ function getFromDictionary(text, toLanguage) {
 
         var entry = dictionary[i];
 
-        if (entry.English === text) return entry[toLanguage];
-        if (entry.Arabic === text) return entry[toLanguage];
-        if (entry.French === text) return entry[toLanguage];
+        if (entry["en-US"] === text) return entry[toLanguage];
+        if (entry["ar-SA"]=== text) return entry[toLanguage];
+        if (entry["fr-FR"]=== text) return entry[toLanguage];
 
     }
 
