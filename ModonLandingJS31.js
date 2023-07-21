@@ -232,11 +232,11 @@ function renderVacanciesCards(data) {
         let containsKeyword =
             reqNo?.toLowerCase().includes(searchKeyword.toLowerCase()) ||
             certificateType?.toLowerCase().includes(searchKeyword.toLowerCase()) ||
-            postingDate.includes(searchKeyword.toLowerCase()) ||
+            postingDate?.includes(searchKeyword.toLowerCase()) ||
             jobTitle?.toLowerCase().includes(searchKeyword.toLowerCase()) ||
             deptName?.toLowerCase().includes(searchKeyword.toLowerCase()) ||
             status?.toLowerCase().includes(searchKeyword.toLowerCase()) ||
-            yearsOfExpertise.includes(searchKeyword.toLowerCase())
+            yearsOfExpertise?.includes(searchKeyword.toLowerCase())
 
         let targetArray = []
 
