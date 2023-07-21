@@ -56,7 +56,7 @@ $(document).ready(function () {
         { "en-US": "Apply", "ar-SA": "إنشاء طلب", "fr-FR": "Presenter" },
         { "en-US": "Reports", "ar-SA": "التقارير", "fr-FR": "Rapports" },
         { "en-US": "Recruitment", "ar-SA": "توظيف", "fr-FR": "Recrutement" },
-        { "en-US": "CS", "ar-SA": "CS", "fr-FR": "CS" }, 
+        { "en-US": "Certificate Type", "ar-SA": "نوع الشهادة", "fr-FR": "Type Certificat" }, 
         { "en-US": "Job Title", "ar-SA": "المسمى الوظيفي", "fr-FR": "Titre du poste" },
         { "en-US": "Department", "ar-SA": "الإدارة", "fr-FR": "Département" },
         { "en-US": "Expertise (yrs)", "ar-SA": "الخبرة (سنوات)", "fr-FR": "Expertise (années)" }
@@ -258,7 +258,7 @@ function renderVacanciesCards(data) {
 
         if (containsKeyword) {
             if (investStatus == "All" || targetArray.includes(status)) {
-                $('#card-wrapper').append(`<div class="cardItem"><div class="cardHeader"><div class="investNoStatusWrap"><div class="status" style="background-color:${redStatus.includes(status) ? "red" : (orangeStatus.includes(status) ? "orange" : (greenStatus.includes(status) ? "green" : "red"))};"></div><div class="investNo"><a>${reqNo}</a></div></div><div class='dateWrapper'><div class="date">${new Date(postingDate).toLocaleDateString("en-GB", { day: "2-digit", month: "2-digit", year: "numeric" }).split("/").reverse().join("/")}</div><img src='${dateIconURL}'/></div></div><div class="cardBody"><div class="card-rows"><p class="labelVal">${certificateType}</p><p class="labelTitle translatable">CertificateType</p></div><div class="card-rows"><p class="labelVal">${jobTitle}</p><p class="labelTitle translatable">Job Title</p></div><div class="card-rows"><p class="labelVal">${deptName}</p><p class="labelTitle translatable">Department</p></div><div class="card-rows"><p class="labelVal">${yearsOfExpertise}</p><p class="labelTitle translatable">Expertise (yrs)</p></div></div></div>
+                $('#card-wrapper').append(`<div class="cardItem"><div class="cardHeader"><div class="investNoStatusWrap"><div class="status" style="background-color:${redStatus.includes(status) ? "red" : (orangeStatus.includes(status) ? "orange" : (greenStatus.includes(status) ? "green" : "red"))};"></div><div class="investNo"><a>${reqNo}</a></div></div><div class='dateWrapper'><div class="date">${new Date(postingDate).toLocaleDateString("en-GB", { day: "2-digit", month: "2-digit", year: "numeric" }).split("/").reverse().join("/")}</div><img src='${dateIconURL}'/></div></div><div class="cardBody"><div class="card-rows"><p class="labelVal">${certificateType}</p><p class="labelTitle translatable">Certificate Type</p></div><div class="card-rows"><p class="labelVal">${jobTitle}</p><p class="labelTitle translatable">Job Title</p></div><div class="card-rows"><p class="labelVal">${deptName}</p><p class="labelTitle translatable">Department</p></div><div class="card-rows"><p class="labelVal">${yearsOfExpertise}</p><p class="labelTitle translatable">Expertise (yrs)</p></div></div></div>
                 `);
                 filteredResults++
             }
