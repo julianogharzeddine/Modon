@@ -1,8 +1,8 @@
 var dictionary; // definining the dictionary
 var baseURL;   // fetching the base URL
-var redStatus = ["جديد"]
+var redStatus = ["موافقة"]
 var greenStatus = ["مغلق"]
-var orangeStatus = ["منشور"]
+var orangeStatus = ["قيد الإجراء"]
 var dateIconURL = "https://srv-k2five/Designer/Image.ashx?ImID=110252"
 var investStatus = "All"
 var searchKeyword = ""
@@ -46,9 +46,9 @@ $(document).ready(function () {
 
 
     dictionary = [
-        { "en-US": "New", "ar-SA": "الجديدة", "fr-FR": "Nouveau" },
-        { "en-US": "Active", "ar-SA": "النشطة", "fr-FR": "Actif" },
-        { "en-US": "Completed", "ar-SA": "المكتملة", "fr-FR": "Terminé" },
+        { "en-US": "Under Process", "ar-SA": "قيد الإجراء", "fr-FR": "Nouveau" },
+        { "en-US": "Approved", "ar-SA": "موافقة", "fr-FR": "Actif" },
+        { "en-US": "Closed", "ar-SA": "مغلق", "fr-FR": "Terminé" },
         { "en-US": "Created By", "ar-SA": "انشا من قبل", "fr-FR": "Créé Par" },
         { "en-US": "Investigation Status", "ar-SA": "حالة التحقيق", "fr-FR": "Statut Enquête" },
         { "en-US": "Subject", "ar-SA": "الموضوع", "fr-FR": "Sujet" },
@@ -221,13 +221,15 @@ function renderInvestCards(data) {
     $('#card-wrapper').html("")
     let filteredResults = 0;
 
-    data.map((investigation) => {
+    data.map((vacancy) => {
 
-        let status = investigation.Status
-        let refNo = investigation.RefNo
-        let creationDate = investigation.CreatedOn
-        let creator = investigation.CreatedBy
-        let subject = investigation.InvestigationSubject
+        let reqNo = vacancy.RequestNo
+        let certificateType = vacancy.CertificateType
+        let jobTitle = vacancy.JobTitle
+        let deptName = vacancy.DeptName
+        let postingDate = vacancy.PostingDate
+        let status = vacancy.Status
+        let yearsOfExpertise = vacancy.ExpertiseYears
 
         let containsKeyword =
             refNo.toLowerCase().includes(searchKeyword.toLowerCase()) ||
@@ -255,7 +257,8 @@ function renderInvestCards(data) {
 
         if (containsKeyword) {
             if (investStatus == "All" || targetArray.includes(status)) {
-                $('#card-wrapper').append(`<div class="cardItem"><div class="cardHeader"><div class="investNoStatusWrap"><div class="status" style="background-color: ${redStatus.includes(status) ? "red" : (orangeStatus.includes(status) ? "orange" : (greenStatus.includes(status) ? "green" : "red"))};"></div><div class="investNo"><a href='https://srv-k2five/Runtime/Runtime/Form/RO.Form/?RefNo=${refNo}'>${refNo}</a></div></div><div class='dateWrapper'><div class="date">${new Date(creationDate).toLocaleDateString("en-GB", { day: "2-digit", month: "2-digit", year: "numeric" }).split("/").reverse().join("/")}</div><img src='${dateIconURL}' /></div></div><div class="cardBody"><div class="card-rows"><p class="reqCreator labelVal">${creator}</p><p class="reqCreatorLabel labelTitle translatable">انشا من قبل</p></div><div class="card-rows"><p class="reqCreator labelVal">${status}</p><p class="reqCreatorLabel labelTitle translatable">حالة التحقيق</p></div><div class="card-rows"><p class="reqSubject labelVal">${subject}</p><p class="reqSubjectLabel labelTitle translatable">الموضوع</p></div></div></div>`);
+                $('#card-wrapper').append(`<div class="cardItem"><div class="cardHeader"><div class="investNoStatusWrap"><div class="status" style="background-color:${redStatus.includes(status)?"red":(orangeStatus.includes(status)?"orange":(greenStatus.includes(status)?"green":"red"))};"></div><div class="investNo"><a href='https://srv-k2five/Runtime/Runtime/Form/RO.Form/?RefNo=${refNo}'>${reqNo}</a></div></div><div class='dateWrapper'><div class="date">${new Date(postingDate).toLocaleDateString("en-GB",{day:"2-digit",month:"2-digit",year:"numeric"}).split("/").reverse().join("/")}</div><img src='${dateIconURL}'/></div></div><div class="cardBody"><div class="card-rows"><p class="labelVal">${certificateType}</p><p class="labelTitle translatable">CertificateType</p></div><div class="card-rows"><p class="labelVal">${jobTitle}</p><p class="labelTitle translatable">Job Title</p></div><div class="card-rows"><p class="labelVal">${deptName}</p><p class="labelTitle translatable">Department</p></div><div class="card-rows"><p class="labelVal">${yearsOfExpertise}</p><p class="labelTitle translatable">Expertise (yrs)</p></div></div></div>
+                `);
                 filteredResults++
             }
         }
@@ -339,17 +342,17 @@ function renderCounterButtons(data) {
     let content = `
   <div class="Complete counterCard" data-status="Complete">
       <p id="completeCounter" class="counterCircle">${completedNo}</p>
-      <p class="counterLabel translatable">المكتملة</p>
+      <p class="counterLabel translatable">Closed</p>
       <p class="totalcounter"><span class='translatable'>من </span> ${totalReq}</p>
   </div>
   <div class="Active counterCard" data-status="Active">
       <p id="activeCounter" class="counterCircle">${activeNo}</p>
-      <p class="counterLabel translatable">النشطة</p>
+      <p class="counterLabel translatable">Under Review</p>
       <p class="totalcounter"><span class='translatable'>من </span> ${totalReq}</p>
   </div>
   <div class="New counterCard" data-status="New">
       <p id="newCounter" class="counterCircle">${newNo}</p>
-      <p class="counterLabel translatable">الجديدة</p>
+      <p class="counterLabel translatable">Approved</p>
       <p class="totalcounter"><span class='translatable'>من </span> ${totalReq}</p>
   </div>
   `
@@ -448,7 +451,7 @@ function translateToEnglish() {
     $('[name="Sidebar"]').css('right', '')
     $('[name="Sidebar"]').css('left', '0')
     $('.runtime-form').css('left', '')
-    $('.runtime-form').css('left', '20%')
+    $('.runtime-form').css('left', '23%')
     $('.counterCard').css('flex-direction', 'row-reverse')
     $('.dateWrapper').css('flex-direction', 'row-reverse')
     $('.card-rows').css('flex-direction', 'row-reverse')
