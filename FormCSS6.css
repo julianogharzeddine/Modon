@@ -3,8 +3,8 @@
     --text_field_border_color: #c1c1c1;
     --text_field_font_size: 11pt ;
     --bg-color: #e5e6f6;  /* Main Background Color */
-    --secondarylight-bg-color :  #0066cc  ; /* Secondary Background Color - Used for sidebar , completed request , worklist headers (and button) */
-    --secondarydark-bg-color :  #002544 ;  /* Secondary Dark Background Color - Used for translator header , buttons */
+    --secondarylight-bg-color :  #246c98  ; /* Secondary Background Color - Used for sidebar , completed request , worklist headers (and button) */
+    --secondarydark-bg-color :  #246c98 ;  /* Secondary Dark Background Color - Used for translator header , buttons */
     --sidebar-boxshadow : 0px 0px 20px var(--secondarylight-bg-color);
     --white : #ffffff ;
     --standard-border-radius : 2.5ex ;
@@ -15,7 +15,7 @@
     --card-title-font-size : 23px ;
     --worklist-row-even-color : #eeeeee ;
     --textbox-border-color : #c2c2c2 ;
-    --card-title-color : #0066cc ;
+    --card-title-color : #246c98 ;
 }
 
 
@@ -181,7 +181,7 @@ div[name*=Card] .panel-header-wrapper .panel-header-text,div[name*=Card] .grid-h
     font-family: SWCC-Medium !important;
     font-size: 2.4ex !important;
     height: 100% !important;
-    text-align : right ;
+    text-align : left ;
 }
 
 div[name*=Card] .panel-header-wrapper .panel-header-text span,div[name*=Card] .grid-header-wrapper .grid-header-text span {
@@ -372,11 +372,6 @@ div[name*="Worklist Card WT"] span.text-underline {
 [name*='Send Component'] :not(.SourceCode-Forms-Controls-Web-Button){
     background: var(--bg-color) !important;
 }
-
-.reToolbarWrapper {
-    float : right ;
-}
-
 
 .grid-body   {
     border-radius : 0ex 0ex 2.5ex 2.5ex !important ;
