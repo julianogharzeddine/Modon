@@ -230,13 +230,13 @@ function renderVacanciesCards(data) {
         let yearsOfExpertise = vacancy.ExpertiseYears
 
         let containsKeyword =
-            reqNo.toLowerCase().includes(searchKeyword.toLowerCase()) ||
-            certificateType.toLowerCase().includes(searchKeyword.toLowerCase()) ||
-            postingDate.toLowerCase().includes(searchKeyword.toLowerCase()) ||
-            jobTitle.toLowerCase().includes(searchKeyword.toLowerCase()) ||
-            deptName.toLowerCase().includes(searchKeyword.toLowerCase()) ||
-            status.toLowerCase().includes(searchKeyword.toLowerCase()) ||
-            yearsOfExpertise.toLowerCase().includes(searchKeyword.toLowerCase())
+            reqNo?.toLowerCase().includes(searchKeyword.toLowerCase()) ||
+            certificateType?.toLowerCase().includes(searchKeyword.toLowerCase()) ||
+            postingDate?.toLowerCase().includes(searchKeyword.toLowerCase()) ||
+            jobTitle?.toLowerCase().includes(searchKeyword.toLowerCase()) ||
+            deptName?.toLowerCase().includes(searchKeyword.toLowerCase()) ||
+            status?.toLowerCase().includes(searchKeyword.toLowerCase()) ||
+            yearsOfExpertise?.toLowerCase().includes(searchKeyword.toLowerCase())
 
         let targetArray = []
 
