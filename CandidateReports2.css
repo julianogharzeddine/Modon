@@ -10,9 +10,9 @@
 :root {
     --bg-color: #e9e9f6;
     /* Main Background Color */
-    --secondarylight-bg-color: #0066cc;
+    --secondarylight-bg-color: #266990;
     /* Secondary Background Color - Used for sidebar , completed request , worklist headers (and button) */
-    --secondarydark-bg-color: #0066cc;
+    --secondarydark-bg-color: #266990;
     /* Secondary Dark Background Color - Used for translator header , buttons */
     --sidebar-boxshadow: 0px 0px 20px var(--secondarylight-bg-color);
     --white: #ffffff;
@@ -24,7 +24,7 @@
     --card-title-font-size: 23px;
     --worklist-row-even-color: #eeeeee;
     --searchtextbox-border-color: #c2c2c2;
-    --card-title-color: #0066cc;
+    --card-title-color: #266990;
 }
 
 /* FORM BOUNDARIES STYLING */
@@ -64,7 +64,7 @@ font-family : SWCC-Medium !important ;
 
 
 div[name*="FullNavigationbar"]  * {
-    background :#0066cc !important ;  
+    background :#266990 !important ;  
 }
 
 
@@ -136,7 +136,7 @@ div[name*="FullNavigationbar"]  * {
 }
 
 .hyperlink {
-    color : #0066cc !important ;
+    color : #266990 !important ;
     text-decoration : none ;
 }
 
@@ -289,12 +289,12 @@ div[name*=Card] .panel-body {
 
 
 .tab-box-tabs .tab.selected , .tab-box-tabs .tab.selected *  {
-    background-color : #0066cc !important ;
+    background-color : #266990 !important ;
     color : white !important ;
     border-radius : 5px !importaNT ;
     outline : none !important ;
-    border-color : #0066cc !important ;
-    outline-color :  #0066cc !important ;
+    border-color : #266990!important ;
+    outline-color :  #266990 !important ;
     
 }
 
