@@ -170,7 +170,7 @@ function initiatefetchVacancies() {
 
     fetchVacancies()
         .then(function (data) {
-            waitForInvestWrapperRender(data)
+            waitForVacanciesWrapperRender(data)
         })
         .catch(function (error) {
             console.error(error);
@@ -180,11 +180,11 @@ function initiatefetchVacancies() {
 
 // Wait for the Card Wrapper
 
-function waitForInvestWrapperRender(data) {
+function waitForVacanciesWrapperRender(data) {
     if ($('#card-wrapper').length > 0) {
-        renderInvestCards(data);
+        renderVacanciesCards(data);
     } else {
-        setTimeout(waitForInvestWrapperRender, 500);
+        setTimeout(waitForVacanciesWrapperRender, 500);
     }
 }
 
