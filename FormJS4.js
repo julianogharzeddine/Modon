@@ -1,12 +1,17 @@
+var bool = false;
+var currentURL;
 
 $(document).ready(function () {
 
-    const currentURL = window.location.href;
+    currentURL = window.location.href;
+
     const searchKeyword = "RuntimeAR";
 
     if (currentURL.includes(searchKeyword)) {
+
         $(`div[name*=Card] .panel-header-wrapper .panel-header-text,div[name*=Card] .grid-header-wrapper .grid-header-text`).css('text-align', 'right')
     } else {
+
         $(`div[name*=Card] .panel-header-wrapper .panel-header-text,div[name*=Card] .grid-header-wrapper .grid-header-text`).css('text-align', 'left')
     }
 
@@ -24,18 +29,25 @@ $(document).ready(function () {
 function updateURL(keyword) {
     const currentURL = window.location.href;
     let newURL;
-    
+
     if (keyword === "EnglishFlag") {
-      newURL = currentURL.replace("RuntimeAR", "Runtime");
+        if (currentURL.includes("RuntimeAR")) {
+            newURL = currentURL.replace("RuntimeAR", "Runtime");
+        }
+
     } else if (keyword === "ArabicFlag") {
-      newURL = currentURL.replace("Runtime", "RuntimeAR");
+        if (!currentURL.includes("RuntimeAR")) {
+            newURL = currentURL.replace("Runtime", "RuntimeAR");
+        }
+
+
     }
-  
+
     // Change the URL and immediately go to the new URL in the same tab
     if (newURL) {
-      window.location.replace(newURL);
+        window.location.replace(newURL);
     }
-  }
+}
 
 function changeLang() {
     var lang = localStorage.getItem("selected_language")
