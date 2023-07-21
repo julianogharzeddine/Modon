@@ -232,10 +232,13 @@ function renderInvestCards(data) {
         let yearsOfExpertise = vacancy.ExpertiseYears
 
         let containsKeyword =
-            refNo.toLowerCase().includes(searchKeyword.toLowerCase()) ||
-            creationDate.toLowerCase().includes(searchKeyword.toLowerCase()) ||
-            creator.toLowerCase().includes(searchKeyword.toLowerCase()) ||
-            subject.toLowerCase().includes(searchKeyword.toLowerCase());
+            reqNo.toLowerCase().includes(searchKeyword.toLowerCase()) ||
+            certificateType.toLowerCase().includes(searchKeyword.toLowerCase()) ||
+            postingDate.toLowerCase().includes(searchKeyword.toLowerCase()) ||
+            jobTitle.toLowerCase().includes(searchKeyword.toLowerCase()) ||
+            deptName.toLowerCase().includes(searchKeyword.toLowerCase())  ||
+            status.toLowerCase().includes(searchKeyword.toLowerCase()) ||
+            yearsOfExpertise.toLowerCase().includes(searchKeyword.toLowerCase()) 
 
         let targetArray = []
 
