@@ -303,7 +303,7 @@ function fetchCounters() {
     return new Promise(function (resolve, reject) {
         $.ajax({
             type: 'GET',
-            url: `${baseURL}api/odatav4/v4/RequestView_1`,
+            url: `${baseURL}api/odatav4/v4/Recruitment_GetVacancies`,
             dataType: 'json',
             crossDomain: false,
             beforeSend: function (xhr) {
