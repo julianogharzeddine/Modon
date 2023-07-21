@@ -1,6 +1,16 @@
 
 $(document).ready(function(){
-    waitForWrapperRenderForLang();
+    
+    const currentURL = window.location.href;
+    const searchKeyword = "RuntimeAR";
+    
+    if (currentURL.includes(searchKeyword)) {
+        $(`div[name*=Card] .panel-header-wrapper .panel-header-text,div[name*=Card] .grid-header-wrapper .grid-header-text`).css('text-align' , 'right')
+    } else {
+        $(`div[name*=Card] .panel-header-wrapper .panel-header-text,div[name*=Card] .grid-header-wrapper .grid-header-text`).css('text-align' , 'left')
+    }
+    
+
 });
 
 function changeLang(){
