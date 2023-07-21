@@ -236,7 +236,7 @@ function renderVacanciesCards(data) {
             jobTitle?.toLowerCase().includes(searchKeyword.toLowerCase()) ||
             deptName?.toLowerCase().includes(searchKeyword.toLowerCase()) ||
             status?.toLowerCase().includes(searchKeyword.toLowerCase()) ||
-            yearsOfExpertise?.includes(searchKeyword.toLowerCase())
+            yearsOfExpertise ==  searchKeyword 
 
         let targetArray = []
 
