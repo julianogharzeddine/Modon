@@ -49,9 +49,6 @@ $(document).ready(function () {
         { "en-US": "Under Review", "ar-SA": "قيد الإجراء", "fr-FR": "Nouveau" },
         { "en-US": "Approved", "ar-SA": "موافقة", "fr-FR": "Actif" },
         { "en-US": "Closed", "ar-SA": "مغلق", "fr-FR": "Terminé" },
-        { "en-US": "Created By", "ar-SA": "انشا من قبل", "fr-FR": "Créé Par" },
-        { "en-US": "Investigation Status", "ar-SA": "حالة التحقيق", "fr-FR": "Statut Enquête" },
-        { "en-US": "Subject", "ar-SA": "الموضوع", "fr-FR": "Sujet" },
         { "en-US": "out of", "ar-SA": "من", "fr-FR": "de" },
         { "en-US": "Status", "ar-SA": "الحالة", "fr-FR": "Statut" },
         { "en-US": "Our Services", "ar-SA": "خدماتنا المختلفة", "fr-FR": "Nos Services" },
@@ -59,11 +56,12 @@ $(document).ready(function () {
         { "en-US": "Apply", "ar-SA": "إنشاء طلب", "fr-FR": "Presenter" },
         { "en-US": "Reports", "ar-SA": "التقارير", "fr-FR": "Rapports" },
         { "en-US": "Recruitment", "ar-SA": "توظيف", "fr-FR": "Recrutement" },
-
-    ];
-
-
-
+        { "en-US": "CS", "ar-SA": "CS", "fr-FR": "CS" }, 
+        { "en-US": "Job Title", "ar-SA": "المسمى الوظيفي", "fr-FR": "Titre du poste" },
+        { "en-US": "Department", "ar-SA": "الإدارة", "fr-FR": "Département" },
+        { "en-US": "Expertise (yrs)", "ar-SA": "الخبرة (سنوات)", "fr-FR": "Expertise (années)" }
+    ]
+    
 
     // Showing Investigation Options
 
@@ -346,17 +344,17 @@ function renderCounterButtons(data) {
   <div class="Complete counterCard" data-status="Complete">
       <p id="completeCounter" class="counterCircle">${completedNo}</p>
       <p class="counterLabel translatable">Closed</p>
-      <p class="totalcounter"><span class='translatable'>من </span> ${totalReq}</p>
+      <p class="totalcounter"><span class='translatable'>من</span> ${totalReq}</p>
   </div>
   <div class="Active counterCard" data-status="Active">
       <p id="activeCounter" class="counterCircle">${activeNo}</p>
       <p class="counterLabel translatable">Under Review</p>
-      <p class="totalcounter"><span class='translatable'>من </span> ${totalReq}</p>
+      <p class="totalcounter"><span class='translatable'>من</span> ${totalReq}</p>
   </div>
   <div class="New counterCard" data-status="New">
       <p id="newCounter" class="counterCircle">${newNo}</p>
       <p class="counterLabel translatable">Approved</p>
-      <p class="totalcounter"><span class='translatable'>من </span> ${totalReq}</p>
+      <p class="totalcounter"><span class='translatable'>من</span> ${totalReq}</p>
   </div>
   `
     $("#reqCounter").html("")
@@ -364,24 +362,25 @@ function renderCounterButtons(data) {
 }
 
 
+
 function renderInvestOptions() {
 
     $("#subOptions").find('.sectionBrowserTitle').remove()
-    $("#subOptions").prepend(`<p class="sectionBrowserTitle translatable">توظيف</p>`)
+    $("#subOptions").prepend(`<p class="sectionBrowserTitle translatable">Recruitment</p>`)
 
     $('#InvestigationCards').html("")
     $('#InvestigationCards').append(`
   <div class="cardItem" id='showAllVacancies'>
       <img src="https://cdn.jsdelivr.net/gh/julianogharzeddine/ModonImages@main/AllVacancies.jpg" class='titleImage'>
-      <p class="cardTitle translatable">عرض الطلبات</p>
+      <p class="cardTitle translatable">Vacancies</p>
   </div>
   <div class="cardItem" onclick="goTo('')">
       <img src="https://cdn.jsdelivr.net/gh/julianogharzeddine/ModonImages@main/NewVacancy.jpg" class='titleImage'>
-      <p class="cardTitle translatable">إنشاء طلب</p>
+      <p class="cardTitle translatable">Apply</p>
   </div>
   <div class="cardItem"  onclick="goTo('')">
       <img src="https://cdn.jsdelivr.net/gh/julianogharzeddine/ModonImages@main/Reports.jpg" class='titleImage'>
-      <p class="cardTitle translatable">التقارير</p>
+      <p class="cardTitle translatable">Reports</p>
   </div>
   
   `)
