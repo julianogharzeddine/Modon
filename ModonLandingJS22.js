@@ -46,7 +46,7 @@ $(document).ready(function () {
 
 
     dictionary = [
-        { "en-US": "Under Process", "ar-SA": "قيد الإجراء", "fr-FR": "Nouveau" },
+        { "en-US": "Under Review", "ar-SA": "قيد الإجراء", "fr-FR": "Nouveau" },
         { "en-US": "Approved", "ar-SA": "موافقة", "fr-FR": "Actif" },
         { "en-US": "Closed", "ar-SA": "مغلق", "fr-FR": "Terminé" },
         { "en-US": "Created By", "ar-SA": "انشا من قبل", "fr-FR": "Créé Par" },
@@ -87,7 +87,7 @@ $(document).ready(function () {
             });
 
 
-        initiateFetchInvestigations()
+        initiatefetchVacancies()
 
         $("[name='ShowVacancies hiddenButton']").trigger("click")
 
@@ -100,7 +100,7 @@ $(document).ready(function () {
     $(document).on('click', '.counterCard', function () {
 
         investStatus = $(this).data("status")
-        initiateFetchInvestigations()
+        initiatefetchVacancies()
 
     })
 
@@ -109,7 +109,7 @@ $(document).ready(function () {
 
     $(document).on('input', '[name="SearchBox"]', function () {
         searchKeyword = $(this).val()
-        initiateFetchInvestigations()
+        initiatefetchVacancies()
     })
 
 
@@ -164,11 +164,11 @@ function initiateDefaultOptions() {
 
 }
 
-function initiateFetchInvestigations() {
+function initiatefetchVacancies() {
 
     // Creating the investigation cards
 
-    fetchInvestigations()
+    fetchVacancies()
         .then(function (data) {
             waitForInvestWrapperRender(data)
         })
@@ -191,11 +191,11 @@ function waitForInvestWrapperRender(data) {
 
 // Fetching investigation details 
 
-function fetchInvestigations() {
+function fetchVacancies() {
     return new Promise(function (resolve, reject) {
         $.ajax({
             type: 'GET',
-            url: `${baseURL}api/odatav4/v4/RequestView_1`,
+            url: `${baseURL}api/odatav4/v4/Recruitment_GetVacancies`,
             dataType: 'json',
             crossDomain: false,
             beforeSend: function (xhr) {
@@ -216,7 +216,7 @@ function fetchInvestigations() {
 
 // Rendering Investigation Cards
 
-function renderInvestCards(data) {
+function renderVacanciesCards(data) {
 
     $('#card-wrapper').html("")
     let filteredResults = 0;
@@ -236,9 +236,9 @@ function renderInvestCards(data) {
             certificateType.toLowerCase().includes(searchKeyword.toLowerCase()) ||
             postingDate.toLowerCase().includes(searchKeyword.toLowerCase()) ||
             jobTitle.toLowerCase().includes(searchKeyword.toLowerCase()) ||
-            deptName.toLowerCase().includes(searchKeyword.toLowerCase())  ||
+            deptName.toLowerCase().includes(searchKeyword.toLowerCase()) ||
             status.toLowerCase().includes(searchKeyword.toLowerCase()) ||
-            yearsOfExpertise.toLowerCase().includes(searchKeyword.toLowerCase()) 
+            yearsOfExpertise.toLowerCase().includes(searchKeyword.toLowerCase())
 
         let targetArray = []
 
@@ -260,7 +260,7 @@ function renderInvestCards(data) {
 
         if (containsKeyword) {
             if (investStatus == "All" || targetArray.includes(status)) {
-                $('#card-wrapper').append(`<div class="cardItem"><div class="cardHeader"><div class="investNoStatusWrap"><div class="status" style="background-color:${redStatus.includes(status)?"red":(orangeStatus.includes(status)?"orange":(greenStatus.includes(status)?"green":"red"))};"></div><div class="investNo"><a href='https://srv-k2five/Runtime/Runtime/Form/RO.Form/?RefNo=${refNo}'>${reqNo}</a></div></div><div class='dateWrapper'><div class="date">${new Date(postingDate).toLocaleDateString("en-GB",{day:"2-digit",month:"2-digit",year:"numeric"}).split("/").reverse().join("/")}</div><img src='${dateIconURL}'/></div></div><div class="cardBody"><div class="card-rows"><p class="labelVal">${certificateType}</p><p class="labelTitle translatable">CertificateType</p></div><div class="card-rows"><p class="labelVal">${jobTitle}</p><p class="labelTitle translatable">Job Title</p></div><div class="card-rows"><p class="labelVal">${deptName}</p><p class="labelTitle translatable">Department</p></div><div class="card-rows"><p class="labelVal">${yearsOfExpertise}</p><p class="labelTitle translatable">Expertise (yrs)</p></div></div></div>
+                $('#card-wrapper').append(`<div class="cardItem"><div class="cardHeader"><div class="investNoStatusWrap"><div class="status" style="background-color:${redStatus.includes(status) ? "red" : (orangeStatus.includes(status) ? "orange" : (greenStatus.includes(status) ? "green" : "red"))};"></div><div class="investNo"><a href='https://srv-k2five/Runtime/Runtime/Form/RO.Form/?RefNo=${refNo}'>${reqNo}</a></div></div><div class='dateWrapper'><div class="date">${new Date(postingDate).toLocaleDateString("en-GB", { day: "2-digit", month: "2-digit", year: "numeric" }).split("/").reverse().join("/")}</div><img src='${dateIconURL}'/></div></div><div class="cardBody"><div class="card-rows"><p class="labelVal">${certificateType}</p><p class="labelTitle translatable">CertificateType</p></div><div class="card-rows"><p class="labelVal">${jobTitle}</p><p class="labelTitle translatable">Job Title</p></div><div class="card-rows"><p class="labelVal">${deptName}</p><p class="labelTitle translatable">Department</p></div><div class="card-rows"><p class="labelVal">${yearsOfExpertise}</p><p class="labelTitle translatable">Expertise (yrs)</p></div></div></div>
                 `);
                 filteredResults++
             }
