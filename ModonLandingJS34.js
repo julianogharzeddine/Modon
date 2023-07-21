@@ -374,11 +374,11 @@ function renderInvestOptions() {
       <img src="https://cdn.jsdelivr.net/gh/julianogharzeddine/ModonImages@main/AllVacancies.jpg" class='titleImage'>
       <p class="cardTitle translatable">Vacancies</p>
   </div>
-  <div class="cardItem" onclick="goTo('')">
+  <div class="cardItem" onclick="goTo('https://srv-k2five/Runtime/Runtime/Form/New+Vacancy+Request/')">
       <img src="https://cdn.jsdelivr.net/gh/julianogharzeddine/ModonImages@main/NewVacancy.jpg" class='titleImage'>
       <p class="cardTitle translatable">Apply</p>
   </div>
-  <div class="cardItem"  onclick="goTo('')">
+  <div class="cardItem"  onclick="goTo('https://srv-k2five/RuntimeAR/Runtime/Form/Recruitment+Candidates+Report/')">
       <img src="https://cdn.jsdelivr.net/gh/julianogharzeddine/ModonImages@main/Reports.jpg" class='titleImage'>
       <p class="cardTitle translatable">Reports</p>
   </div>
