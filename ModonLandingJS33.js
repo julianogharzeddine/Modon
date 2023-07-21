@@ -449,7 +449,7 @@ function translateToArabic() {
 }
 
 function translateToEnglish() {
-    $('.taskDD').css('left', '72%')
+    $('.taskDD').css('left', '76%')
     $('[name="Sidebar"]').css('right', '')
     $('[name="Sidebar"]').css('left', '0')
     $('.runtime-form').css('left', '')
