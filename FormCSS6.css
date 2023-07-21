@@ -56,6 +56,12 @@
 }
 
 
+/* ----------- New ------------------------- */
+
+[name="CustomTranslator"] img {
+    cursor : pointer !important;
+}
+
 /*  ------------ Cards Styling --------------- */
 
 div[name*=Card] .styling-font {
