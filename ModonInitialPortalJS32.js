@@ -173,7 +173,7 @@ function translateToEnglish() {
     $("[name='Sidebar']").css('left', '0')
     $(".form").css('right', '')
     $(".form").css('left', '22%')
-    $('.taskDD').css('left', '72%')
+    $('.taskDD').css('left', '76%')
     $('.taskDD a').css('flex-direction', 'row')
     $('.task-details p').css({
         'text-align': 'left',
