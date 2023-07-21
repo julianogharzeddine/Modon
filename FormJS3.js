@@ -23,12 +23,19 @@ $(document).ready(function () {
 // Function to update the URL based on flag clicks
 function updateURL(keyword) {
     const currentURL = window.location.href;
+    let newURL;
+    
     if (keyword === "EnglishFlag") {
-        window.history.replaceState(null, "", currentURL.replace("RuntimeAR", "Runtime"));
+      newURL = currentURL.replace("RuntimeAR", "Runtime");
     } else if (keyword === "ArabicFlag") {
-        window.history.replaceState(null, "", currentURL.replace("Runtime", "RuntimeAR"));
+      newURL = currentURL.replace("Runtime", "RuntimeAR");
     }
-}
+  
+    // Change the URL and immediately go to the new URL in the same tab
+    if (newURL) {
+      window.location.replace(newURL);
+    }
+  }
 
 function changeLang() {
     var lang = localStorage.getItem("selected_language")
