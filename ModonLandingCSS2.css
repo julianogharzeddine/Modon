@@ -67,7 +67,7 @@
 
 .cardItem {
     position: relative;
-    height: 230px;
+    height: 270px;
     width: 90%;
     padding: 6px;
     border-radius: var(--standard-border-radius);
