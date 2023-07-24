@@ -104,7 +104,8 @@ div[name*="FullNavigationbar"]  * {
 
 .styling-font {
     outline : 1px solid lightgray !important ;
-    margin-left : 1px !important ;
+    margin-left : .5px !important ;
+    margin-right : 3px !important ;
     border-radius : 2px !important ;
 }
 
@@ -332,4 +333,11 @@ div[name*="Card"] .grid-toolbars {
 
 [name*='VacanciesReport'] .grid-column-header-text {
  color : var(--secondarylight-bg-color) !important ;
+}
+
+.grid-body   {
+    border-radius : 0ex 0ex 2.5ex 2.5ex !important ;
+     padding-bottom : 3.5ex !important ;
+     background : white !important ;
+    
 }
