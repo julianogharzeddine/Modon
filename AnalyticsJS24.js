@@ -84,8 +84,8 @@ function drawVacancyByDepartmentChart(data) {
 
 
 function drawVacanciesByJobTitleChart(data) {
-
-    var jsonResponse = data
+    // Assuming jsonResponse is already defined with your JSON data
+    var jsonResponse = data;
 
     var data = new google.visualization.DataTable();
     data.addColumn('string', 'Job Title');
@@ -103,18 +103,25 @@ function drawVacanciesByJobTitleChart(data) {
 
     var options = {
       chartArea: { width: '50%' },
-      hAxis: { title: 'Number of Vacancies', minValue: 0 },
-      vAxis: { title: 'Job Title' }
+      hAxis: {
+        title: 'Number of Vacancies',
+        minValue: 0,
+        slantedText: true, // Rotate the labels
+        slantedTextAngle: 45 // Angle of rotation
+      },
+      vAxis: { title: 'Job Title' },
+      legend: 'none'
     };
 
+    // Add the vacanciesByJobTitle chart container
     $('#vacancy-reports').append(`<div class='report-wrapper'>
     <p class='reportTitle'> Vacancies By Job Title </p>
     <div id="vacanciesByJobTitle"></div>
     </div>`);
 
-    var chart = new google.visualization.ColumnChart(document.getElementById('vacanciesByJobTitle')); // Use ColumnChart for vertical bars
+    var chart = new google.visualization.ColumnChart(document.getElementById('vacanciesByJobTitle'));
     chart.draw(data, options);
-}
+  }
 
 
 
