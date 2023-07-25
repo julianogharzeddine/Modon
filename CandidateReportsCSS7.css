@@ -109,8 +109,8 @@ div[name*="Navbar"] * {
 
 .styling-font {
     outline : 1px solid lightgray !important ;
-    margin-left : .5px !important ;
-    margin-right : 3px !important ;
+    margin-left : 1px ;
+    margin-right : 3px;
     border-radius : 2px !important ;
 }
 
