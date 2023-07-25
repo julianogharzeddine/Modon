@@ -29,5 +29,12 @@
 
 #vacancy-reports-doublecardwrapper {
     display: flex;
+    flex-wrap : wrap ;
     gap: 20px;
+}
+
+#vacancy-reports-doublecardwrapper  > div{
+width : 50% ;
+max-width : 500px ;
+    
 }
