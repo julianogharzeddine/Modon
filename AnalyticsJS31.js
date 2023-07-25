@@ -191,7 +191,7 @@ function drawVacancyStatusChart(data) {
     };
   
     // Add the vacanciesStatus chart container
-    $('#vacancy-reports').append(`<div class='report-wrapper'>
+    $('#vacancy-reports-doublecardwrapper').append(`<div class='report-wrapper'>
       <p class='reportTitle'> Vacancy Status </p>
       <div id="vacanciesStatus"></div>
       </div>`);
