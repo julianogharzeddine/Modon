@@ -9,14 +9,19 @@ $(document).ready(function () {
 
     if (currentURL.includes(searchKeyword)) {
 
-        $(`div[name*=Card] .panel-header-wrapper .panel-header-text,div[name*=Card] .grid-header-wrapper .grid-header-text`).css('text-align', 'right')
+        setTimeout( function() {
+         $(`div[name*=Card] .panel-header-wrapper .panel-header-text,div[name*=Card] .grid-header-wrapper .grid-header-text`).css('text-align', 'right')
          $('.styling-font').css('margin-left' , '1px')
          $('.styling-font').css('margin-right' , '0px')
+        },2000)
+      
     } else {
-
-        $(`div[name*=Card] .panel-header-wrapper .panel-header-text,div[name*=Card] .grid-header-wrapper .grid-header-text`).css('text-align', 'left')
-          $('.styling-font').css('margin-left' , '1px')
+  setTimeout( function() {
+         $(`div[name*=Card] .panel-header-wrapper .panel-header-text,div[name*=Card] .grid-header-wrapper .grid-header-text`).css('text-align', 'left')
+         $('.styling-font').css('margin-left' , '1px')
          $('.styling-font').css('margin-right' , '3px')
+        },2000)
+     
 
     }
 
