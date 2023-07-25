@@ -69,12 +69,9 @@ function drawVacancyByDepartmentChart(data) {
       legend: 'none' // Remove the legend
     };
 
-    // Instantiate and draw the chart, passing in the data and options
-    google.charts.load('current', { 'packages': ['corechart'] });
-    google.charts.setOnLoadCallback(function () {
       var chart = new google.visualization.BarChart(document.getElementById('vacanciesByDepartment'));
       chart.draw(dataTable, options);
-    });
+ 
   }
 
 
