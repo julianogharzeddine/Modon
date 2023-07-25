@@ -25,10 +25,13 @@
 
 $(document).ready(function(){
 
-    // Load the Google Charts API and draw the chart when the page loads
+ setTimeout(function(){
+     // Load the Google Charts API and draw the chart when the page loads
     google.charts.load('current', { 'packages': ['corechart'] });
     google.charts.setOnLoadCallback(drawChart)
   
+ } , 3000)
+ 
 
 })
    
