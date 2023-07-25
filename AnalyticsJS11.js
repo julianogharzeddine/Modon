@@ -67,8 +67,14 @@ function drawChart(data) {
         vAxis: { title: 'Department' }
     };
 
+
+    $('vacancy-reports').append(`<div class='report-wrapper'>
+    <p class='reportTitle'> Vacancies by Department </p>
+    <div id="vacanciesByDepartment"></div>
+    </div>`)
+    
     // Instantiate and draw the chart, passing in the data and options
-    var chart = new google.visualization.BarChart(document.getElementById('vacancy-reports'));
+    var chart = new google.visualization.BarChart(document.getElementById('vacanciesByDepartment'));
     chart.draw(dataTable, options);
 }
 
