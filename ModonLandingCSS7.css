@@ -41,11 +41,11 @@
 #InvestigationCards {
     width: 90% !important;
     display: grid !important;
-    grid-template-columns: repeat(4, 34ex);
+    grid-template-columns: repeat(3, 34ex);
     place-items: center !important;
     grid-row-gap: 30px !important;
     overflow-y: auto !important;
-    direction: rtl;
+    direction: ltr;
     padding: 30px;
     justify-content: center;
 }
