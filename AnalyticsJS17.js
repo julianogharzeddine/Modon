@@ -65,7 +65,8 @@ function drawVacancyByDepartmentChart(data) {
     var options = {
         chartArea: { width: '50%' },
         hAxis: { title: 'Number of Vacancies', minValue: 0 },
-        vAxis: { title: 'Department' }
+        vAxis: { title: 'Department' },
+        legend : 'none'
     };
 
 
@@ -98,10 +99,7 @@ function drawVacancyStatusChart(data) {
       data.addRow([status, statusCount[status]]);
     });
 
-    var options = {
-      title: 'Vacancy Status Distribution',
-      is3D: true,
-    };
+    var options = {};
 
     $('#vacancy-reports').append(`<div class='report-wrapper'>
     <p class='reportTitle'> Vacancy Status </p>
