@@ -34,6 +34,9 @@ function changeLanguage() {
             translateToArabic()
         }
 
+        initializeTiles()
+        initiateSidebar()
+
     }, 1000)
 
 }
@@ -43,8 +46,8 @@ function translateToEnglish() {
   
     $("[name='Sidebar']").css('right', '')
     $("[name='Sidebar']").css('left', '0')
-    $(".form").css('right', '')
-    $(".form").css('left', '22%')
+    $(".runtime-form").css('right', '')
+    $(".runtime-form").css('left', '22%')
     $('.taskDD').css('left', '76%')
     $('.taskDD a').css('flex-direction', 'row')
     $('.task-details p').css({
@@ -57,8 +60,8 @@ function translateToEnglish() {
 function translateToArabic() {
     $("[name='Sidebar']").css('left', '')
     $("[name='Sidebar']").css('right', '0')
-    $(".form").css('left', '')
-    $(".form").css('right', '21%')
+    $(".runtime-form").css('left', '')
+    $(".runtime-form").css('right', '21%')
     $('.taskDD').css('left', '19%')
     $('.taskDD a').css('flex-direction', 'row-reverse')
     $('.task-details p').css({
