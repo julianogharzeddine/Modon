@@ -241,11 +241,13 @@ div[name*="Card"] .grid-toolbars {
 }
 
 [name*="Submit Button"] , [name*="Reject Button"] , [name*="Action Button"]{
-    border-radius : 2ex !important ;
+    border-radius : 1.5ex !important ;
     margin : 10px ;
     font-size : 1.2rem ;
     background : var(--secondarydark-bg-color) !important ;
     color : white !important;
+    height : 45px !important ;
+    width : 120px !important ;
  
 }
 
@@ -383,5 +385,12 @@ div[name*="Worklist Card WT"] span.text-underline {
     border-radius : 0ex 0ex 2.5ex 2.5ex !important ;
      padding-bottom : 3.5ex !important ;
      background : white !important ;
+    
+}
+
+.popup  .SourceCode-Forms-Controls-Web-Button {
+    border-radius : 1.5ex !important ;
+    background : var(--secondarydark-bg-color) !important ;
+    color : white !important;
     
 }
