@@ -62,7 +62,6 @@ function drawChart(data) {
 
     // Set chart options
     var options = {
-        title: 'Vacancies by Department',
         chartArea: { width: '50%' },
         hAxis: { title: 'Number of Vacancies', minValue: 0 },
         vAxis: { title: 'Department' }
