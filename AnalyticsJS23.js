@@ -38,6 +38,7 @@ function renderReports(data) {
     drawVacancyByDepartmentChart(data)
     drawVacancyStatusChart(data)
     drawVacanciesByQualTypeChart(data)
+    drawVacanciesByJobTitleChart(data)
 }
 
 
@@ -82,48 +83,84 @@ function drawVacancyByDepartmentChart(data) {
 }
 
 
+function drawVacanciesByJobTitleChart(data) {
+
+    var jsonResponse = data
+
+    var data = new google.visualization.DataTable();
+    data.addColumn('string', 'Job Title');
+    data.addColumn('number', 'Number of Vacancies');
+
+    var jobTitleCount = {};
+    jsonResponse.value.forEach(vacancy => {
+      var jobTitle = vacancy.JobTitle;
+      jobTitleCount[jobTitle] = jobTitleCount[jobTitle] ? jobTitleCount[jobTitle] + 1 : 1;
+    });
+
+    Object.keys(jobTitleCount).forEach(jobTitle => {
+      data.addRow([jobTitle, jobTitleCount[jobTitle]]);
+    });
+
+    var options = {
+      chartArea: { width: '50%' },
+      hAxis: { title: 'Number of Vacancies', minValue: 0 },
+      vAxis: { title: 'Job Title' }
+    };
+
+    $('#vacancy-reports').append(`<div class='report-wrapper'>
+    <p class='reportTitle'> Vacancies By Job Title </p>
+    <div id="vacanciesByJobTitle"></div>
+    </div>`);
+
+    var chart = new google.visualization.ColumnChart(document.getElementById('vacanciesByJobTitle')); // Use ColumnChart for vertical bars
+    chart.draw(data, options);
+}
+
+
+
+
+
 function drawVacanciesByQualTypeChart(data) {
     var jsonResponse = data;
-  
+
     var data = new google.visualization.DataTable();
     data.addColumn('string', 'Qualification Type');
     data.addColumn('number', 'Beginner');
     data.addColumn('number', 'Intermediate');
     data.addColumn('number', 'Expert');
-  
+
     var qualificationData = []; // Store data for each qualification type
     var qualificationCount = { 'دبلوم': 0, 'بكالوريوس': 0, 'ماجستير': 0 };
     jsonResponse.value.forEach(vacancy => {
-      var qualificationType = vacancy.QualificationType;
-      qualificationCount[qualificationType]++;
+        var qualificationType = vacancy.QualificationType;
+        qualificationCount[qualificationType]++;
     });
-  
+
     qualificationData.push(['Beginner', qualificationCount['دبلوم'], 0, 0]);
     qualificationData.push(['Intermediate', 0, qualificationCount['بكالوريوس'], 0]);
     qualificationData.push(['Expert', 0, 0, qualificationCount['ماجستير']]);
     data.addRows(qualificationData);
-  
+
     var options = {
-      title: 'Vacancies by Qualification Type',
-      chartArea: { width: '50%' },
-      hAxis: { title: 'Qualification Type' },
-      vAxis: { title: 'Number of Vacancies', minValue: 0 },
-      isStacked: false, // Set to false to show individual bars for each qualification type
-      series: {
-        0: { color: '#4285F4' }, // Color for Beginner
-        1: { color: '#F4B400' }, // Color for Intermediate
-        2: { color: '#0F9D58' }  // Color for Expert
-      }
+        chartArea: { width: '50%' },
+        hAxis: { title: 'Qualification Type' },
+        vAxis: { title: 'Number of Vacancies', minValue: 0 },
+        isStacked: false, // Set to false to show individual bars for each qualification type
+        series: {
+            0: { color: '#4285F4' }, // Color for Beginner
+            1: { color: '#F4B400' }, // Color for Intermediate
+            2: { color: '#0F9D58' }  // Color for Expert
+        }
     };
-  
+
     $('#vacancy-reports').append(`<div class='report-wrapper'>
       <p class='reportTitle'> Vacancies By Qualification Type </p>
       <div id="vacanciesByQualType"></div> <!-- Assign an ID to the chart container -->
       </div>`);
-  
+
     var chart = new google.visualization.ColumnChart(document.getElementById('vacanciesByQualType')); // Use ColumnChart for a vertical bar chart
     chart.draw(data, options);
-  }
+}
 
 function drawVacancyStatusChart(data) {
 
