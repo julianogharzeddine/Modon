@@ -28,7 +28,6 @@ function initializeDrawChart(){
 
 function waitForReportsWrapperRender(data) {
     if ($('#vacancy-reports').length > 0) {
-
         renderReports(data);
     } else {
         setTimeout(waitForReportsWrapperRender, 500);
@@ -68,11 +67,11 @@ function drawChart(data) {
     };
 
 
-    $('vacancy-reports').append(`<div class='report-wrapper'>
+    $('#vacancy-reports').append(`<div class='report-wrapper'>
     <p class='reportTitle'> Vacancies by Department </p>
     <div id="vacanciesByDepartment"></div>
     </div>`)
-    
+
     // Instantiate and draw the chart, passing in the data and options
     var chart = new google.visualization.BarChart(document.getElementById('vacanciesByDepartment'));
     chart.draw(dataTable, options);
