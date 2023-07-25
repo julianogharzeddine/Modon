@@ -184,7 +184,7 @@ function drawVacancyStatusChart(data) {
     });
   
     var options = {
-      chartArea: { width: '80%', height: '80%' }, // Increase the chart area to make the whole chart larger
+      chartArea: { width: '90%', height: '90%' }, // Increase the chart area to make the whole chart larger
       colors: ['#4285F4', '#DB4437', '#F4B400', '#0F9D58', '#AB47BC'], // Change the colors as needed
       pieHole: 0.4, // Make a donut chart by setting the pieHole option (0.4 creates a small hole in the middle)
       pieSliceText: 'percentage', // Show the percentage of each slice on the chart
@@ -223,6 +223,7 @@ function drawVacancyStatusChart(data) {
     });
 
     var options = {
+    chartArea: { width: '90%', height: '90%' },
       legend: { position: 'right' },
       pieSliceText: 'percentage',
       pieStartAngle: 100,
@@ -242,7 +243,7 @@ function drawVacancyStatusChart(data) {
 
      // Add the vacanciesStatus chart container
      $('#vacancy-reports-doublecardwrapper').append(`<div class='report-wrapper'>
-     <p class='reportTitle'> Vacancy Status </p>
+     <p class='reportTitle'> Years of Experience </p>
      <div id="vacanciesYOE"></div>
      </div>`);
  
