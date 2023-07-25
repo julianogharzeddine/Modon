@@ -184,10 +184,9 @@ function drawVacancyStatusChart(data) {
   
     var options = {
       chartArea: { width: '80%', height: '80%' }, // Increase the chart area to make the whole chart larger
-      fontSize: 0, // Set the font size of the chart to 0 to hide text on the chart
       colors: ['#4285F4', '#DB4437', '#F4B400', '#0F9D58', '#AB47BC'], // Change the colors as needed
       pieHole: 0.4, // Make a donut chart by setting the pieHole option (0.4 creates a small hole in the middle)
-      pieSliceText: 'none', // Hide the category label on the pie slices
+      pieSliceText: 'percentage', // Show the percentage of each slice on the chart
       legend: { position: 'right', textStyle: { fontSize: 14 } } // Position the legend on the right side of the chart and increase its font size
     };
   
@@ -200,6 +199,7 @@ function drawVacancyStatusChart(data) {
     var chart = new google.visualization.PieChart(document.getElementById('vacanciesStatus'));
     chart.draw(data, options);
   }
+  
 
 function fetchVacancies() {
     return new Promise(function (resolve, reject) {
