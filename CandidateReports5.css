@@ -39,27 +39,37 @@ body {
 
 .runtime-form {
     position: absolute !important;
-    top: 140px;
+    top: 180px;
     left: 12%;
     width: 70% !important;
 }
 
-
 /* HEADER  STYLING */
 
-div[name*="FullNavigationbar"] {
+div[name*="Navbar"] {
     position: fixed !important;
-    top: 0px;
+    top: 60px;
     width: 100%;
     right: 0;
     z-index: 1 !important;
     overflow: visible;
-    background : white !important ;
-  
 }
 
-div[name*="FullNavigationbar"] span * {
-font-family : SWCC-Medium !important ;  
+div[name*="Navbar"] * {
+    background-color: white !important;
+}
+
+[name*="UserName"] {
+    color: var(--card-title-color) !important;
+}
+
+/* TRANSLATOR STYLING */
+
+[name*="TranslatorHeader"] {
+    position: fixed !important;
+    top: 0;
+    left: 0;
+    z-index: 2 !important;
 }
 
 
