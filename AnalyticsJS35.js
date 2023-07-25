@@ -21,6 +21,24 @@ $(document).ready(function () {
 
 })
 
+function changeLanguage() {
+
+    setTimeout(function () {
+
+        let currentLang = getLanguage()
+
+        if (currentLang == "en-US") {
+            translateToEnglish()
+
+        } else if (currentLang == 'ar-SA') {
+            translateToArabic()
+        }
+
+    }, 1000)
+
+}
+
+
 function translateToEnglish() {
   
     $("[name='Sidebar']").css('right', '')
