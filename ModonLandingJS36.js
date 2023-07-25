@@ -59,7 +59,8 @@ $(document).ready(function () {
         { "en-US": "Certificate Type", "ar-SA": "نوع الشهادة", "fr-FR": "Type Certificat" }, 
         { "en-US": "Job Title", "ar-SA": "المسمى الوظيفي", "fr-FR": "Titre du poste" },
         { "en-US": "Department", "ar-SA": "الإدارة", "fr-FR": "Département" },
-        { "en-US": "Expertise (yrs)", "ar-SA": "الخبرة (سنوات)", "fr-FR": "Expertise (années)" }
+        { "en-US": "Years of Experience", "ar-SA": "الخبرة (سنوات)", "fr-FR": "Expertise (années)" },
+        { "en-US": "Analytics", "ar-SA": "إحصائيات", "fr-FR": "Statistiques" }
     ]
     
 
@@ -370,6 +371,10 @@ function renderInvestOptions() {
 
     $('#InvestigationCards').html("")
     $('#InvestigationCards').append(`
+    <div class="cardItem" onclick="goTo('https://srv-k2five/Runtime/Runtime/Form/Analytics+Page/')">
+    <img src="https://cdn.jsdelivr.net/gh/julianogharzeddine/ModonImages@main/AnalyticsImage.jpg" class='titleImage'>
+    <p class="cardTitle translatable">Analytics</p>
+  </div> 
   <div class="cardItem" id='showAllVacancies'>
       <img src="https://cdn.jsdelivr.net/gh/julianogharzeddine/ModonImages@main/AllVacancies.jpg" class='titleImage'>
       <p class="cardTitle translatable">Vacancies</p>
