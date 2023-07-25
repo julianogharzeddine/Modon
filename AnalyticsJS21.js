@@ -84,40 +84,38 @@ function drawVacancyByDepartmentChart(data) {
 
 
 function drawVacanciesByQualTypeChart(data) {
-
-    var jsonResponse = data
-
+    var jsonResponse = data;
+  
     var data = new google.visualization.DataTable();
     data.addColumn('string', 'Qualification Type');
     data.addColumn('number', 'Beginner');
     data.addColumn('number', 'Intermediate');
     data.addColumn('number', 'Expert');
-
+  
     var qualificationCount = { 'دبلوم': 0, 'بكالوريوس': 0, 'ماجستير': 0 };
     jsonResponse.value.forEach(vacancy => {
-        var qualificationType = vacancy.QualificationType;
-        qualificationCount[qualificationType]++;
+      var qualificationType = vacancy.QualificationType;
+      qualificationCount[qualificationType]++;
     });
-
-    data.addRow(['Qualification Type', qualificationCount['دبلوم'], qualificationCount['بكالوريوس'], qualificationCount['ماجستير']]);
-
+  
+    data.addRow(['Beginner', qualificationCount['دبلوم'], qualificationCount['بكالوريوس'], qualificationCount['ماجستير']]);
+  
     var options = {
-        title: 'Vacancies by Qualification Type',
-        chartArea: { width: '50%' },
-        isStacked: true,
-        hAxis: { title: 'Number of Vacancies', minValue: 0 },
-        vAxis: { title: 'Qualification Type' }
+      title: 'Vacancies by Qualification Type',
+      chartArea: { width: '50%' },
+      isStacked: true,
+      hAxis: { title: 'Qualification Type' }, // Switch the title and axis for the Qualification Type
+      vAxis: { title: 'Number of Vacancies', minValue: 0 } // Switch the title and axis for the Number of Vacancies
     };
-
+  
     $('#vacancy-reports').append(`<div class='report-wrapper'>
-    <p class='reportTitle'> Vacancies By Qualification Type </p>
-    <div id="vacanciesByQualType"></div>
-    </div>`)
-
-    var chart = new google.visualization.AreaChart(document.getElementById('vacanciesByQualType'));
+      <p class='reportTitle'> Vacancies By Qualification Type </p>
+      <div id="vacanciesByQualType"></div>
+      </div>`);
+  
+    var chart = new google.visualization.ColumnChart(document.getElementById('vacanciesByQualType')); // Use ColumnChart for a vertical bar chart
     chart.draw(data, options);
-}
-
+  }
 
 
 function drawVacancyStatusChart(data) {
