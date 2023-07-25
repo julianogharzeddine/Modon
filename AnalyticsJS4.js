@@ -18,7 +18,7 @@
       };
 
       // Instantiate and draw the chart
-      var chart = new google.visualization.ColumnChart(document.getElementById('chartContainer'));
+      var chart = new google.visualization.ColumnChart(document.getElementById('vacancy-reports'));
       chart.draw(data, options);
     }
 
