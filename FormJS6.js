@@ -10,13 +10,13 @@ $(document).ready(function () {
     if (currentURL.includes(searchKeyword)) {
 
        $(`div[name*=Card] .panel-header-wrapper .panel-header-text,div[name*=Card] .grid-header-wrapper .grid-header-text`).css('text-align', 'right')
-       $('reToolbarwrapper').css("display" , "flex")
-       $('reToolbarwrapper').css("flex-direction" , "row")
+       $('.reToolbarWrapper').css("display" , "flex")
+       $('.reToolbarWrapper').css("flex-direction" , "row")
     } else {
 
         $(`div[name*=Card] .panel-header-wrapper .panel-header-text,div[name*=Card] .grid-header-wrapper .grid-header-text`).css('text-align', 'left')
-        $('reToolbarwrapper').css("display" , "flex")
-        $('reToolbarwrapper').css("flex-direction" , "row-reverse")
+        $('.reToolbarWrapper').css("display" , "flex")
+        $('.reToolbarWrapper').css("flex-direction" , "row-reverse")
     }
 
     $("[name='EnglishFlag']").on("click", function () {
