@@ -59,7 +59,7 @@ $(document).ready(function () {
         { "en-US": "Certificate Type", "ar-SA": "نوع الشهادة", "fr-FR": "Type Certificat" }, 
         { "en-US": "Job Title", "ar-SA": "المسمى الوظيفي", "fr-FR": "Titre du poste" },
         { "en-US": "Department", "ar-SA": "الإدارة", "fr-FR": "Département" },
-        { "en-US": "Years of Experience", "ar-SA": "الخبرة (سنوات)", "fr-FR": "Expertise (années)" },
+        { "en-US": "Years of Experience", "ar-SA": "سنوات الخبرة", "fr-FR": "Expertise (années)" },
         { "en-US": "Analytics", "ar-SA": "إحصائيات", "fr-FR": "Statistiques" }
     ]
     
@@ -259,7 +259,7 @@ function renderVacanciesCards(data) {
 
         if (containsKeyword) {
             if (investStatus == "All" || targetArray.includes(status)) {
-                $('#card-wrapper').append(`<div class="cardItem"><div class="cardHeader"><div class="investNoStatusWrap"><div class="status" style="background-color:${redStatus.includes(status) ? "red" : (orangeStatus.includes(status) ? "orange" : (greenStatus.includes(status) ? "green" : "red"))};"></div><div class="investNo"><a>${reqNo}</a></div></div><div class='dateWrapper'><div class="date">${new Date(postingDate).toLocaleDateString("en-GB", { day: "2-digit", month: "2-digit", year: "numeric" }).split("/").reverse().join("/")}</div><img src='${dateIconURL}'/></div></div><div class="cardBody"><div class="card-rows"><p class="labelVal">${certificateType}</p><p class="labelTitle translatable">Certificate Type</p></div><div class="card-rows"><p class="labelVal">${jobTitle}</p><p class="labelTitle translatable">Job Title</p></div><div class="card-rows"><p class="labelVal">${deptName}</p><p class="labelTitle translatable">Department</p></div><div class="card-rows"><p class="labelVal">${yearsOfExpertise}</p><p class="labelTitle translatable">Expertise (yrs)</p></div></div></div>
+                $('#card-wrapper').append(`<div class="cardItem"><div class="cardHeader"><div class="investNoStatusWrap"><div class="status" style="background-color:${redStatus.includes(status) ? "red" : (orangeStatus.includes(status) ? "orange" : (greenStatus.includes(status) ? "green" : "red"))};"></div><div class="investNo"><a>${reqNo}</a></div></div><div class='dateWrapper'><div class="date">${new Date(postingDate).toLocaleDateString("en-GB", { day: "2-digit", month: "2-digit", year: "numeric" }).split("/").reverse().join("/")}</div><img src='${dateIconURL}'/></div></div><div class="cardBody"><div class="card-rows"><p class="labelVal">${certificateType}</p><p class="labelTitle translatable">Certificate Type</p></div><div class="card-rows"><p class="labelVal">${jobTitle}</p><p class="labelTitle translatable">Job Title</p></div><div class="card-rows"><p class="labelVal">${deptName}</p><p class="labelTitle translatable">Department</p></div><div class="card-rows"><p class="labelVal">${yearsOfExpertise}</p><p class="labelTitle translatable">Years of Experience</p></div></div></div>
                 `);
                 filteredResults++
             }
@@ -451,7 +451,6 @@ function translateToArabic() {
     })
     $(".task-details h4").css("text-align", "right")
     $('.sectionBrowser .sectionBrowserTitle').css('flex-direction', 'row')
-    $('#InvestigationCards').css('direction' , 'rtl')
 }
 
 function translateToEnglish() {
@@ -474,7 +473,6 @@ function translateToEnglish() {
     })
     $(".task-details h4").css("text-align", "left")
     $('.sectionBrowser .sectionBrowserTitle').css('flex-direction', 'row-reverse')
-    $('#InvestigationCards').css('direction' , 'ltr')
 }
 
 function getFromDictionary(text, toLanguage) {
