@@ -33,8 +33,6 @@ function changeLanguage() {
         } else if (currentLang == 'ar-SA') {
             translateToArabic()
         }
-
-        initializeTiles()
         initiateSidebar()
 
     }, 1000)
