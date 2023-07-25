@@ -41,47 +41,46 @@ function renderReports(data) {
 
 
 function drawVacancyByDepartmentChart(data) {
-    // Parse the JSON response (replace this with your actual JSON response)
-    var jsonResponse = data
+    // Assuming jsonResponse is already defined with your JSON data
+    var jsonResponse = data;
 
     // Extract data from the JSON and organize it into an array of arrays
     var data = [['Department', 'Number of Vacancies']];
     jsonResponse.value.forEach(vacancy => {
-        var deptName = vacancy.DeptName;
-        var vacancyCount = 1; // Assuming each vacancy is counted once
-        var existingIndex = data.findIndex(row => row[0] === deptName);
-        if (existingIndex !== -1) {
-            data[existingIndex][1] += vacancyCount;
-        } else {
-            data.push([deptName, vacancyCount]);
-        }
+      var deptName = vacancy.DeptName;
+      var vacancyCount = 1; // Assuming each vacancy is counted once
+      var existingIndex = data.findIndex(row => row[0] === deptName);
+      if (existingIndex !== -1) {
+        data[existingIndex][1] += vacancyCount;
+      } else {
+        data.push([deptName, vacancyCount]);
+      }
     });
 
-    // Create the data table
-    var dataTable = google.visualization.arrayToDataTable(data);
+    // Create the data table with flipped axes
+    var flippedData = data.map(row => [row[1], row[0]]); // Interchange x and y values
+    var dataTable = google.visualization.arrayToDataTable(flippedData);
 
-    // Set chart options
+    // Set chart options with flipped axes and no legend
     var options = {
-        chartArea: { width: '50%' },
-        hAxis: { title: 'Number of Vacancies', minValue: 0 },
-        vAxis: { title: 'Department' }
+      chartArea: { width: '50%' },
+      hAxis: { title: 'Number of Vacancies', minValue: 0 }, // Flipped: Number of Vacancies as x-axis
+      vAxis: { title: 'Department' }, // Flipped: Department as y-axis
+      legend: 'none' // Remove the legend
     };
 
-
-    $('#vacancy-reports').append(`<div class='report-wrapper'>
-    <p class='reportTitle'> Vacancies by Department </p>
-    <div id="vacanciesByDepartment"></div>
-    </div>`)
-
     // Instantiate and draw the chart, passing in the data and options
-    var chart = new google.visualization.BarChart(document.getElementById('vacanciesByDepartment'));
-    chart.draw(dataTable, options);
-}
+    google.charts.load('current', { 'packages': ['corechart'] });
+    google.charts.setOnLoadCallback(function () {
+      var chart = new google.visualization.BarChart(document.getElementById('vacanciesByDepartment'));
+      chart.draw(dataTable, options);
+    });
+  }
 
 
-function drawVacancyStatusChart(data) {
-
-    var jsonResponse = data
+  function drawVacancyStatusChart(data) {
+    // Assuming jsonResponse is already defined with your JSON data
+    var jsonResponse = data;
 
     var data = new google.visualization.DataTable();
     data.addColumn('string', 'Status');
@@ -99,13 +98,14 @@ function drawVacancyStatusChart(data) {
 
     var options = {
       title: 'Vacancy Status Distribution',
-      is3D: true,
+      pieHole: 0.4, // Set the pie hole size to create a donut chart
     };
 
+    // Add the donut chart container
     $('#vacancy-reports').append(`<div class='report-wrapper'>
     <p class='reportTitle'> Vacancy Status </p>
     <div id="vacanciesStatus"></div>
-    </div>`)
+    </div>`);
 
     var chart = new google.visualization.PieChart(document.getElementById('vacanciesStatus'));
     chart.draw(data, options);
