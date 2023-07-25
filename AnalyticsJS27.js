@@ -82,42 +82,42 @@ function drawVacancyByDepartmentChart(data) {
     chart.draw(dataTable, options);
 }
 
+
 function drawVacanciesByJobTitleChart(data) {
+    // Assuming jsonResponse is already defined with your JSON data
     var jsonResponse = data;
-  
+
     var data = new google.visualization.DataTable();
     data.addColumn('string', 'Job Title');
     data.addColumn('number', 'Number of Vacancies');
-  
+
     var jobTitleCount = {};
     jsonResponse.value.forEach(vacancy => {
       var jobTitle = vacancy.JobTitle;
       jobTitleCount[jobTitle] = jobTitleCount[jobTitle] ? jobTitleCount[jobTitle] + 1 : 1;
     });
-  
+
     Object.keys(jobTitleCount).forEach(jobTitle => {
       data.addRow([jobTitle, jobTitleCount[jobTitle]]);
     });
-  
+
     var options = {
-      chartArea: { width: '60%', height: '80%' }, // Adjust the chart area for better visibility
+      title: 'Vacancies by Job Title',
+      chartArea: { width: '50%' },
       hAxis: { title: 'Number of Vacancies', minValue: 0 },
-      vAxis: { title: 'Job Title', textPosition: 'none' }, // Hide vAxis labels to display more job titles
-      orientation: 'horizontal', // Set the chart orientation to horizontal
-      legend: { position: 'none' } // Hide the legend for better use of space
+      vAxis: { title: '', textPosition: 'none' }, // Hide text next to vertical axis
+      colors: ['blue', 'green', 'red', 'purple', 'orange'] // Add colors for each job title
     };
-  
+
     // Add the vacanciesByJobTitle chart container
     $('#vacancy-reports').append(`<div class='report-wrapper'>
-      <p class='reportTitle'> Vacancies By Job Title </p>
-      <div id="vacanciesByJobTitle"></div>
-      </div>`);
-  
+    <p class='reportTitle'> Vacancies By Job Title </p>
+    <div id="vacanciesByJobTitle"></div>
+    </div>`);
+
     var chart = new google.visualization.BarChart(document.getElementById('vacanciesByJobTitle'));
     chart.draw(data, options);
   }
-  
-
 
 
 
