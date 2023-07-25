@@ -346,3 +346,10 @@ div[name*="Card"] .grid-toolbars {
      background : white !important ;
     
 }
+
+
+[name*='Filter Button'] {
+
+    background : var(--secondarydark-bg-color) !important ;
+    border-radius : 1.5ex !important;
+}
