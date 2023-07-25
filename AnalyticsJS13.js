@@ -35,11 +35,12 @@ function waitForReportsWrapperRender(data) {
 }
 
 function renderReports(data) {
-    drawChart(data)
+    drawVacancyByDepartmentChart(data)
+    drawVacancyStatusChart(data)
 }
 
 
-function drawChart(data) {
+function drawVacancyByDepartmentChart(data) {
     // Parse the JSON response (replace this with your actual JSON response)
     var jsonResponse = data
 
@@ -78,7 +79,37 @@ function drawChart(data) {
 }
 
 
+function drawVacancyStatusChart(data) {
 
+    var jsonResponse = data
+
+    var data = new google.visualization.DataTable();
+    data.addColumn('string', 'Status');
+    data.addColumn('number', 'Count');
+
+    var statusCount = {};
+    jsonResponse.value.forEach(vacancy => {
+      var status = vacancy.Status;
+      statusCount[status] = statusCount[status] ? statusCount[status] + 1 : 1;
+    });
+
+    Object.keys(statusCount).forEach(status => {
+      data.addRow([status, statusCount[status]]);
+    });
+
+    var options = {
+      title: 'Vacancy Status Distribution',
+      is3D: true,
+    };
+
+    $('#vacancy-reports').append(`<div class='report-wrapper'>
+    <p class='reportTitle'> Vacancy Status </p>
+    <div id="vacanciesStatus"></div>
+    </div>`)
+
+    var chart = new google.visualization.PieChart(document.getElementById('vacanciesStatus'));
+    chart.draw(data, options);
+  }
 
 
 function fetchVacancies() {
