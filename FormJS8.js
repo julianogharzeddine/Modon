@@ -11,13 +11,13 @@ $(document).ready(function () {
 
        $(`div[name*=Card] .panel-header-wrapper .panel-header-text,div[name*=Card] .grid-header-wrapper .grid-header-text`).css('text-align', 'right')
        $('.reToolbarWrapper').css("display" , "flex")
-       $('.reToolbarWrapper').css("flex-direction" , "row-reverse")
+
     } else {
 
         $(`div[name*=Card] .panel-header-wrapper .panel-header-text,div[name*=Card] .grid-header-wrapper .grid-header-text`).css('text-align', 'left')
         $('.reToolbarWrapper').css("display" , "flex")
-        $('.reToolbarWrapper').css("flex-direction" , "row")
     }
+    $('.reToolbarWrapper').css("flex-direction" , "row")
 
     $("[name='EnglishFlag']").on("click", function () {
         updateURL("EnglishFlag");
