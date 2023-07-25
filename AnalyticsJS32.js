@@ -39,6 +39,7 @@ function renderReports(data) {
     drawVacancyStatusChart(data)
     drawVacanciesByQualTypeChart(data)
     drawVacanciesByJobTitleChart(data)
+    drawVacanciesByYearsOfExperienceChart(data)
 }
 
 
@@ -200,6 +201,55 @@ function drawVacancyStatusChart(data) {
     chart.draw(data, options);
   }
   
+
+  function drawVacanciesByYearsOfExperienceChart(data) {
+    var jsonResponse = data
+
+    var data = new google.visualization.DataTable();
+    data.addColumn('string', 'Years of Experience');
+    data.addColumn('number', 'Percentage');
+
+    var expYearsCount = {};
+    var totalVacancies = jsonResponse.value.length;
+
+    jsonResponse.value.forEach(vacancy => {
+      var expYears = vacancy.ExpertiseYears;
+      expYearsCount[expYears] = expYearsCount[expYears] ? expYearsCount[expYears] + 1 : 1;
+    });
+
+    Object.keys(expYearsCount).forEach(expYears => {
+      var percentage = (expYearsCount[expYears] / totalVacancies) * 100;
+      data.addRow([expYears + ' years', percentage]);
+    });
+
+    var options = {
+      legend: { position: 'right' },
+      pieSliceText: 'percentage',
+      pieStartAngle: 100,
+      slices: {
+        0: { color: '#3366cc' },
+        1: { color: '#dc3912' },
+        2: { color: '#ff9900' },
+        3: { color: '#109618' },
+        4: { color: '#990099' },
+        5: { color: '#0099c6' },
+        6: { color: '#dd4477' },
+        7: { color: '#66aa00' },
+        8: { color: '#b82e2e' },
+        9: { color: '#316395' }
+      }
+    };
+
+     // Add the vacanciesStatus chart container
+     $('#vacancy-reports-doublecardwrapper').append(`<div class='report-wrapper'>
+     <p class='reportTitle'> Vacancy Status </p>
+     <div id="vacanciesYOE"></div>
+     </div>`);
+ 
+
+    var chart = new google.visualization.PieChart(document.getElementById('vacanciesYOE'));
+    chart.draw(data, options);
+  }
 
 function fetchVacancies() {
     return new Promise(function (resolve, reject) {
