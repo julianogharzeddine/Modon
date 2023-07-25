@@ -2,6 +2,8 @@
 
 $(document).ready(function () {
 
+
+    $('head').append(`<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>`)
     fetchVacancies()
         .then(function (data) {
             waitForReportsWrapperRender(data)
@@ -86,4 +88,3 @@ function fetchVacancies() {
         });
     });
 }
-
