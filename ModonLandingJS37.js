@@ -451,6 +451,7 @@ function translateToArabic() {
     })
     $(".task-details h4").css("text-align", "right")
     $('.sectionBrowser .sectionBrowserTitle').css('flex-direction', 'row')
+    $('#InvestigationCards').css('direction' , 'rtl')
 }
 
 function translateToEnglish() {
@@ -473,6 +474,7 @@ function translateToEnglish() {
     })
     $(".task-details h4").css("text-align", "left")
     $('.sectionBrowser .sectionBrowserTitle').css('flex-direction', 'row-reverse')
+    $('#InvestigationCards').css('direction' , 'ltr')
 }
 
 function getFromDictionary(text, toLanguage) {
