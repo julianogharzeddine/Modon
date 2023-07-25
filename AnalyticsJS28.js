@@ -84,8 +84,7 @@ function drawVacancyByDepartmentChart(data) {
 
 
 function drawVacanciesByJobTitleChart(data) {
-    // Assuming jsonResponse is already defined with your JSON data
-    var jsonResponse = data;
+    var jsonResponse = data
 
     var data = new google.visualization.DataTable();
     data.addColumn('string', 'Job Title');
@@ -102,14 +101,12 @@ function drawVacanciesByJobTitleChart(data) {
     });
 
     var options = {
-      title: 'Vacancies by Job Title',
       chartArea: { width: '50%' },
       hAxis: { title: 'Number of Vacancies', minValue: 0 },
-      vAxis: { title: '', textPosition: 'none' }, // Hide text next to vertical axis
-      colors: ['blue', 'green', 'red', 'purple', 'orange'] // Add colors for each job title
+      vAxis: { title: 'Job Title' }
     };
 
-    // Add the vacanciesByJobTitle chart container
+  // Add the vacanciesByJobTitle chart container
     $('#vacancy-reports').append(`<div class='report-wrapper'>
     <p class='reportTitle'> Vacancies By Job Title </p>
     <div id="vacanciesByJobTitle"></div>
@@ -117,7 +114,11 @@ function drawVacanciesByJobTitleChart(data) {
 
     var chart = new google.visualization.BarChart(document.getElementById('vacanciesByJobTitle'));
     chart.draw(data, options);
+  
+
+
   }
+
 
 
 
@@ -165,34 +166,42 @@ function drawVacanciesByQualTypeChart(data) {
 }
 
 function drawVacancyStatusChart(data) {
-
-    var jsonResponse = data
-
+    var jsonResponse = data;
+  
     var data = new google.visualization.DataTable();
     data.addColumn('string', 'Status');
     data.addColumn('number', 'Count');
-
+  
     var statusCount = {};
     jsonResponse.value.forEach(vacancy => {
-        var status = vacancy.Status;
-        statusCount[status] = statusCount[status] ? statusCount[status] + 1 : 1;
+      var status = vacancy.Status;
+      statusCount[status] = statusCount[status] ? statusCount[status] + 1 : 1;
     });
-
+  
     Object.keys(statusCount).forEach(status => {
-        data.addRow([status, statusCount[status]]);
+      data.addRow([status, statusCount[status]]);
     });
-
-    var options = {};
-
+  
+    var options = {
+      chartArea: { width: '80%', height: '80%' }, // Increase the chart area to make the whole chart larger
+      fontSize: 14, // Increase the font size of the chart
+      pieSliceTextStyle: { color: 'black', fontSize: 14 }, // Increase the font size of the slice labels
+      colors: ['#4285F4', '#DB4437', '#F4B400', '#0F9D58', '#AB47BC'], // Change the colors as needed
+      pieHole: 0.4, // Make a donut chart by setting the pieHole option (0.4 creates a small hole in the middle)
+      pieSliceText: 'label', // Display the category label on the pie slices
+      legend: { position: 'right', textStyle: { fontSize: 14 } } // Position the legend on the right side of the chart and increase its font size
+    };
+  
+    // Add the vacanciesStatus chart container
     $('#vacancy-reports').append(`<div class='report-wrapper'>
-    <p class='reportTitle'> Vacancy Status </p>
-    <div id="vacanciesStatus"></div>
-    </div>`)
-
+      <p class='reportTitle'> Vacancy Status </p>
+      <div id="vacanciesStatus"></div>
+      </div>`);
+  
     var chart = new google.visualization.PieChart(document.getElementById('vacanciesStatus'));
     chart.draw(data, options);
-}
-
+  }
+  
 function fetchVacancies() {
     return new Promise(function (resolve, reject) {
         $.ajax({
