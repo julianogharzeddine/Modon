@@ -111,7 +111,7 @@ function drawVacanciesByQualTypeChart(data) {
 
     $('#vacancy-reports').append(`<div class='report-wrapper'>
     <p class='reportTitle'> Vacancies By Qualification Type </p>
-    <div id=""></div>
+    <div id="vacanciesByQualType"></div>
     </div>`)
 
     var chart = new google.visualization.AreaChart(document.getElementById('vacanciesByQualType'));
