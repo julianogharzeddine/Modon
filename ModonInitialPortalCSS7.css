@@ -9,7 +9,7 @@
 }
 
 .form {
-    background-color: #EBF3FD !important;
+    background-color: var(--bg-color) !important;
     width: 85% !important;
     position: absolute !important;
 }
@@ -48,7 +48,7 @@
     padding: 15px !important;
     width: 20% !important;
     min-width: 248px !important;
-    height: 260px !important;
+    height: 243px !important;
     border-radius: 2.5ex !important;
     box-shadow: 0px 13px 25px #0000002B !important;
     background: #ffffff !important;
