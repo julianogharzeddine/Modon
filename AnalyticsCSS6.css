@@ -17,6 +17,7 @@
 .report-wrapper {
     background: white;
     border-radius: 2.5ex;
+    overflow : hidden !important ;
 }
 
 .reportTitle {
@@ -29,9 +30,10 @@
 
 #vacancy-reports-doublecardwrapper {
     display: flex;
-    justify-content : space-between ;
+    justify-content : space-evenly;
     flex-wrap : wrap ;
     gap: 20px;
+    overflow : hidden !important ;
 }
 
 #vacancy-reports-doublecardwrapper  > div{
