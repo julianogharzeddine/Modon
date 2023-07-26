@@ -138,7 +138,7 @@ function renderTiles(data) {
 
 function goTo(href) {
     if (href) {
-        window.open(href, "_self")
+        window.open(href, "_blank")
     }
 }
 
