@@ -1,8 +1,8 @@
 var dictionary; // definining the dictionary
 var baseURL;   // fetching the base URL
-var redStatus = ["موافقة"]
-var greenStatus = ["مغلق"]
-var orangeStatus = ["قيد الإجراء"]
+var redStatus = ["Approved"]
+var greenStatus = ["Closed"]
+var orangeStatus = ["In progress"]
 var dateIconURL = "https://srv-k2five/Designer/Image.ashx?ImID=110252"
 var investStatus = "All"
 var searchKeyword = ""
