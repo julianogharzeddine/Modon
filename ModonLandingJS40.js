@@ -53,7 +53,7 @@ $(document).ready(function () {
         { "en-US": "Status", "ar-SA": "الحالة", "fr-FR": "Statut" },
         { "en-US": "Our Services", "ar-SA": "خدماتنا المختلفة", "fr-FR": "Nos Services" },
         { "en-US": "Vacancies", "ar-SA": "عرض الطلبات", "fr-FR": "Positions" },
-        { "en-US": "Apply", "ar-SA": "إنشاء طلب", "fr-FR": "Presenter" },
+        { "en-US": "New Vacancy", "ar-SA": "إنشاء طلب", "fr-FR": "Presenter" },
         { "en-US": "Reports", "ar-SA": "التقارير", "fr-FR": "Rapports" },
         { "en-US": "Recruitment", "ar-SA": "توظيف", "fr-FR": "Recrutement" },
         { "en-US": "Certificate Type", "ar-SA": "نوع الشهادة", "fr-FR": "Type Certificat" }, 
@@ -381,7 +381,7 @@ function renderInvestOptions() {
   </div>
   <div class="cardItem" onclick="goTo('https://srv-k2five/Runtime/Runtime/Form/New+Vacancy+Request/')">
       <img src="https://cdn.jsdelivr.net/gh/julianogharzeddine/ModonImages@main/NewVacancy.jpg" class='titleImage'>
-      <p class="cardTitle translatable">Apply</p>
+      <p class="cardTitle translatable">New Vacancy</p>
   </div>
   <div class="cardItem"  onclick="goTo('https://srv-k2five/Runtime/Runtime/Form/Recruitment+Candidates+Report/')">
       <img src="https://cdn.jsdelivr.net/gh/julianogharzeddine/ModonImages@main/Reports.jpg" class='titleImage'>
