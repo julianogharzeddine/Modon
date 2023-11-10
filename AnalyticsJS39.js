@@ -106,7 +106,6 @@ function waitForReportsWrapperRender(data) {
 function renderReports(data) {
     drawVacancyByDepartmentChart(data)
     drawVacancyStatusChart(data)
-    drawVacanciesByQualTypeChart(data)
     drawVacanciesByJobTitleChart(data)
     drawVacanciesByYearsOfExperienceChart(data)
 }
