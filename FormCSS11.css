@@ -2,7 +2,7 @@
     --text_field_radius: 1.4ex;
     --text_field_border_color: #c1c1c1;
     --text_field_font_size: 11pt ;
-    --bg-color: #e5e6f6;  /* Main Background Color */
+    --bg-color: #edf0f4;  /* Main Background Color */
     --secondarylight-bg-color :  #246c98  ; /* Secondary Background Color - Used for sidebar , completed request , worklist headers (and button) */
     --secondarydark-bg-color :  #246c98 ;  /* Secondary Dark Background Color - Used for translator header , buttons */
     --sidebar-boxshadow : 0px 0px 20px var(--secondarylight-bg-color);
@@ -16,6 +16,11 @@
     --worklist-row-even-color : #eeeeee ;
     --textbox-border-color : #c2c2c2 ;
     --card-title-color : #246c98 ;
+    --button-border-radius: 8px;
+    --button-font-size: 14px;
+    --button-width: 120px;
+    --button-height: 45px;
+    --button-icon-size: 20px;
 }
 
 
@@ -29,14 +34,46 @@
 }
 
 
+
+body {
+    background : var(--bg-color) !important ;
+}
+
 [name="UserName"] , [name="serviceName"] {
     color : var(--card-title-color) !important ;
 }
 
+
+[name="TranslatorHeader"] {
+    position : fixed !important ;
+    top : 0 ;
+    left : 0 ;
+    width : 100vw ;
+    z-index : 2 ;
+}
+
+[name="Navbar"] {
+    position : fixed !important ;
+    top : 56px ;
+    left : 0 ;
+    width : 100vw ;
+    z-index : 2 ;
+}
+
+
 /* Form Boundaries */
 
+
+.runtime-form {
+    position: absolute !important;
+    top: 170px;
+    left : 15% ;
+    width: 70% !important;
+}
+
+
 .form {
-    background: var(--bg-color) !important;
+    background: var(--bg-color) !important;   
 }
 
 
@@ -237,14 +274,31 @@ div[name*="Card"] .grid-toolbars {
 }
 
 [name*="Submit Button"] , [name*="Reject Button"] , [name*="Action Button"]{
-    border-radius : 1.5ex !important ;
-    margin : 10px ;
-    font-size : 1.2rem ;
-    background : var(--secondarydark-bg-color) !important ;
-    color : white !important;
-    height : 45px !important ;
-    width : 120px !important ;
+
  
+}
+
+a[name*= "Btn"] {
+    width: var(--button-width) !important;
+    height: var(--button-height) !important;
+    border-radius: var(--button-border-radius) !important;
+    border: 0px !important;
+    font-size: var(--button-font-size);
+    margin: 0px 5px;
+}
+
+a[name*= "Send"],
+a[name*= "Approve"],
+a[name*= "ActionButton"]{
+    background: var(--secondarydark-bg-color) !important;
+}
+
+a[name*= "Return"],
+a[name*="Back"],
+a[name*= "Reject"]{
+    border: 1px solid var(--secondarydark-bg-color) !important;
+    background: var(--primary-bg-color) !important;
+    color: var(--secondarydark-bg-color) !important;
 }
 
 /* WORKLIST STYLING */
