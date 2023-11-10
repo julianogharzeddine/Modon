@@ -1,4 +1,4 @@
-
+var baseURL = window.location.href.split('/').slice(0, -1).join('/');
 
 $(document).ready(function () {
 
@@ -39,6 +39,10 @@ function changeLanguage() {
 
 }
 
+
+function getLanguage(){
+    return localStorage.getItem("selected_language")
+}
 
 function translateToEnglish() {
   
